@@ -1,0 +1,21 @@
+@import "abstracts/variables"; 
+@import "abstracts/mixins"; 
+@import "abstracts/functions"; 
+@import "abstracts/utilities"; 
+
+@import "base/base";
+@import "base/typography"; 
+@import "base/animations"; 
+@import "base/reusables"; 
+
+@import "layout/grid";
+@import "layout/footer";
+@import "layout/header";
+@import "layout/navigation";
+
+@import "components/hero";
+@import "components/testcss"; 
+@import "components/about"; 
+@import "components/contact"; 
+
+@import "../css/ionicons.css";
