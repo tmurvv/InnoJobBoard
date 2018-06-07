@@ -9,93 +9,138 @@
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
     <link rel="stylesheet" href="css/ionicons.css">
-    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+    <link rel="shortcut icon" href="img/favicon.png">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <script type="text/javascript" src="js\script.js"></script>
 
-    <title>Murvihill Sass Web Template</title>
+    <title>InnoTech JobBoard</title>
 
 </head>
 
 <body>
-    <div class="hero">
-        <h1>My Web Template with Sass</h1>
-        <p>ion icon iconic
-            <i class="ion-alert-circled"></i>If I am preceded by an alert icon, you are connected with the ionicons file.</p>
-        <p class="cssWorks">If my text is rust-coloured, you are connected with css.</p>
-        <button type="button" class="btn" onclick="clickMe();">Click Me to test JavaScript.</button>
-        <div>
-            <img src="img/thisisatest.png">
+    <div class="hero" id='home'>
+        <img class="hero__logo" src="img/Innotech.png" alt="InnoTech Logo">
+        <ul class="hero__mainNav">
+            <li class="hero__mainNav--item">
+                <a href="#home">Home</a>
+            </li>
+            <li class="hero__mainNav--item">
+                <a href="#search">Search Jobs</a>
+            </li>
+            <li class="hero__mainNav--item">
+                <a href="#about">About</a>
+            </li>
+            <li class="hero__mainNav--item">
+                <a href="#contact">Contact</a>
+            </li>
+        </ul>
+        <div class="hero__mainTitle">
+
+            <h1 class="hero__mainTitle--mainHeading">
+                InnoTech Alumni Association
+            </h1>
+            <h2 class="hero__mainTitle--subHeading">
+                Job
+                <span>Board</span>
+            </h2>
         </div>
-        <p>If you see the "This is a test" image, then your images are working.</figcaption>
     </div>
 
-    <!-- comment out grid class divs  below and then copy and paste as needed -->
-    <section class="grid-test">
-        <h3>If you see rows and columns below then your grid is working:</h3>
-        <br/>
-        <div class="row">
-            <div class="col-1-of-2">
-                Col 1 of 2
+    <div class="search">
+        <div class="search__form">
+            <div class="search__form--searchLine1">
+                <h2>Search</h2>
+                <h3>Skills</h3>
             </div>
-            <div class="col-1-of-2">
-                Col 1 of 2
+            <div class="search__form--searchLine2">
+                <div class="search__form--skills">
+                    <div class="search__form--selectBoxes">
+                        <select name="category" class="search__form--selectBoxes-item" id="">
+                            <option value="selectPrompt">Select Category</option>
+                            <option value="SharePoint">SharePoint</option>
+                            <option value="webDevelopment">Web Development</option>
+                            <option value="bigData">Big Data Science/Architecture</option>
+                            <option value="Cloud">Cloud Security/Architecture</option>
+                        </select>
+                        <select name="type" class="search__form--selectBoxes-item" id="">
+                            <option value="selectPrompt">Select Type</option>
+                            <option value="full-time">Full-time</option>
+                            <option value="part-time">Part-time</option>
+                            <option value="contract">Contract</option>
+                        </select>
+                    </div>
+                    
+                    <div class="search__form--skills">
+                        <input type="checkbox" id="html" name="skill" value="html">
+                        <label for="html" class="search__form--skills-label">Html</label>
+    
+                        <input type="checkbox" id="css" name="skill" value="css">
+                        <label for="css" class="search__form--skills-label">CSS</label>
+    
+                        <input type="checkbox" id="javascript" name="skill">
+                        <label for="javascript" class="search__form--skills-label" value="javascript">JavaScript</label>
+    
+                        <input type="checkbox" id="cSharp" name="skill">
+                        <label for="cSharp" class="search__form--skills-label" value="cSharp">C#</label>
+    
+                        <input type="checkbox" id="powershell" name="skill">
+                        <label for="powershell" class="search__form--skills-label" value="powershell">PowerShell</label>
+                        
+                        <input type="checkbox" id="php" name="skill" value="php">
+                        <label for="php" class="search__form--skills-label">PHP</label>
+    
+                        <input type="checkbox" id="Java" name="skill" value="Java">
+                        <label for="Java" class="search__form--skills-label">Java</label>
+    
+                        <input type="checkbox" id="python" name="skill">
+                        <label for="python" class="search__form--skills-label" value="python">Python</label>
+    
+                        <input type="checkbox" id="C++" name="skill">
+                        <label for="C++" class="search__form--skills-label" value="C++">C++</label>
+    
+                        <input type="checkbox" id="Ruby" name="skill">
+                        <label for="Ruby" class="search__form--skills-label" value="Ruby">Ruby</label>
+
+                        <input type="checkbox" id="agile" name="skill" value="agile">
+                        <label for="agile" class="search__form--skills-label">Agile</label>
+    
+                        <input type="checkbox" id="css" name="skill" value="css">
+                        <label for="css" class="search__form--skills-label">CSS</label>
+    
+                        <input type="checkbox" id="javascript" name="skill">
+                        <label for="javascript" class="search__form--skills-label" value="javascript">JavaScript</label>
+    
+                        <input type="checkbox" id="cSharp" name="skill">
+                        <label for="cSharp" class="search__form--skills-label" value="cSharp">C#</label>
+    
+                        <input type="checkbox" id="powershell" name="skill">
+                        <label for="powershell" class="search__form--skills-label" value="powershell">PowerShell</label>
+
+                        
+                    </div>
+
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-1-of-3">
-                Col 1 of 3
-            </div>
-            <div class="col-1-of-3">
-                Col 1 of 3
-            </div>
-            <div class="col-1-of-3">
-                Col 1 of 3
-            </div>
+        <div class="mainBoard">
+            <h1>Job
+                <span>Board</span>
+            </h1>
         </div>
-        <div class="row">
-            <div class="col-1-of-3">
-                Col 1 of 3
-            </div>
-            <div class="col-2-of-3">
-                Col 2 of 3
-            </div>
+
+        <!-- ABOUT -->
+
+        <div class="about" id="about">
+            About section
         </div>
-        <div class="row">
-            <div class="col-1-of-4">
-                Col 1 of 4
-            </div>
-            <div class="col-1-of-4">
-                Col 1 of 4
-            </div>
-            <div class="col-1-of-4">
-                Col 1 of 4
-            </div>
-            <div class="col-1-of-4">
-                Col 1 of 4
-            </div>
+        <!-- CONTACT -->
+
+        <div class="contact" id="contact">
+            Contact section
         </div>
-        <div class="row">
-            <div class="col-1-of-4">
-                Col 1 of 4
-            </div>
-            <div class="col-1-of-4">
-                Col 1 of 4
-            </div>
-            <div class="col-2-of-4">
-                Col 2 of 4
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-1-of-4">
-                Col 1 of 4
-            </div>
-            <div class="col-3-of-4">
-                Col 3 of 4
-            </div>
-        </div>
-    </section>
+
+
 
 </body>
 

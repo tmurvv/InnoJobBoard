@@ -1,0 +1,32 @@
+.hero {
+    display: flex;
+    justify-content: space-between;
+    &__logo {
+        height: 70px;
+        margin: 10px;
+    }
+    &__mainNav {
+        margin: 10px;
+        display: flex;
+        color: #fff;
+        list-style: none;
+        &--item>a {
+            margin-right: 20px;
+            color: #fff;
+            text-decoration: none;
+            padding-bottom: 7px;
+          
+            &:link,
+            &:visited {
+                border-bottom: 1px solid transparent;
+                transition: border-bottom .4s;
+            }
+
+            &:hover,
+            &:active {
+                border-bottom: 1.5px solid #fff;
+            }
+        }
+    }
+}
+
