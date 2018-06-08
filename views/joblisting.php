@@ -1,3 +1,24 @@
+<?php include '../php/config/config.php'; ?>
+<?php include '../php/classes/Database.php'; ?>
+<?php include '../php/helpers/formatting.php'; ?>
+<?php
+
+  //Create DB Object
+  $db = new Database();
+
+  //Create Query
+  $query = "SELECT * FROM joblistings LIMIT 1";
+  //Run Query
+  $posts = $db->select($query);
+
+//   //Create Query
+//   $query = "SELECT * FROM categories";
+//   //Run Query
+//   $categories = $db->select($query);
+?>
+
+
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -8,11 +29,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
-    <link rel="stylesheet" href="css/ionicons.css">
-    <link rel="shortcut icon" href="img/favicon.png">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="../css/ionicons.css">
+    <link rel="shortcut icon" href="../img/favicon.png">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
 
-    <script type="text/javascript" src="js\script.js"></script>
+    <script type="text/javascript" src="..\js\script.js"></script>
 
     <title>InnoTech JobBoard</title>
 
@@ -20,7 +41,7 @@
 
 <body>
     <div class="hero" id='home'>
-        <img class="hero__logo" src="img/Innotech.png" alt="InnoTech Logo">
+        <img class="hero__logo" src="../img/Innotech.png" alt="InnoTech Logo">
         <ul class="hero__mainNav">
             <li class="hero__mainNav--item">
                 <a href="#home">Home</a>
@@ -78,77 +99,37 @@
             </div>
         </div>
         <div class="mainBoard" id="jobs">
-            <h1>Job
-                <span>Board</span>
-            </h1>
+            <h1>Job<span>Board</span> </h1>
             <br>
             <div class="listings">
+ 
+                <?php while($row = $posts->fetch_assoc()) : ?> 
                 <div class="listings__job">
                     <div class="listings__job--type">
                         <p>
-                            Part-time
+                        <?php echo $row['jobtype'] ?>
                         </p>
                     </div>
                     <div class="listings__job--info">
                         <div class="listings__job--info-title">
-                            <h3>Junior SharePoint WhizKid (Calgary, AB)</h3>
+                            <h3><?php echo $row['title'] ?> <?php echo $row['location'] ?></h3>
                         </div>
                         <div class="listings__job--info-datePosted">
-                            June 13th, 2017
+                        <?php echo formatDate($row['dateposted']) ?>
                         </div>
                         <br>
                         <div class="listings__job--info-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dapibus risus at dapibus malesuada. Vestibulum euismod,
-                            velit sit amet tempor ornare, nulla augue mattis mi, nec ultricies dolor augue nec lectus. Integer
-                            bibendum enim...
-                            <button class="listings__job--info-readMore">Read More</button>
+                        <?php echo $row['description'] ?>
+                           
                         </div>
                     </div>
                 </div>
-
                 <br>
-
-                <div class="listings__job">
-                    <div class="listings__job--type">
-                        <p>
-                            Full-time
-                        </p>
-                    </div>
-                    <div class="listings__job--info">
-                        <div class="listings__job--info-title">
-                            <h3>Big Data Specialist (Burnaby, BC) </h3>
-                        </div>
-                        <div class="listings__job--info-datePosted">
-                            Dec 3rd, 2017
-                        </div>
-                        <br>
-                        <div class="listings__job--info-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dapibus risus at dapibus malesuada. Vestibulum euismod,
-                            velit sit amet tempor ornare, nulla augue mattis mi, nec ultricies dolor augue nec lectus. Integer
-                            bibendum enim...
-                            <button class="listings__job--info-readMore">Read More</button>
-                        </div>
-                    </div>
-                </div>
+                <?php endwhile; ?>                
+ 
             </div>
         </div>
     </div>
-
-    <!-- ABOUT -->
-
-    <section class="about" id="about">
-        <div class="about__container">
-            <h2>About this website</h2>
-            <p>This Job
-                <span>Board</span> was created by
-                <a href="https://www.linkedin.com/in/tisha-murvihill-tech" target="_blank">Tisha Murvihill</a>, a graduate of
-                <a href="https://www.innotechcollege.com" target="_blank">InnoTech College</a> in Calgary, Alberta, Canada. The layout is done in HTML5, CSS, and JavaScript. This
-                site keeps things sleek, simple, and fast by using only PHP and SQL for content management (no WordPress
-                et al.). Tisha can be reached at
-                <a href="http://www.take2tech.ca" target="_blank">tech@take2tech.ca</a>.</p>
-            <br>
-        </div>
-    </section>
 
     <!-- FOOTER -->
 
@@ -173,7 +154,7 @@
             <ul class="footer__topRow--contact">
                 <li>
                     <a href="http://www.linkedin.com/in/tisha-murvihill-tech" target="_blank">
-                        <img src="img/linkedIn.jpg" alt="linkedIn icon" class="footer__contact--linkedImage">
+                        <img src="../img/linkedIn.jpg" alt="linkedIn icon" class="footer__contact--linkedImage">
                     </a>
                 </li>
                 <li>
