@@ -1,0 +1,43 @@
+.listings {
+    padding: 0 20px 20px 20px;
+
+    &__job {
+        display: flex;
+        
+        &--type {
+            flex:1;            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &>p {
+                
+                padding: 3px 6px;
+                border-radius: 7px;
+                background-color: $colorSecondary;
+                color: $colorGrey-light1;
+            }
+        }
+
+        &--info {
+            flex:5;
+
+            &-title {
+                
+            }
+            &-datePosted {
+                font-style: italic;
+            }
+            &-description {
+
+            }
+
+            &-readMore {
+                color: $colorPrimary;
+                background-color: transparent;
+                padding:3px 5px;
+                font-size: 16px;
+                border-radius: 7px;
+            }
+        }
+    }
+}

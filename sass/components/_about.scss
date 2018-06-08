@@ -1,3 +1,51 @@
 .about {
-    border: 2px solid tomato;
+    background-color: #e7e7e7;
+    margin-top: 1rem;
+    &__container {
+        width: 72%;
+        margin: 0 auto;
+        padding-top: 1.5rem;
+        padding-bottom: .5rem;
+        &>p {
+            margin-top: 1rem;
+            &>span {
+                color: $colorPrimary-light;
+            }
+            &>a:link,
+            &>a:visited {
+                text-decoration: none;
+                color: $colorPrimary-light;
+                font-weight: 400;
+                font-size: 95%;
+                padding-bottom: 2px;
+                border-bottom: 2px solid transparent;
+                transition: border-bottom 0.4s;
+            }
+
+            &>a:hover,
+            &>a:active {
+               
+                border-bottom: 2px solid $colorPrimary-light;
+            }
+        }
+        & h2 {
+            text-align: center;
+            margin: 0 auto;
+            &:after {
+                display: block;
+                height: 2px;
+                background-color: $colorPrimary;
+                content: ' ';
+                width: 100px;
+                margin: 0 auto;
+                margin-top: 30px;
+            }
+        }
+    }
+}
+
+.section-about a:hover,
+.section-about a:active {
+    color: $colorPrimary;
+    border-bottom: 2px solid $colorPrimary;
 }

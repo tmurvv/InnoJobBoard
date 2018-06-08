@@ -1,42 +1,32 @@
 .search__form {
+    padding: 40px 40px;
 
-    &--searchLine1 {
-        display: flex;
-        margin: 30px 20px 20px 20px;
+    display: flex;
     
-        &>h2 {
-            flex: 1;
-        }
-    
-        &>h3 {
-            flex: 2;
-        }
-    }
-    
-    &--searchLine2 {
-        display: flex;
-    }
-    &--selectBoxes {
+    &--title {
         flex: 1;
+    }
+    // &>h3 {
+    //     flex: 2;
+    // }
+    &--selectBoxes {
+        flex:4;
         display: flex;
-        flex-wrap: nowrap;
-        align-items: flex-start;
-        justify-content: space-around;
+        justify-content: flex-start;
 
-        &-item {           
-            padding: 18px;
+        &-item {
+            padding: 5px 18px;
             border-radius: 7px;
             outline: none;
             font-size: 16px;
+            margin-right: 40px;
         }
-    }
-    &--skills {
-        display: flex;
-        flex-wrap: wrap;
-        flex: 2;
-        justify-content: space-around;
-    }
-
+    } // &--skills {
+    //     display: flex;
+    //     flex-wrap: wrap;
+    //     flex: 2;
+    //     justify-content: space-around;
+    // }
 }
 
 input[type=radio],
