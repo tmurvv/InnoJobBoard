@@ -2,12 +2,14 @@
 <?php include '../php/classes/Database.php'; ?>
 <?php include '../php/helpers/formatting.php'; ?>
 <?php
+  //Retrieve id for jobListing
+  $id = $_GET['id'];
 
   //Create DB Object
   $db = new Database();
 
   //Create Query
-  $query = "SELECT * FROM joblistings LIMIT 1";
+  $query = "SELECT * FROM joblistings WHERE id=".$id;
   //Run Query
   $posts = $db->select($query);
 

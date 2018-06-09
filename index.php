@@ -88,12 +88,12 @@
                     <option value="contract">Contract</option>
                 </select>
                 <select name="location" class="search__form--selectBoxes-item" id="">
-                    <option value="anyType">Any Location</option>
-                    <option value="full-time">Calgary</option>
-                    <option value="part-time">Edmonton</option>
-                    <option value="contract">Toronto</option>
-                    <option value="contract">Vancouver</option>
-                    <option value="contract">USA</option>
+                    <option value="anyLocation">Any Location</option>
+                    <option value="calgary">Calgary, AB</option>
+                    <option value="edmonton">Edmonton, AB</option>
+                    <option value="toronto">Toronto, ON</option>
+                    <option value="vancounver">Vancouver, BC</option>
+                    <option value="usa">USA</option>
                 </select>
                 <button type="submit" name="submit" class="search__form--selectBoxes-item">Submit</button>
             </div>
@@ -120,7 +120,7 @@
                         <br>
                         <div class="listings__job--info-description">
                         <?php echo concatText($row['description']) ?>
-                            <a href="views/joblisting.php" class="listings__job--info-readMore">Read More</a>
+                            <a href="views/joblisting.php?id=<?php echo urlencode($row['id']); ?>" class="listings__job--info-readMore">Read More</a>
                         </div>
                     </div>
                 </div>
