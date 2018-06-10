@@ -17,8 +17,6 @@
 //   $categories = $db->select($query);
 ?>
 
-
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -44,10 +42,13 @@
         <img class="hero__logo" src="img/Innotech.png" alt="InnoTech Logo">
         <ul class="hero__mainNav">
             <li class="hero__mainNav--item">
-                <a href="#home">Home</a>
+                <a href="index.php">Home</a>
             </li>
             <li class="hero__mainNav--item">
                 <a href="#jobs">Jobs</a>
+            </li>
+            <li class="hero__mainNav--item">
+                <a href="admin.php">Admin</a>
             </li>
             <li class="hero__mainNav--item">
                 <a href="#about">About</a>
@@ -62,8 +63,7 @@
                 InnoTech Alumni Association
             </h1>
             <h2 class="hero__mainTitle--subHeading">
-                Job
-                <span>Board</span>
+                <a href="index.php">Job<span>Board</span></a>
             </h2>
         </div>
     </div>
@@ -115,7 +115,7 @@
                             <h3><?php echo $row['title'] ?> <?php echo $row['location'] ?></h3>
                         </div>
                         <div class="listings__job--info-datePosted">
-                        <?php echo formatDate($row['dateposted']) ?>
+                        <?php echo $row['dateposted'] ?>
                         </div>
                         <br>
                         <div class="listings__job--info-description">
@@ -188,57 +188,3 @@
 </body>
 
 </html>
-
-<!-- 
-                <div class="search__form--skills">
-                    <input type="checkbox" id="html" name="skill" value="html">
-                    <label for="html" class="search__form--skills-label">Html</label>
-
-                    <input type="checkbox" id="css" name="skill" value="css">
-                    <label for="css" class="search__form--skills-label">CSS</label>
-
-                    <input type="checkbox" id="javascript" name="skill">
-                    <label for="javascript" class="search__form--skills-label" value="javascript">JavaScript</label>
-
-                    <input type="checkbox" id="cSharp" name="skill">
-                    <label for="cSharp" class="search__form--skills-label" value="cSharp">C#</label>
-
-                    <input type="checkbox" id="powershell" name="skill">
-                    <label for="powershell" class="search__form--skills-label" value="powershell">PowerShell</label>
-
-                    <input type="checkbox" id="php" name="skill" value="php">
-                    <label for="php" class="search__form--skills-label">PHP</label>
-
-                    <input type="checkbox" id="Java" name="skill" value="Java">
-                    <label for="Java" class="search__form--skills-label">Java</label>
-
-                    <input type="checkbox" id="python" name="skill">
-                    <label for="python" class="search__form--skills-label" value="python">Python</label>
-
-                    <input type="checkbox" id="C++" name="skill">
-                    <label for="C++" class="search__form--skills-label" value="C++">C++</label>
-
-                    <input type="checkbox" id="Ruby" name="skill">
-                    <label for="Ruby" class="search__form--skills-label" value="Ruby">Ruby</label>
-
-                    <input type="checkbox" id="agile" name="skill" value="agile">
-                    <label for="agile" class="search__form--skills-label">Agile</label>
-
-                    <input type="checkbox" id="css" name="skill" value="css">
-                    <label for="css" class="search__form--skills-label">CSS</label>
-
-                    <input type="checkbox" id="javascript" name="skill">
-                    <label for="javascript" class="search__form--skills-label" value="javascript">JavaScript</label>
-
-                    <input type="checkbox" id="cSharp" name="skill">
-                    <label for="cSharp" class="search__form--skills-label" value="cSharp">C#</label>
-
-                    <input type="checkbox" id="powershell" name="skill">
-                    <label for="powershell" class="search__form--skills-label" value="powershell">PowerShell</label>
-
-
-                </div>
-
-            </div>
-        </div>
-    </div> -->

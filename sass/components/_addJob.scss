@@ -1,7 +1,11 @@
 .addJob {
     margin: 50px 25px;
 
-    &>h1>span {
+    &__mainHeading {
+        text-decoration: none;
+        color: $colorGrey-dark1;
+    }
+    &__mainHeading>span {
         color: $colorPrimary;
     }
 

@@ -1,0 +1,54 @@
+
+<!-- 
+                <div class="search__form--skills">
+                    <input type="checkbox" id="html" name="skill" value="html">
+                    <label for="html" class="search__form--skills-label">Html</label>
+
+                    <input type="checkbox" id="css" name="skill" value="css">
+                    <label for="css" class="search__form--skills-label">CSS</label>
+
+                    <input type="checkbox" id="javascript" name="skill">
+                    <label for="javascript" class="search__form--skills-label" value="javascript">JavaScript</label>
+
+                    <input type="checkbox" id="cSharp" name="skill">
+                    <label for="cSharp" class="search__form--skills-label" value="cSharp">C#</label>
+
+                    <input type="checkbox" id="powershell" name="skill">
+                    <label for="powershell" class="search__form--skills-label" value="powershell">PowerShell</label>
+
+                    <input type="checkbox" id="php" name="skill" value="php">
+                    <label for="php" class="search__form--skills-label">PHP</label>
+
+                    <input type="checkbox" id="Java" name="skill" value="Java">
+                    <label for="Java" class="search__form--skills-label">Java</label>
+
+                    <input type="checkbox" id="python" name="skill">
+                    <label for="python" class="search__form--skills-label" value="python">Python</label>
+
+                    <input type="checkbox" id="C++" name="skill">
+                    <label for="C++" class="search__form--skills-label" value="C++">C++</label>
+
+                    <input type="checkbox" id="Ruby" name="skill">
+                    <label for="Ruby" class="search__form--skills-label" value="Ruby">Ruby</label>
+
+                    <input type="checkbox" id="agile" name="skill" value="agile">
+                    <label for="agile" class="search__form--skills-label">Agile</label>
+
+                    <input type="checkbox" id="css" name="skill" value="css">
+                    <label for="css" class="search__form--skills-label">CSS</label>
+
+                    <input type="checkbox" id="javascript" name="skill">
+                    <label for="javascript" class="search__form--skills-label" value="javascript">JavaScript</label>
+
+                    <input type="checkbox" id="cSharp" name="skill">
+                    <label for="cSharp" class="search__form--skills-label" value="cSharp">C#</label>
+
+                    <input type="checkbox" id="powershell" name="skill">
+                    <label for="powershell" class="search__form--skills-label" value="powershell">PowerShell</label>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div> -->
