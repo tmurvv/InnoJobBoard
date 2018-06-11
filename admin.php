@@ -4,6 +4,8 @@
 <?php
     //Get message
     $msg = $_GET['msg'];
+    $msg = completeMsg($msg);
+
   //Create DB Object
   $db = new Database();
 
@@ -71,9 +73,7 @@
             </div>
         </div>
 
-        <?php 
-            if ($msg) {
-                echo "<div class='admin__messageBox'><?php echo $msg;?></div>"; } ?>
+
         <div class="addNav">
             <ul class="addNav__container">
                 <li class="addNav__container--item">
@@ -91,47 +91,49 @@
             </ul>
         </div>
         <div class="mainBoard" id="jobs">
+            <?php 
+            if ($msg) {
+                echo "<div class='admin__messageBox'>".$msg."</div>";
+            } ?>
+        <h1>Job<span>Board</span> </h1>
+        <br>
+        <div class="listings">
 
-            <h1>Job
-                <span>Board</span>
-            </h1>
-            <br>
-            <div class="listings">
+            <?php while($row = $posts->fetch_assoc()) : ?>
+            <div class="listings__job">
 
-                <?php while($row = $posts->fetch_assoc()) : ?>
-                <div class="listings__job">
-                    
-                    <div class="listings__job--type admin__listings__job--type">
+                <div class="listings__job--type">
+
+                    <p>
+                        <?php echo $row['jobtype'] ?>
+                    </p>
+                </div>
+                <div class="listings__job--info">
+                    <div class="listings__job--info-title">
+                        <h3>
+                            <?php echo $row['title'] ?>
+                            <?php echo $row['location'] ?>
+                        </h3>
+                    </div>
+                    <div class="listings__job--info-datePosted">
+                        <?php echo $row['dateposted'] ?>
+                    </div>
                     <div class="admin__editDelete">
-                        <a href="#edit.php?id=<?php echo $row['id']; ?>" class="admin__editDelete--edit">Edit</a>
-                        <a href="#delete.php?id=<?php echo $row['id']; ?>" class="admin__editDelete--delete">Delete</a>
+                        <a href="edit.php?id=<?php echo $row['id']; ?>" class="admin__editDelete--edit">Edit</a>
+                        <a href="delete.php?id=<?php echo $row['id']; ?>" class="admin__editDelete--delete">Delete</a>
                     </div>
-                        <p>
-                            <?php echo $row['jobtype'] ?>
-                        </p>
-                    </div>
-                    <div class="listings__job--info">
-                        <div class="listings__job--info-title">
-                            <h3>
-                                <?php echo $row['title'] ?>
-                                <?php echo $row['location'] ?>
-                            </h3>
-                        </div>
-                        <div class="listings__job--info-datePosted">
-                            <?php echo $row['dateposted'] ?>
-                        </div>
-                        <br>
-                        <div class="listings__job--info-description">
-                            <?php echo concatText($row['description']) ?>
-                            <a href="views/joblisting.php?id=<?php echo urlencode($row['id']); ?>" class="listings__job--info-readMore">Read More</a>
-                        </div>
+                    <br>
+                    <div class="listings__job--info-description">
+                        <?php echo concatText($row['description']) ?>
+                        <a href="views/joblisting.php?id=<?php echo urlencode($row['id']); ?>" class="listings__job--info-readMore">Read More</a>
                     </div>
                 </div>
-
-                <br>
-                <?php endwhile; ?>
-
             </div>
+
+            <br>
+            <?php endwhile; ?>
+
+        </div>
         </div>
         </div>
 

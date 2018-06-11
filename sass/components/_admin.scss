@@ -3,10 +3,11 @@
     padding: 10px 5px;
     border-radius: 7px;
     border: 1 solid $colorGrey-dark1;
-    box-shadow: 5px 10px $colorGrey-light3;
+    box-shadow: 2px 5px $colorGrey-light2;
     color: $colorGrey-light1;
     width: 25%;
     text-align: center;
+    margin: 25px;
 }
 
 .admin__editDelete {
@@ -17,7 +18,7 @@
         padding: 5px 10px;
         border-radius: 7px;
         border: 1 solid $colorGrey-dark1;
-        box-shadow: 2px 5px $colorGrey-light3;
+        box-shadow: 2px 5px $colorGrey-light2;
         width: 75px;
         text-align: center;
     }
@@ -30,7 +31,7 @@
     }
 }
 
-admin__listings__job--type {
+.admin__listings__job--type {
     display: flex;
     flex-flow: column;
 }

@@ -307,10 +307,11 @@ input[type=checkbox] {
   padding: 10px 5px;
   border-radius: 7px;
   border: 1 solid #777;
-  box-shadow: 5px 10px #ccc;
+  box-shadow: 2px 5px #eee;
   color: #f7f7f7;
   width: 25%;
-  text-align: center; }
+  text-align: center;
+  margin: 25px; }
 
 .admin__editDelete {
   display: flex; }
@@ -320,7 +321,7 @@ input[type=checkbox] {
     padding: 5px 10px;
     border-radius: 7px;
     border: 1 solid #777;
-    box-shadow: 2px 5px #ccc;
+    box-shadow: 2px 5px #eee;
     width: 75px;
     text-align: center; }
   .admin__editDelete--edit {
@@ -329,6 +330,24 @@ input[type=checkbox] {
   .admin__editDelete--delete {
     background-color: red; }
 
-admin__listings__job--type {
+.admin__listings__job--type {
   display: flex;
   flex-flow: column; }
+
+.deleteJob {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; }
+  .deleteJob > * {
+    margin: 25px;
+    padding: 10px;
+    box-shadow: 2px 5px #eee;
+    border-radius: 7px;
+    text-align: center;
+    color: #f7f7f7; }
+  .deleteJob__ask {
+    background-color: #777; }
+  .deleteJob__yes {
+    background-color: red; }
+  .deleteJob__no {
+    background-color: #777; }
