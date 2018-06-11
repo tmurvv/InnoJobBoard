@@ -38,6 +38,7 @@
     $jobtype = mysqli_real_escape_string($db->link, $_POST['jobtype']);
     $location = mysqli_real_escape_string($db->link, $_POST['location']);
     
+    ob_start();
     //Simple validation
     //if($title == '' || $body == '' || $category == '' || $author == ''){
     if($title == ''){
@@ -53,8 +54,12 @@
                   jobtype = '$jobtype',
                   location = '$location'
                   WHERE id=".$id;
+        
       $update = $db->insert($query);
+      header("Location: admin.php");
 
+      ob_end_flush();
+      //  exit();   
     }
 }
 ?>
@@ -173,6 +178,7 @@
                     </select>
                 </div>
                 <input type="submit" name="submit" class="addSearch__form--selectBoxes-item" value="Submit" />
+                <a href="index.php" class="btn btn-default">Cancel</a>
             </form>
         </div>
 

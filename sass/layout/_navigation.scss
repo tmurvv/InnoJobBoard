@@ -30,3 +30,28 @@
     }
 }
 
+.addNav__container {
+    display: flex;
+    padding: 5px;
+    list-style: none;          
+    background-color: $colorGrey-dark1;
+    width: 100%;
+
+    &--item {
+        flex: 1; 
+        text-align: center; 
+        border: 1px solid $colorGrey-light1; 
+        &>a {
+            text-decoration: none;
+            color: $colorGrey-light1;
+
+            &:hover,
+            &:active {
+                transform: scale(1.2);
+            }
+        }
+        
+    }
+
+}
+

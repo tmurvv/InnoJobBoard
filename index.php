@@ -1,3 +1,9 @@
+<?php
+    $thisURL = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    if (!stripos($thisURL, 'msg') === FALSE) {
+         header("Location: admin.php?msg=updated");
+    }
+?>
 <?php include 'php/config/config.php'; ?>
 <?php include 'php/classes/Database.php'; ?>
 <?php include 'php/helpers/formatting.php'; ?>
@@ -99,7 +105,8 @@
             </div>
         </div>
         <div class="mainBoard" id="jobs">
-            <h1>Job<span>Board</span> </h1>
+            
+            <h1>Job<span>Board</span></h1>
             <br>
             <div class="listings">
  

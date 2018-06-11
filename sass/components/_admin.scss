@@ -1,0 +1,36 @@
+.admin__messageBox {
+    background-color: green;
+    padding: 10px 5px;
+    border-radius: 7px;
+    border: 1 solid $colorGrey-dark1;
+    box-shadow: 5px 10px $colorGrey-light3;
+    color: $colorGrey-light1;
+    width: 25%;
+    text-align: center;
+}
+
+.admin__editDelete {
+    display: flex;
+    &>a {
+        text-decoration: none;
+        color: $colorGrey-light1;
+        padding: 5px 10px;
+        border-radius: 7px;
+        border: 1 solid $colorGrey-dark1;
+        box-shadow: 2px 5px $colorGrey-light3;
+        width: 75px;
+        text-align: center;
+    }
+    &--edit {
+        background-color: green;
+        margin-right: 7px;
+    }
+    &--delete {
+        background-color: red;
+    }
+}
+
+admin__listings__job--type {
+    display: flex;
+    flex-flow: column;
+}
