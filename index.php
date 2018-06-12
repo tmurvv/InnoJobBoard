@@ -10,6 +10,9 @@
     if ($myMessage == "Record Deleted") {
     header("Location: admin.php?msg=deleted");  
     } 
+    if ($myMessage == "Record Updated") {
+    header("Location: admin.php?msg=updated");  
+    } 
 ?>
 <?php include 'php/config/config.php'; ?>
 <?php include 'php/classes/Database.php'; ?>

@@ -22,7 +22,10 @@ function completeMsg($msg) {
             $msg = 'Item Deleted';
             break;
         case 'added':
-            $msg = 'Item Added/Updated Successfully';
+            $msg = 'Item Added Successfully';
+            break;
+        case 'updated':
+            $msg = 'Item Updated Successfully';
             break;
         default:
             $msg = 'No action taken. Please try again.';
