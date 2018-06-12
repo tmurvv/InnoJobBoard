@@ -56,10 +56,6 @@
                   WHERE id=".$id;
         
       $update = $db->insert($query);
-      header("Location: admin.php");
-
-      ob_end_flush();
-      //  exit();   
     }
 }
 ?>
@@ -105,10 +101,7 @@
                 <h1 class="hero__mainTitle--mainHeading">
                     InnoTech Alumni Association
                 </h1>
-                <h2 class="hero__mainTitle--subHeading">
-                    Job
-                    <span>Board</span>
-                </h2>
+                <h2 class="hero__mainTitle--subHeading">Job <span>Board</span> </h2>
             </div>
         </div>
         <div class="addJob">

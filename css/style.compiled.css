@@ -140,7 +140,7 @@ header {
   display: flex;
   padding: 5px;
   list-style: none;
-  background-color: #777;
+  background-color: #0584c0;
   width: 100%; }
   .addNav__container--item {
     flex: 1;
@@ -351,3 +351,9 @@ input[type=checkbox] {
     background-color: red; }
   .deleteJob__no {
     background-color: #777; }
+
+.updateSelectors {
+  display: flex;
+  width: 100%; }
+  .updateSelectors__selector {
+    flex: 1; }

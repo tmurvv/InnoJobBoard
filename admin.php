@@ -4,7 +4,10 @@
 <?php
     //Get message
     $msg = $_GET['msg'];
+    //$msg = completeMsg($msg);
+ 
     $msg = completeMsg($msg);
+
 
   //Create DB Object
   $db = new Database();
@@ -77,16 +80,16 @@
         <div class="addNav">
             <ul class="addNav__container">
                 <li class="addNav__container--item">
-                    <a href="#add.php">Add Job Listing</a>
+                    <a href="add.php">Add Job Listing</a>
                 </li>
                 <li class="addNav__container--item">
-                    <a href="#">Add Category</a>
+                    <a href="addeditselectors.php">Add/Edit Categories</a>
                 </li>
                 <li class="addNav__container--item">
-                    <a href="#">Add Job Type</a>
+                    <a href="addeditselectors.php">Add/Edit Job Types</a>
                 </li>
                 <li class="addNav__container--item">
-                    <a href="#">Add Location</a>
+                    <a href="addeditselectors.php">Add/Edit Locations</a>
                 </li>
             </ul>
         </div>

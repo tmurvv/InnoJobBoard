@@ -2,73 +2,21 @@
 <?php include 'php/classes/Database.php'; ?>
 <?php include 'php/helpers/formatting.php'; ?>
 <?php
-    //Retrieve id for job editting
-    $id = $_GET['id'];
-
     //Create DB Object
     $db = new Database();
-    
-    //Create Query
-        $query = "SELECT * FROM joblistings WHERE id = ".$id;
-        //Run Query
-        $delete = $db->select($query)->fetch_assoc();
-
-    if(isset($_POST['delete'])){
-        
-        //Create delete query
-        $query = "DELETE FROM joblistings WHERE id = ".$id;
-        //Run delete query
-        $delete_row = $db->delete($query);
-    }
-        // //Create delete query
-        // $query = "DELETE FROM posts WHERE id = ".$id;
-        // //Run delete query
-        // $delete_row = $db->delete($query);
-        // exit();
-    // }else {
-    //     // //Create Query
-    //     // $query = "SELECT * FROM joblistings WHERE id = ".$id;
-    //     // //Run Query
-    //     // $delete = $db->select($query)->fetch_assoc();
-    // }
-    
 ?>
 <?php 
-//  if(isset($_POST['submit'])){
-//     //Assign Vars
-//     $title = mysqli_real_escape_string($db->link, $_POST['title']);
-//     $description = mysqli_real_escape_string($db->link, $_POST['description']);
-//     $dateposted = mysqli_real_escape_string($db->link, $_POST['dateposted']);
-//     $category = mysqli_real_escape_string($db->link, $_POST['category']);
-//     $jobtype = mysqli_real_escape_string($db->link, $_POST['jobtype']);
-//     $location = mysqli_real_escape_string($db->link, $_POST['location']);
+ if(isset($_POST['addCat'])){
+    //Assign Vars   
+    $category = mysqli_real_escape_string($db->link, $_POST['category']);
     
-//     ob_start();
-//     //Simple validation
-//     //if($title == '' || $body == '' || $category == '' || $author == ''){
-//     if($title == ''){
-//       //Set error
-//       $error = 'Please fill out all required fields.';
-//     } else {
-//       $query = "UPDATE joblistings
-//                   SET
-//                   title = '$title',
-//                   description = '$description',
-//                   dateposted = '$dateposted',
-//                   category = '$category',
-//                   jobtype = '$jobtype',
-//                   location = '$location'
-//                   WHERE id=".$id;
-        
-//       $update = $db->insert($query);
-//       header("Location: admin.php");
-
-//       ob_end_flush();
-//       //  exit();   
-//     }
-// }
+    //Simple validation
+    
+      $query = "INSERT INTO categories (name) VALUES('$category')";      
+      $insert = $db->insert($query);
+    }
 ?>
-<!DOCTYPE html>
+    <!DOCTYPE html>
 
     <html lang="en">
 
@@ -110,20 +58,31 @@
                 <h1 class="hero__mainTitle--mainHeading">
                     InnoTech Alumni Association
                 </h1>
-                <h2 class="hero__mainTitle--subHeading">
-                    Job
+                <h2 class="hero__mainTitle--subHeading">Job
                     <span>Board</span>
                 </h2>
             </div>
         </div>
-        <div class="deleteJob">         
-            <div class="deleteJob__ask">Delete Job Listing<br> '<?php echo $delete['title']; ?>'? </div>
-            <form method="post" action="delete.php?id=<?php echo $id; ?>">
-               <input name="delete" type="submit" class="deleteJob__yes" value="Delete" />
-            </form>   
-            <a href="admin.php" class="deleteJob__no">No</a>
-        </div>
 
+        <h2 addJob__mainHeading>
+            <a href="index.php">Job
+                <span>Board</span>
+            </a>
+        </h2>
+
+        <h3>Add/Edit/Delete Selectors</h3>
+        <br>
+        <!-- <form method="post" action="addeditselectors.php?item=cat -->
+        <div class="updateSelectors">
+            <div class="updateSelectors__selector">
+                <h4>Categories</h4>
+                <form method="post" action="addeditselectors.php">
+                    <input type="text" name="category" placeholder="Add Category" class="btn" />
+                    <button type="submit" name="addCat">Add</button>
+                </form>
+            </div>
+        </div> 
+        
         <!-- FOOTER -->
 
         <footer class="footer">

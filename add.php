@@ -101,7 +101,7 @@
             </h2>
 
             <h3>New Job Listing</h3>
-            <form method="post" action="admin.php">
+            <form method="post" action="add.php">
                 <div class="addJob__job">
                     <div class="addJob__job--title">
                         <input name="title" type="text" placeholder="Enter Job Title">
