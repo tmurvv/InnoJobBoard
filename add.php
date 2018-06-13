@@ -11,6 +11,7 @@
     $title = mysqli_real_escape_string($db->link, $_POST['title']);
     $description = mysqli_real_escape_string($db->link, $_POST['description']);
     $dateposted = mysqli_real_escape_string($db->link, $_POST['dateposted']);
+    $newdateposted = new DateTime($dateposted);
     $category = mysqli_real_escape_string($db->link, $_POST['category']);
     $jobtype = mysqli_real_escape_string($db->link, $_POST['jobtype']);
     $location = mysqli_real_escape_string($db->link, $_POST['location']);

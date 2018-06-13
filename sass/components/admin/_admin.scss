@@ -8,6 +8,7 @@
     width: 25%;
     text-align: center;
     margin: 25px;
+    display: inline-block;
 }
 
 .admin__editDelete {
@@ -15,15 +16,16 @@
     &>a {
         text-decoration: none;
         color: $colorGrey-light1;
-        padding: 5px 10px;
+        padding: 2px 5px;
         border-radius: 7px;
         border: 1 solid $colorGrey-dark1;
         box-shadow: 2px 5px $colorGrey-light2;
         width: 75px;
         text-align: center;
+        font-size: 9px;
     }
     &--edit {
-        background-color: green;
+        background-color: $colorPrimary;
         margin-right: 7px;
     }
     &--delete {

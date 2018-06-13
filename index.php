@@ -23,14 +23,24 @@
   $db = new Database();
 
   //Create Query
-  $query = "SELECT * FROM joblistings";
+  $query = "SELECT * FROM joblistings ORDER BY dateposted DESC";
   //Run Query
   $posts = $db->select($query);
 
-//   //Create Query
-//   $query = "SELECT * FROM categories";
-//   //Run Query
-//   $categories = $db->select($query);
+  //Create Query
+  $query = "SELECT * FROM categories";
+  //Run Query
+  $categories = $db->select($query);
+
+  //Create Job Type Query 
+  $query = "SELECT * FROM jobtypes"; 
+  //Run Query 
+  $jobtypes = $db->select($query); 
+
+  //Create Location Query 
+  $query = "SELECT * FROM locations"; 
+  //Run Query 
+  $locations = $db->select($query);
 ?>
 
         <!DOCTYPE html>
@@ -61,7 +71,7 @@
                         <a href="index.php">Home</a>
                     </li>
                     <li class="hero__mainNav--item">
-                        <a href="#jobs">Jobs</a>
+                        <a href="index.ph">Jobs</a>
                     </li>
                     <li class="hero__mainNav--item">
                         <a href="admin.php">Admin</a>
@@ -79,7 +89,7 @@
                         InnoTech Alumni Association
                     </h1>
                     <h2 class="hero__mainTitle--subHeading">
-                        <a href="index.php">Job<span>Board</span> </a>
+                        Job<span>Board</span>
                     </h2>
                 </div>
             </div>
@@ -90,36 +100,14 @@
                         <h2>Search</h2>
                     </div>
                     <div class="search__form--selectBoxes">
-                        <select name="category" class="search__form--selectBoxes-item" id="">
-                            <option value="anyCategory">Any Category</option>
-                            <option value="SharePoint">SharePoint</option>
-                            <option value="webDevelopment">Web Development</option>
-                            <option value="bigData">Big Data Science/Architecture</option>
-                            <option value="Cloud">Cloud Security/Architecture</option>
-                        </select>
-                        <select name="type" class="search__form--selectBoxes-item" id="">
-                            <option value="anyType">Any Type</option>
-                            <option value="full-time">Full-time</option>
-                            <option value="part-time">Part-time</option>
-                            <option value="contract">Contract</option>
-                        </select>
-                        <select name="location" class="search__form--selectBoxes-item" id="">
-                            <option value="anyLocation">Any Location</option>
-                            <option value="calgary">Calgary, AB</option>
-                            <option value="edmonton">Edmonton, AB</option>
-                            <option value="toronto">Toronto, ON</option>
-                            <option value="vancounver">Vancouver, BC</option>
-                            <option value="usa">USA</option>
-                        </select>
+                        <?php include "php/reusables/selectors.php"; ?>
                         <button type="submit" name="submit" class="search__form--selectBoxes-item">Submit</button>
                     </div>
                 </div>
                 <div class="mainBoard" id="jobs">
-
-                    <h1>Job
-                        <span>Board</span>
+                    <h1>
+                        Job<span>Board</span>
                     </h1>
-                    <br>
                     <div class="listings">
 
                         <?php while($row = $posts->fetch_assoc()) : ?>
@@ -142,7 +130,7 @@
                                 <br>
                                 <div class="listings__job--info-description">
                                     <?php echo concatText($row['description']) ?>
-                                    <a href="views/joblisting.php?id=<?php echo urlencode($row['id']); ?>" class="listings__job--info-readMore">Read More</a>
+                                    <a href="joblisting.php?id=<?php echo urlencode($row['id']); ?>" class="listings__job--info-readMore">Read More</a>
                                 </div>
                             </div>
                         </div>

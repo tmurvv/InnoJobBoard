@@ -124,7 +124,8 @@ header {
     margin: 10px;
     display: flex;
     color: #fff;
-    list-style: none; }
+    list-style: none;
+    height: 35px; }
     .hero__mainNav--item > a {
       margin-right: 20px;
       color: #fff;
@@ -159,6 +160,7 @@ header {
   background-size: cover;
   position: relative; }
   .hero__mainTitle {
+    width: 100%;
     position: absolute;
     top: 60%;
     left: 50%;
@@ -311,21 +313,23 @@ input[type=checkbox] {
   color: #f7f7f7;
   width: 25%;
   text-align: center;
-  margin: 25px; }
+  margin: 25px;
+  display: inline-block; }
 
 .admin__editDelete {
   display: flex; }
   .admin__editDelete > a {
     text-decoration: none;
     color: #f7f7f7;
-    padding: 5px 10px;
+    padding: 2px 5px;
     border-radius: 7px;
     border: 1 solid #777;
     box-shadow: 2px 5px #eee;
     width: 75px;
-    text-align: center; }
+    text-align: center;
+    font-size: 9px; }
   .admin__editDelete--edit {
-    background-color: green;
+    background-color: #0584c0;
     margin-right: 7px; }
   .admin__editDelete--delete {
     background-color: red; }
@@ -354,6 +358,7 @@ input[type=checkbox] {
 
 .updateSelectors {
   display: flex;
-  width: 100%; }
+  width: 100%;
+  justify-content: space-between; }
   .updateSelectors__selector {
     flex: 1; }

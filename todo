@@ -1,5 +1,8 @@
+search functionality on index.php and joblisting.php
+edit only one item at a time (try onchange alert "save changes")
+validations on all edits and adds
+
 good job search example
 
 https://www.google.ca/search?rlz=1C1CHBF_enCA773CA773&tbm=isch&q=job+boards&backchip=g_1:job+search&chips=q:job+boards&sa=X&ved=0ahUKEwihtteuwMLbAhWVCDQIHfqnAfMQ3VYIJigA&biw=1184&bih=579&dpr=1.1
 
-validations on all edits and adds
