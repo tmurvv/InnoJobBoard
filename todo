@@ -1,6 +1,8 @@
 search functionality on index.php and joblisting.php
 edit only one item at a time (try onchange alert "save changes")
 validations on all edits and adds
+a way to order the selector lists
+display joblisting categories on joblistings
 
 good job search example
 

@@ -21,9 +21,15 @@
 
   //Create DB Object
   $db = new Database();
+  $categorySearchID = 'Not Listed';
 
   //Create Query
-  $query = "SELECT * FROM joblistings ORDER BY dateposted DESC";
+
+  if ($categorySearchID) {
+  $query = "SELECT * FROM joblistings WHERE category='{$categorySearchID}'";
+    }else{
+    $query = "SELECT * FROM joblistings ORDER BY dateposted DESC";
+  }
   //Run Query
   $posts = $db->select($query);
 
@@ -71,7 +77,7 @@
                         <a href="index.php">Home</a>
                     </li>
                     <li class="hero__mainNav--item">
-                        <a href="index.ph">Jobs</a>
+                        <a href="index.php">Jobs</a>
                     </li>
                     <li class="hero__mainNav--item">
                         <a href="admin.php">Admin</a>
@@ -100,6 +106,7 @@
                         <h2>Search</h2>
                     </div>
                     <div class="search__form--selectBoxes">
+                        
                         <?php include "php/reusables/selectors.php"; ?>
                         <button type="submit" name="submit" class="search__form--selectBoxes-item">Submit</button>
                     </div>
