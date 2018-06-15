@@ -1,8 +1,9 @@
-search functionality on index.php and joblisting.php
+search functionality on joblisting.php and admin.php
 edit only one item at a time (try onchange alert "save changes")
-validations on all edits and adds
+validations sanitizing on all edits and adds
 a way to order the selector lists
-display joblisting categories on joblistings
+error handling on searches
+when category updated, all job listings updated
 
 good job search example
 

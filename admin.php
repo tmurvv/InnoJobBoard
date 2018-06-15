@@ -15,7 +15,7 @@
   //Create Query
   $query = "SELECT * FROM joblistings";
   //Run Query
-  $posts = $db->select($query);
+  $listings = $db->select($query);
 
 //   //Create Query
 //   $query = "SELECT * FROM categories";
@@ -69,9 +69,7 @@
                     InnoTech Alumni Association
                 </h1>
                 <h2 class="hero__mainTitle--subHeading">
-                    <a href="index.php">Job
-                        <span>Board</span>
-                    </a>
+                    Job<span>Board</span>
                 </h2>
             </div>
         </div>
@@ -98,43 +96,48 @@
             if ($msg) {
                 echo "<div class='admin__messageBox'>".$msg."</div>";
             } ?>
-        <h1>Job<span>Board</span> </h1>
-        <br>
-        <div class="listings">
-
-            <?php while($row = $posts->fetch_assoc()) : ?>
-            <div class="listings__job">
-
-                <div class="listings__job--type">
-
-                    <p>
-                        <?php echo $row['jobtype'] ?>
-                    </p>
-                </div>
-                <div class="listings__job--info">
-                    <div class="listings__job--info-title">
-                        <h3>
-                            <?php echo $row['title'] ?>
-                            <?php echo $row['location'] ?>
-                        </h3>
-                    </div>
-                    <div class="listings__job--info-datePosted">
-                        <?php echo $row['dateposted'] ?>
-                    </div>
-                    <div class="admin__editDelete">
-                        <a href="edit.php?id=<?php echo $row['id']; ?>" class="admin__editDelete--edit">Edit</a>
-                        <a href="delete.php?id=<?php echo $row['id']; ?>" class="admin__editDelete--delete">Delete</a>
-                    </div>
-                    <br>
-                    <div class="listings__job--info-description">
-                        <?php echo concatText($row['description']) ?>
-                        <a href="views/joblisting.php?id=<?php echo urlencode($row['id']); ?>" class="listings__job--info-readMore">Read More</a>
-                    </div>
-                </div>
-            </div>
-
+            <h1>Job<span>Board</span></h1>
+            <h3>Admin Page</h3>
+            
             <br>
-            <?php endwhile; ?>
+            <div class="listings">
+                <?php while($row = $listings->fetch_assoc()) : ?>
+                <div class="listings__job">
+                    <div class="listings__job--type">
+                        <p>
+                            <?php echo $row['jobtype'] ?>
+                        </p>
+                    </div>
+                    <div class="listings__job--info">
+                        <div class="listings__job--info-line1">
+                            <h3>
+                                <?php echo $row['title'] ?>
+                                <?php echo $row['location'] ?>
+                            </h3>
+                        </div>
+                        <div class="listings__job--info-line2">
+
+
+                            <?php echo $row['category'] ?>
+
+                            <div class="listings__job--info-line2-datePosted">
+                                <?php echo $row['dateposted'] ?>
+                            </div>
+                        </div>
+                        <div class="admin__editDelete">
+                            <a href="edit.php?id=<?php echo $row['id']; ?>" class="admin__editDelete--edit">Edit</a>
+                            <a href="delete.php?id=<?php echo $row['id']; ?>" class="admin__editDelete--delete">Delete</a>
+                        </div>
+
+                        <br>
+                        <div class="listings__job--info-description">
+                            <?php echo $row['description'] ?>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <?php endwhile; ?>
+            </div>
 
         </div>
         </div>

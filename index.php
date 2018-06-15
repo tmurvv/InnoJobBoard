@@ -14,24 +14,32 @@
     header("Location: admin.php?msg=updated");  
     } 
 ?>
-<?php include 'php/config/config.php'; ?>
-<?php include 'php/classes/Database.php'; ?>
-<?php include 'php/helpers/formatting.php'; ?>
-<?php
+    <?php include 'php/config/config.php'; ?>
+    <?php include 'php/classes/Database.php'; ?>
+    <?php include 'php/helpers/controllers.php'; ?>
+    <?php include 'php/helpers/formatting.php'; ?>
+    <?php
 
   //Create DB Object
   $db = new Database();
-  $categorySearchID = 'Not Listed';
+  $categorySearchID = $_GET['category'];
+  if(!$categorySearchID){
+      $categorySearchID = "empty";
+  }
+  $jobtypeSearchID = $_GET['jobtype'];
+  if (!$jobtypeSearchID){
+      $jobtypeSearchID = "empty";
+  }
+  $locationSearchID = $_GET['location'];
+  if (!$locationSearchID){
+      $locationSearchID = "empty";
+  }
 
   //Create Query
-
-  if ($categorySearchID) {
-  $query = "SELECT * FROM joblistings WHERE category='{$categorySearchID}'";
-    }else{
-    $query = "SELECT * FROM joblistings ORDER BY dateposted DESC";
-  }
+  $query = createQuery($categorySearchID, $jobtypeSearchID, $locationSearchID);
+  
   //Run Query
-  $posts = $db->select($query);
+  $listings = $db->select($query);
 
   //Create Query
   $query = "SELECT * FROM categories";
@@ -105,19 +113,14 @@
                     <div class="search__form--title">
                         <h2>Search</h2>
                     </div>
-                    <div class="search__form--selectBoxes">
-                        
-                        <?php include "php/reusables/selectors.php"; ?>
-                        <button type="submit" name="submit" class="search__form--selectBoxes-item">Submit</button>
-                    </div>
+                    <?php include 'php/reusables/selectors.php' ?>
                 </div>
                 <div class="mainBoard" id="jobs">
                     <h1>
                         Job<span>Board</span>
                     </h1>
                     <div class="listings">
-
-                        <?php while($row = $posts->fetch_assoc()) : ?>
+                        <?php while($row = $listings->fetch_assoc()) : ?>
                         <div class="listings__job">
                             <div class="listings__job--type">
                                 <p>
@@ -125,25 +128,30 @@
                                 </p>
                             </div>
                             <div class="listings__job--info">
-                                <div class="listings__job--info-title">
+                                <div class="listings__job--info-line1">
                                     <h3>
                                         <?php echo $row['title'] ?>
                                         <?php echo $row['location'] ?>
                                     </h3>
                                 </div>
-                                <div class="listings__job--info-datePosted">
-                                    <?php echo $row['dateposted'] ?>
+                                <div class="listings__job--info-line2">
+
+
+                                    <?php echo $row['category'] ?>
+
+                                    <div class="listings__job--info-line2-datePosted">
+                                        <?php echo $row['dateposted'] ?>
+                                    </div>
                                 </div>
-                                <br>
+                               <br>
                                 <div class="listings__job--info-description">
                                     <?php echo concatText($row['description']) ?>
-                                    <a href="joblisting.php?id=<?php echo urlencode($row['id']); ?>" class="listings__job--info-readMore">Read More</a>
+                                    <a href="joblisting.php?id=<?php echo urlencode($row['id']); ?>">Read More</a>
                                 </div>
                             </div>
                         </div>
                         <br>
                         <?php endwhile; ?>
-
                     </div>
                 </div>
             </div>

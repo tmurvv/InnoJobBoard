@@ -2,41 +2,44 @@
     padding: 0 20px 20px 20px;
 
     &__job {
-        display: flex;
+        display: flex; 
         
         &--type {
             flex:1;            
-            display: flex;
-            justify-content: center;
+            display: flex;         
             align-items: center;
-            &>p {
-                
+            &>p {              
                 padding: 3px 6px;
                 border-radius: 7px;
                 background-color: $colorSecondary;
                 color: $colorGrey-light1;
+                margin: 10px;
             }
         }
 
         &--info {
             flex:5;
 
-            &-title {
-                
+            &-line1 {
+                display: flex;
             }
-            &-datePosted {
-                font-style: italic;
+
+            &-line2 {
+                display: flex;
+                &-datePosted {
+                    font-style: italic;
+                    margin-left: 50px
+                }
             }
+            
             &-description {
-
-            }
-
-            &-readMore {
-                color: $colorPrimary;
+                &>a {
+                    color: $colorPrimary;
                 background-color: transparent;
                 padding:3px 5px;
                 font-size: 16px;
                 border-radius: 7px;
+                }
             }
         }
     }

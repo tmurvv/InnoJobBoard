@@ -231,7 +231,7 @@ header {
   .search__form--title {
     flex: 1; }
   .search__form--selectBoxes {
-    flex: 4;
+    flex: 5;
     display: flex;
     justify-content: flex-start; }
     .search__form--selectBoxes-item {
@@ -241,21 +241,6 @@ header {
       font-size: 16px;
       margin-right: 40px; }
 
-input[type=radio],
-input[type=checkbox] {
-  display: none; }
-  input[type=radio] + label,
-  input[type=checkbox] + label {
-    border-width: 2px;
-    border-style: solid;
-    border-radius: .5em;
-    padding: 10px 15px;
-    margin: 1px; }
-  input[type=radio]:checked + label,
-  input[type=checkbox]:checked + label {
-    background-color: #0584c0;
-    color: #fff; }
-
 .listings {
   padding: 0 20px 20px 20px; }
   .listings__job {
@@ -263,18 +248,23 @@ input[type=checkbox] {
     .listings__job--type {
       flex: 1;
       display: flex;
-      justify-content: center;
       align-items: center; }
       .listings__job--type > p {
         padding: 3px 6px;
         border-radius: 7px;
         background-color: #fd9d3f;
-        color: #f7f7f7; }
+        color: #f7f7f7;
+        margin: 10px; }
     .listings__job--info {
       flex: 5; }
-      .listings__job--info-datePosted {
-        font-style: italic; }
-      .listings__job--info-readMore {
+      .listings__job--info-line1 {
+        display: flex; }
+      .listings__job--info-line2 {
+        display: flex; }
+        .listings__job--info-line2-datePosted {
+          font-style: italic;
+          margin-left: 50px; }
+      .listings__job--info-description > a {
         color: #0584c0;
         background-color: transparent;
         padding: 3px 5px;
