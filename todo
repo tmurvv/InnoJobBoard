@@ -1,11 +1,8 @@
-search functionality on joblisting.php and admin.php
-edit only one item at a time (try onchange alert "save changes")
-validations sanitizing on all edits and adds
-a way to order the selector lists
+save/cancel buttons on edit page
+delete button on delete page
 error handling on searches
+-- add to portfolio --
+edit only one item at a time (try onchange alert "save changes")
+a way to order the selector lists
 when category updated, all job listings updated
-
-good job search example
-
-https://www.google.ca/search?rlz=1C1CHBF_enCA773CA773&tbm=isch&q=job+boards&backchip=g_1:job+search&chips=q:job+boards&sa=X&ved=0ahUKEwihtteuwMLbAhWVCDQIHfqnAfMQ3VYIJigA&biw=1184&bih=579&dpr=1.1
-
+validations sanitizing on all edits and adds

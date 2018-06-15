@@ -1,8 +1,5 @@
 <?php
     $thisURL = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-    //if (!$msg) {exit();}
-    // $parse = parse_str(thisURL);
-    // echo $parse;
     $myMessage = $_GET['msg'];
     if ($myMessage == "Record Added") {
     header("Location: admin.php?msg=added");  
@@ -34,28 +31,16 @@
   if (!$locationSearchID){
       $locationSearchID = "empty";
   }
-
+  
   //Create Query
   $query = createQuery($categorySearchID, $jobtypeSearchID, $locationSearchID);
   
   //Run Query
   $listings = $db->select($query);
 
-  //Create Query
-  $query = "SELECT * FROM categories";
-  //Run Query
-  $categories = $db->select($query);
-
-  //Create Job Type Query 
-  $query = "SELECT * FROM jobtypes"; 
-  //Run Query 
-  $jobtypes = $db->select($query); 
-
-  //Create Location Query 
-  $query = "SELECT * FROM locations"; 
-  //Run Query 
-  $locations = $db->select($query);
 ?>
+        <!-- Create Selector Queries -->
+        <?php include 'php/reusables/selectorQueries.php'; ?>
 
         <!DOCTYPE html>
 
@@ -103,7 +88,8 @@
                         InnoTech Alumni Association
                     </h1>
                     <h2 class="hero__mainTitle--subHeading">
-                        Job<span>Board</span>
+                        Job
+                        <span>Board</span>
                     </h2>
                 </div>
             </div>
@@ -113,11 +99,18 @@
                     <div class="search__form--title">
                         <h2>Search</h2>
                     </div>
-                    <?php include 'php/reusables/selectors.php' ?>
+                    <div class="search__form--selectBoxes">
+                        <form action="index.php?this.options[this.selectedIndex].value" id="main" name="main" method="get">
+
+                            <?php include 'php/reusables/selectors.php' ?>
+                        </form>
+                    </div>
+
                 </div>
                 <div class="mainBoard" id="jobs">
                     <h1>
-                        Job<span>Board</span>
+                        Job
+                        <span>Board</span>
                     </h1>
                     <div class="listings">
                         <?php while($row = $listings->fetch_assoc()) : ?>
@@ -143,7 +136,7 @@
                                         <?php echo $row['dateposted'] ?>
                                     </div>
                                 </div>
-                               <br>
+                                <br>
                                 <div class="listings__job--info-description">
                                     <?php echo concatText($row['description']) ?>
                                     <a href="joblisting.php?id=<?php echo urlencode($row['id']); ?>">Read More</a>

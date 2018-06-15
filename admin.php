@@ -1,5 +1,6 @@
 <?php include 'php/config/config.php'; ?>
 <?php include 'php/classes/Database.php'; ?>
+<?php include 'php/helpers/controllers.php'; ?>
 <?php include 'php/helpers/formatting.php'; ?>
 <?php
     //Get message
@@ -8,20 +9,28 @@
  
     $msg = completeMsg($msg);
 
-
   //Create DB Object
   $db = new Database();
-
+  $categorySearchID = $_GET['category'];
+  if(!$categorySearchID){
+      $categorySearchID = "empty";
+  }
+  $jobtypeSearchID = $_GET['jobtype'];
+  if (!$jobtypeSearchID){
+      $jobtypeSearchID = "empty";
+  }
+  $locationSearchID = $_GET['location'];
+  if (!$locationSearchID){
+      $locationSearchID = "empty";
+  }
   //Create Query
-  $query = "SELECT * FROM joblistings";
+  $query = createQuery($categorySearchID, $jobtypeSearchID, $locationSearchID);
+
   //Run Query
   $listings = $db->select($query);
-
-//   //Create Query
-//   $query = "SELECT * FROM categories";
-//   //Run Query
-//   $categories = $db->select($query);
 ?>
+    <!-- Create Selector Queries -->
+    <?php include 'php/reusables/selectorQueries.php'; ?>
 
     <!DOCTYPE html>
 
@@ -69,7 +78,8 @@
                     InnoTech Alumni Association
                 </h1>
                 <h2 class="hero__mainTitle--subHeading">
-                    Job<span>Board</span>
+                    Job
+                    <span>Board</span>
                 </h2>
             </div>
         </div>
@@ -91,15 +101,25 @@
                 </li>
             </ul>
         </div>
+        <div class="search__form">
+            <div class="search__form--title">
+                <h2>Search</h2>
+            </div>
+            <div class="search__form--selectBoxes">
+                <form action="admin.php?this.options[this.selectedIndex].value" id="main" name="main" method="get">
+                    <?php include 'php/reusables/selectors.php' ?>
+                </form>
+            </div>
+        </div>
         <div class="mainBoard" id="jobs">
             <?php 
             if ($msg) {
                 echo "<div class='admin__messageBox'>".$msg."</div>";
             } ?>
-            <h1>Job<span>Board</span></h1>
+            <h1>Job
+                <span>Board</span>
+            </h1>
             <h3>Admin Page</h3>
-            
-            <br>
             <div class="listings">
                 <?php while($row = $listings->fetch_assoc()) : ?>
                 <div class="listings__job">

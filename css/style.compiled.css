@@ -226,7 +226,7 @@ header {
   border: 2px solid magenta; }
 
 .search__form {
-  padding: 40px 40px;
+  padding: 40px 40px 0 40px;
   display: flex; }
   .search__form--title {
     flex: 1; }
