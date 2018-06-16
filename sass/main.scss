@@ -6,7 +6,9 @@
 @import "base/base";
 @import "base/typography"; 
 @import "base/animations"; 
-@import "base/reusables"; 
+@import "base/reusables";
+@import "base/buttons";
+
 
 @import "layout/grid";
 @import "layout/footer";
@@ -22,6 +24,7 @@
 
 @import "components/admin/addJob";
 @import "components/admin/admin";
+@import "components/admin/edit";
 @import "components/admin/delete";
 @import "components/admin/selectors";
 

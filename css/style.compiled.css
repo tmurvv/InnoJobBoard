@@ -28,6 +28,29 @@ body {
   line-height: 1.7;
   color: #666; }
 
+.btn {
+  border-radius: 7px;
+  padding: 3px 6px; }
+  .btn > p {
+    border-radius: 7px;
+    padding: 3px 6px; }
+  .btn__primary {
+    background-color: #0584c0;
+    color: #f7f7f7; }
+  .btn__secondary {
+    background-color: #fd9d3f;
+    color: #f7f7f7; }
+  .btn__secondary > p {
+    background-color: #fd9d3f;
+    color: #f7f7f7; }
+  .btn__danger {
+    background-color: red;
+    color: #f7f7f7; }
+  .btn__small {
+    font-size: 9px; }
+  .btn__shadow {
+    box-shadow: 1px 1px colorGrey-light1; }
+
 .row {
   max-width: 114rem;
   background-color: #eee;
@@ -119,7 +142,8 @@ header {
   justify-content: space-between; }
   .hero__logo {
     height: 70px;
-    margin: 10px; }
+    margin: 10px;
+    opacity: .6; }
   .hero__mainNav {
     margin: 10px;
     display: flex;
@@ -247,14 +271,10 @@ header {
     display: flex; }
     .listings__job--type {
       flex: 1;
-      display: flex;
-      align-items: center; }
-      .listings__job--type > p {
-        padding: 3px 6px;
-        border-radius: 7px;
-        background-color: #fd9d3f;
-        color: #f7f7f7;
-        margin: 10px; }
+      align-self: center;
+      justify-self: center;
+      display: inline-flex;
+      margin: 20px; }
     .listings__job--info {
       flex: 5; }
       .listings__job--info-line1 {
@@ -295,7 +315,7 @@ header {
     width: 150px; }
 
 .admin__messageBox {
-  background-color: green;
+  background-color: #0584c0;
   padding: 10px 5px;
   border-radius: 7px;
   border: 1 solid #777;
@@ -304,47 +324,45 @@ header {
   width: 25%;
   text-align: center;
   margin: 25px;
-  display: inline-block; }
+  display: inline-flex; }
 
 .admin__editDelete {
   display: flex; }
   .admin__editDelete > a {
     text-decoration: none;
-    color: #f7f7f7;
-    padding: 2px 5px;
-    border-radius: 7px;
-    border: 1 solid #777;
-    box-shadow: 2px 5px #eee;
     width: 75px;
     text-align: center;
     font-size: 9px; }
   .admin__editDelete--edit {
-    background-color: #0584c0;
     margin-right: 7px; }
-  .admin__editDelete--delete {
-    background-color: red; }
 
-.admin__listings__job--type {
-  display: flex;
-  flex-flow: column; }
+.edit__cancel {
+  text-decoration: none;
+  font-size: 14px;
+  box-shadow: 2px 2px #bbbaba;
+  margin-left: 15px; }
 
 .deleteJob {
   display: flex;
   justify-content: flex-start;
-  align-items: center; }
-  .deleteJob > * {
-    margin: 25px;
+  align-items: center;
+  margin: 25px; }
+  .deleteJob__ask {
+    background-color: #777;
     padding: 10px;
     box-shadow: 2px 5px #eee;
     border-radius: 7px;
     text-align: center;
-    color: #f7f7f7; }
-  .deleteJob__ask {
-    background-color: #777; }
-  .deleteJob__yes {
-    background-color: red; }
-  .deleteJob__no {
-    background-color: #777; }
+    color: #f7f7f7;
+    margin-right: 25px; }
+  .deleteJob > a {
+    text-decoration: none;
+    padding: 0px 6px;
+    margin-left: 25px;
+    margin-top: 6px;
+    box-shadow: 2px 2px grey;
+    display: inline-flex;
+    font-size: 15px; }
 
 .updateSelectors {
   display: flex;

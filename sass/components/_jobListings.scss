@@ -5,16 +5,11 @@
         display: flex; 
         
         &--type {
-            flex:1;            
-            display: flex;         
-            align-items: center;
-            &>p {              
-                padding: 3px 6px;
-                border-radius: 7px;
-                background-color: $colorSecondary;
-                color: $colorGrey-light1;
-                margin: 10px;
-            }
+            flex:1;
+            align-self: center;
+            justify-self: center;
+            display: inline-flex;                     
+            margin: 20px;
         }
 
         &--info {

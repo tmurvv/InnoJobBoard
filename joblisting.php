@@ -51,53 +51,10 @@ $locations = $db->select($query);
 
     <html lang="en">
 
-    <head>
-
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
-        <link rel="stylesheet" href="css/ionicons.css">
-        <link rel="shortcut icon" href="img/favicon.png">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-
-        <script type="text/javascript" src="js\script.js"></script>
-
-        <title>InnoTech JobBoard</title>
-
-    </head>
+   <?php include 'php/reusables/head.php' ?>
 
     <body>
-        <div class="hero" id='home'>
-            <img class="hero__logo" src="img/Innotech.png" alt="InnoTech Logo">
-            <ul class="hero__mainNav">
-                <li class="hero__mainNav--item">
-                    <a href="index.php">Home</a>
-                </li>
-                <li class="hero__mainNav--item">
-                    <a href="index.php">Jobs</a>
-                </li>
-                <li class="hero__mainNav--item">
-                    <a href="admin.php">Admin</a>
-                </li>
-                <li class="hero__mainNav--item">
-                    <a href="#about">About</a>
-                </li>
-                <li class="hero__mainNav--item">
-                    <a href="#contact">Contact</a>
-                </li>
-            </ul>
-            <div class="hero__mainTitle">
-
-                <h1 class="hero__mainTitle--mainHeading">
-                    InnoTech Alumni Association
-                </h1>
-                <h2 class="hero__mainTitle--subHeading">
-                    Job
-                    <span>Board</span>
-                </h2>
-            </div>
-        </div>
+    <?php include 'php/reusables/hero.php' ?>
 
         <div class="search">
             <div class="search__form">
@@ -105,19 +62,21 @@ $locations = $db->select($query);
                     <h2>Search</h2>
                 </div>
                 <div class="search__form--selectBoxes">
-                    <?php include "php/reusables/selectors.php" ?>
+                    <form action="index.php?this.options[this.selectedIndex].value" id="main" name="main" method="get">
+                        <?php include 'php/reusables/selectors.php' ?>
+                    </form>
                 </div>
             </div>
             <div class="mainBoard" id="jobs">
                 <h1>
-                    Job
-                    <span>Board</span>
+                Job<span>Board</span>
                 </h1>
                 <div class="listings">
+                    <?php if($listings) : ?>
                     <?php while($row = $listings->fetch_assoc()) : ?>
                     <div class="listings__job">
                         <div class="listings__job--type">
-                            <p>
+                            <p class="btn btn__secondary">
                                 <?php echo $row['jobtype'] ?>
                             </p>
                         </div>
@@ -145,6 +104,7 @@ $locations = $db->select($query);
                     </div>
                     <br>
                     <?php endwhile; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

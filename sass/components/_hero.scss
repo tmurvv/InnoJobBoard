@@ -4,6 +4,9 @@
     background-image: linear-gradient( rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../img/jobSearchGears.jpg);
     background-size: cover;
     position: relative;
+
+    //logo stylings found in layout/_navigation.scss
+
     &__mainTitle {
         width: 100%;
         position: absolute;

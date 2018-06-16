@@ -63,53 +63,13 @@
 
     <html lang="en">
 
-    <head>
-
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
-        <link rel="stylesheet" href="css/ionicons.css">
-        <link rel="shortcut icon" href="img/favicon.png">
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-
-        <script type="text/javascript" src="js\script.js"></script>
-
-        <title>InnoTech JobBoard</title>
-
-    </head>
+    <?php include 'php/reusables/head.php' ?>
 
     <body>
-        <div class="hero" id='home'>
-            <img class="hero__logo" src="img/Innotech.png" alt="InnoTech Logo">
-            <ul class="hero__mainNav">
-                <li class="hero__mainNav--item">
-                    <a href="#home">Home</a>
-                </li>
-                <li class="hero__mainNav--item">
-                    <a href="#jobs">Jobs</a>
-                </li>
-                <li class="hero__mainNav--item">
-                    <a href="#about">About</a>
-                </li>
-                <li class="hero__mainNav--item">
-                    <a href="#contact">Contact</a>
-                </li>
-            </ul>
-            <div class="hero__mainTitle">
-
-                <h1 class="hero__mainTitle--mainHeading">
-                    InnoTech Alumni Association
-                </h1>
-                <h2 class="hero__mainTitle--subHeading">Job <span>Board</span> </h2>
-            </div>
-        </div>
+    <?php include 'php/reusables/hero.php' ?>
         <div class="addJob">
-            <h2 addJob__mainHeading>
-                <a href="index.php">Job
-                    <span>Board</span>
-                </a>
-                <?php echo $update['dateposted']; ?>
+            <h2 class="addJob__mainHeading">
+                Job<span>Board</span>
             </h2>
 
             <h3>Edit Job Listing</h3>
@@ -170,8 +130,8 @@
                         <?php endwhile; ?>
                     </select>
                 </div>
-                <input type="submit" name="submit" class="addSearch__form--selectBoxes-item" value="Submit" />
-                <a href="index.php" class="btn btn-default">Cancel</a>
+                <input type="submit" name="submit" class="addSearch__form--selectBoxes-item btn btn__primary" value="Submit" />
+                <a href="index.php" class="edit__cancel btn btn__secondary">Cancel</a>
             </form>
         </div>
 
