@@ -23,8 +23,7 @@
             Innovation Alumni Association
         </h1>
         <h2 class="hero__mainTitle--subHeading">
-            Job
-            <span>Board</span>
+            Job<span>Board</span>
         </h2>
     </div>
 </div>
