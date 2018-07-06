@@ -9,11 +9,14 @@
         //background-color: slateblue;
         flex: 1;
        
-
         &--item {
           //background-color: lime;
-         
-            
+            &-order {
+                width: 1.5rem;
+            }
+            &-saveEdit {
+                
+            }          
         }
     }
 }

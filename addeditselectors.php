@@ -9,17 +9,17 @@
     $db = new Database();
 
     //Create Category Query 
-    $query = "SELECT * FROM categories"; 
+    $query = "SELECT * FROM categories ORDER BY categoryViewOrder"; 
     //Run Query 
     $categories = $db->select($query);
     
     //Create Job Type Query 
-    $query = "SELECT * FROM jobtypes"; 
+    $query = "SELECT * FROM jobtypes ORDER BY jobTypeViewOrder"; 
     //Run Query 
     $jobtypes = $db->select($query); 
 
     //Create Location Query 
-    $query = "SELECT * FROM locations"; 
+    $query = "SELECT * FROM locations ORDER BY locationViewOrder"; 
     //Run Query 
     $locations = $db->select($query); 
 ?>
@@ -27,19 +27,21 @@
     if(isset($_POST['addcat'])){
         //Assign Vars   
         $category = mysqli_real_escape_string($db->link, $_POST['category']);
+        $categoryViewOrder = mysqli_real_escape_string($db->link, $_POST['categoryvieworder']);
         
         //Simple validation
         
-        $query = "INSERT INTO categories (name) VALUES('$category')";      
+        $query = "INSERT INTO categories (category, categoryViewOrder) VALUES('$category', '$categoryViewOrder')";      
         $insert = $db->insert($query);
     }
     if(isset($_POST['editcat'])){
         //Assign Vars   
         $category = mysqli_real_escape_string($db->link, $_POST['category']);
+        $categoryViewOrder = mysqli_real_escape_string($db->link, $_POST['categoryvieworder']);
         
         //Simple validation
         
-        $query = "UPDATE categories SET name = '$category' WHERE id=".$id;      
+        $query = "UPDATE categories SET category = '$category', categoryViewOrder = '$categoryViewOrder' WHERE id=".$id;      
         $update = $db->update($query);
     }
     if(isset($_POST['deletecat'])){
@@ -51,19 +53,21 @@
     if(isset($_POST['addjobtype'])){
         //Assign Vars   
         $jobtype = mysqli_real_escape_string($db->link, $_POST['jobtype']);
+        $jobtypevieworder = mysqli_real_escape_string($db->link, $_POST['jobtypevieworder']);
         
         //Simple validation
         
-        $query = "INSERT INTO jobtypes (name) VALUES('$jobtype')";      
+        $query = "INSERT INTO jobtypes (jobType, jobTypeViewOrder) VALUES('$jobtype', '$jobtypevieworder')";      
         $insert = $db->insert($query);
     }
     if(isset($_POST['editjobtype'])){
         //Assign Vars   
-        $jobtype = mysqli_real_escape_string($db->link, $_POST['jobtype']);
+        $jobtype = mysqli_real_escape_string($db->link, $_POST['jobtype']);       
+        $jobtypevieworder = mysqli_real_escape_string($db->link, $_POST['jobtypevieworder']);
         
         //Simple validation
         
-        $query = "UPDATE jobtypes SET name = '$jobtype' WHERE id=".$id;      
+        $query = "UPDATE jobtypes SET jobType = '$jobtype', jobTypeViewOrder = '$jobtypevieworder' WHERE id=".$id;      
         $update = $db->update($query);
     }
     if(isset($_POST['deletejobtype'])){
@@ -74,19 +78,21 @@
     if(isset($_POST['addlocation'])){
         //Assign Vars   
         $location = mysqli_real_escape_string($db->link, $_POST['location']);
+        $locationvieworder = mysqli_real_escape_string($db->link, $_POST['locationvieworder']);
         
         //Simple validation
         
-        $query = "INSERT INTO locations (location) VALUES('$location')";      
+        $query = "INSERT INTO locations (location, locationViewOrder) VALUES('$location', '$locationvieworder')";      
         $insert = $db->insert($query);
     }
     if(isset($_POST['editlocation'])){
         //Assign Vars   
         $location = mysqli_real_escape_string($db->link, $_POST['location']);
+        $locationvieworder = mysqli_real_escape_string($db->link, $_POST['locationvieworder']);
         
         //Simple validation
         
-        $query = "UPDATE locations SET location = '$location' WHERE id=".$id;      
+        $query = "UPDATE locations SET location = '$location', locationViewOrder = '$locationvieworder' WHERE id=".$id;      
         $update = $db->update($query);
     }
     if(isset($_POST['deletelocation'])){
@@ -115,6 +121,7 @@
             <div class="updateSelectors__selector">
                 <h4>Categories</h4>
                 <form method="post" action="addeditselectors.php">
+                    <input type="text" name="categoryvieworder" placeholder="View Order" class="btn updateSelectors__selector--item-order" />
                     <input type="text" name="category" placeholder="Add Category" class="btn" />
                     <button type="submit" name="addcat">Add</button>
                 </form>
@@ -125,13 +132,17 @@
                         <form method="post" action="addeditselectors.php?id=<?php echo $row['id'] ?>">
                         <tr class="updateSelectors__selector--item">
                             <td>
-                                <input name="category" value="<?php echo $row['name']; ?>" />
+                                <input class="updateSelectors__selector--item-order" name="categoryvieworder" value="<?php echo $row['categoryViewOrder']; ?>" disabled />
                             </td>
                             <td>
-                                <button type="submit" name="editcat">Change</button>
+                                <input name="category" value="<?php echo $row['category']; ?>" disabled />
                             </td>
                             <td>
-                                <button type="submit" name="deletecat">Delete</button>
+                                <button class="updateSelectors__selector--item-saveEdit btn btn__primary" type="button" onclick="startEditSelector(this);" style="opacity:1;visibility:visible">Edit</button>
+                                <button class="updateSelectors__selector--item-saveEdit btn btn__primary" type="submit" name="editcat" style="opacity:0;visibility:hidden">Save</button>
+                            </td>
+                            <td>
+                                <button type="submit" name="deletecat" class="btn btn_danger">Delete</button>
                             </td>
                             <tr>
                             </form>
@@ -143,6 +154,7 @@
                 <h4>Job Types</h4>
 
                 <form method="post" action="addeditselectors.php">
+                    <input type="text" name="jobtypevieworder" placeholder="View Order" class="btn updateSelectors__selector--item-order" />
                     <input type="text" name="jobtype" placeholder="Add Job Type" class="btn" />
                     <button type="submit" name="addjobtype">Add</button>
                 </form>
@@ -152,13 +164,17 @@
                         <form method="post" action="addeditselectors.php?id=<?php echo $row['id'] ?>">
                         <tr class="updateSelectors__selector--item">
                             <td>
-                                <input name="jobtype" value="<?php echo $row['name']; ?>" />
+                                <input class="updateSelectors__selector--item-order" name="jobtypevieworder" value="<?php echo $row['jobTypeViewOrder']; ?>" disabled />
                             </td>
                             <td>
-                                <button type="submit" name="editjobtype">Change</button>
+                                <input name="jobtype" value="<?php echo $row['jobType']; ?>" disabled />
                             </td>
                             <td>
-                                <button type="submit" name="deletejobtype">Delete</button>
+                                <button class="updateSelectors__selector--item-saveEdit btn btn__primary" type="button" onclick="startEditSelector(this);" style="opacity:1;visibility:visible">Edit</button>                                
+                                <button class="updateSelectors__selector--item-saveEdit btn btn__primary" type="submit" name="editjobtype" style="opacity:0;visibility:hidden">Save</button>
+                            </td>
+                            <td>
+                                <button type="submit" name="deletejobtype" class="btn btn__danger">Delete</button>
                             </td>
                             <tr>
                             </form>
@@ -171,6 +187,7 @@
                 <h4>Locations</h4>
 
                 <form method="post" action="addeditselectors.php">
+                    <input type="text" name="locationvieworder" placeholder="View Order" class="btn updateSelectors__selector--item-order" />
                     <input type="text" name="location" placeholder="Add Location" class="btn" />
                     <button type="submit" name="addlocation">Add</button>
                 </form>
@@ -181,13 +198,17 @@
                     <form method="post" action="addeditselectors.php?id=<?php echo $row['id'] ?>">
                     <tr class="updateSelectors__selector--item">
                         <td>
-                            <input name="location" value="<?php echo $row['location']; ?>" />
+                            <input class="updateSelectors__selector--item-order" name="locationvieworder" value="<?php echo $row['locationViewOrder']; ?>" disabled/>
                         </td>
                         <td>
-                            <button type="submit" name="editlocation">Change</button>
+                            <input name="location" value="<?php echo $row['location']; ?>" disabled/>
                         </td>
                         <td>
-                            <button type="submit" name="deletelocation">Delete</button>
+                            <button class="updateSelectors__selector--item-saveEdit btn btn__primary" type="button" onclick="startEditSelector(this);" style="opacity:1;visibility:visible">Edit</button>                           
+                            <button class="updateSelectors__selector--item-saveEdit btn btn__primary" type="submit" name="editlocation" style="opacity:0;visibility:hidden">Save</button>
+                        </td>
+                        <td>
+                            <button type="submit" name="deletelocation" class="btn btn__danger">Delete</button>
                         </td>
                         <tr>
                         </form>

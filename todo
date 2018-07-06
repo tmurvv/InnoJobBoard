@@ -1,10 +1,9 @@
 -- add to portfolio --
 put password on admin page
 work on look of message box
-edit only one item at a time (try onchange alert "save changes")
-a way to order the selector lists
 when category updated, all job listings updated
 validations sanitizing on all edits and adds
-buttons on add/edit selectors
 Get better editor
 Create Contact Page
+Add in position absolutes for edit/save buttons on selectors page (position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;)
+figure out linkIn jpg error

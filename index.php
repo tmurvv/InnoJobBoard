@@ -146,7 +146,7 @@
             <ul class="footer__topRow--contact">
                 <li>
                     <a href="http://www.linkedin.com/in/tisha-murvihill-tech" target="_blank">
-                        <img src="img/linkedIn.jpg" alt="linkedIn icon" class="footer__contact--linkedImage">
+                        <img src="../img/linkedIn.jpg" alt="linkedIn icon" class="footer__contact--linkedImage">
                     </a>
                 </li>
                 <li>

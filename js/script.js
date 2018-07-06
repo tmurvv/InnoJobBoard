@@ -2,7 +2,17 @@
 
 "use strict";
 
-function clickMe() {
-    alert("You are communicating with the script.js file");
-    console.log("imin");
+function startEditSelector(clickedItem) {
+    alert('imin: ' + clickedItem);
+    var item=clickedItem.parentElement.previousElementSibling.children[0];
+    var itemOrder=item.parentElement.previousElementSibling.children[0];
+    var saveButt=clickedItem.nextElementSibling;
+
+    item.disabled=false;
+    itemOrder.disabled=false;
+    saveButt.style.visibility="visible";
+    saveButt.style.opacity=1;
+    clickedItem.style.visibility="hidden";
+    clickedItem.style.opacity=0;
+    
 }
