@@ -73,18 +73,19 @@
                     </div>
                     <div class="addJob__job--description">
                         <textarea name="description" id="" cols="100" rows="10" placeholder="Enter Job Description"></textarea>
+                        <script>CKEDITOR.replace( 'description' );</script>
                     </div>
 
                     <select name="category" class="addSearch__form--selectBoxes-item" id="">
                     <option value="Not Listed">Any Category</option>
                         <?php while($row = $categories->fetch_assoc()) : ?>                    
-                            <option value="<?php echo $row['name']; ?>"><?php echo $row['name']; ?></option>
+                            <option value="<?php echo $row['name']; ?>"><?php echo $row['category']; ?></option>
                         <?php endwhile; ?>
                     </select>
                     <select name="jobtype" class="addSearch__form--selectBoxes-item" id="">
                         <option value="Not Listed">Any Type</option>
                         <?php while($row = $jobtypes->fetch_assoc()) : ?>                       
-                            <option value="<?php echo $row['name']; ?>"><?php echo $row['name']; ?></option>
+                            <option value="<?php echo $row['name']; ?>"><?php echo $row['jobType']; ?></option>
                         <?php endwhile; ?>
                     </select>
                     <select name="location" class="addSearch__form--selectBoxes-item" id="">
@@ -94,7 +95,7 @@
                         <?php endwhile; ?>
                     </select>
                 </div>
-                <input type="submit" name="submit" class="addSearch__form--selectBoxes-item" value="Submit" />
+                <input type="submit" name="submit" class="addSearch__form--selectBoxes-item btn btn__primary" value="Submit" />
             </form>
         </div>
 

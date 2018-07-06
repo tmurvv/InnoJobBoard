@@ -115,6 +115,8 @@
         </h2>
 
         <h3>Add/Edit/Delete Selectors</h3>
+        <h4>Editting a selector name changes all of the job listings using that selector.</h4>
+        <p>For example, editting the location selector "USA" to "New York" will change all of the current "USA" job listings to "New York".</p>
         <br>
         
         <div class="updateSelectors">
@@ -123,7 +125,7 @@
                 <form method="post" action="addeditselectors.php">
                     <input type="text" name="categoryvieworder" placeholder="View Order" class="btn updateSelectors__selector--item-order" />
                     <input type="text" name="category" placeholder="Add Category" class="btn" />
-                    <button type="submit" name="addcat">Add</button>
+                    <button class="btn btn__primary" type="submit" name="addcat">Add</button>
                 </form>
 
                 <table name="category" id="">
@@ -138,8 +140,10 @@
                                 <input name="category" value="<?php echo $row['category']; ?>" disabled />
                             </td>
                             <td>
-                                <button class="updateSelectors__selector--item-saveEdit btn btn__primary" type="button" onclick="startEditSelector(this);" style="opacity:1;visibility:visible">Edit</button>
-                                <button class="updateSelectors__selector--item-saveEdit btn btn__primary" type="submit" name="editcat" style="opacity:0;visibility:hidden">Save</button>
+                                <button class="updateSelectors__selector--item-saveEdit btn btn__primary" 
+                                type="button" onclick="startEditSelector(this);" 
+                                name="editcatstart">Edit</button>
+                                <!-- <button class="updateSelectors__selector--item-saveEdit btn btn__primary" type="submit" name="editcat" style="opacity:0;visibility:hidden">Save</button> -->
                             </td>
                             <td>
                                 <button type="submit" name="deletecat" class="btn btn_danger">Delete</button>
@@ -156,7 +160,7 @@
                 <form method="post" action="addeditselectors.php">
                     <input type="text" name="jobtypevieworder" placeholder="View Order" class="btn updateSelectors__selector--item-order" />
                     <input type="text" name="jobtype" placeholder="Add Job Type" class="btn" />
-                    <button type="submit" name="addjobtype">Add</button>
+                    <button class="btn btn__primary" type="submit" name="addjobtype">Add</button>
                 </form>
                 <table name="jobtypes" id="">
                     
@@ -189,7 +193,7 @@
                 <form method="post" action="addeditselectors.php">
                     <input type="text" name="locationvieworder" placeholder="View Order" class="btn updateSelectors__selector--item-order" />
                     <input type="text" name="location" placeholder="Add Location" class="btn" />
-                    <button type="submit" name="addlocation">Add</button>
+                    <button class="btn btn__primary" type="submit" name="addlocation">Add</button>
                 </form>
 
                 <table name="locations" id="">

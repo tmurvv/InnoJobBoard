@@ -8,7 +8,7 @@
             <a href="index.php">Jobs</a>
         </li>
         <li class="hero__mainNav--item">
-            <a href="admin.php">Admin</a>
+            <a href="" onclick="adminProtect();">Admin</a>
         </li>
         <li class="hero__mainNav--item">
             <a href="#about">About</a>

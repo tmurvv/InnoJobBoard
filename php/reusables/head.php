@@ -8,7 +8,8 @@
     <link rel="shortcut icon" href="img/favicon.png">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <script type="text/javascript" src="js\script.js"></script>
+    <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
+    <script type="text/javascript" src="js\script.js?118"></script>
 
     <title>InnoTech JobBoard</title>
 

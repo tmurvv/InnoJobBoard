@@ -86,33 +86,34 @@
                         <textarea name="description" id="" cols="100" rows="10" placeholder="Enter Job Description">
                             <?php echo $update['description']; ?>
                         </textarea>
+                        <script>CKEDITOR.replace( 'description' );</script>
                     </div>
 
                     <select name="category" class="addSearch__form--selectBoxes-item" id="">
                         
                         <?php while($row = $categories->fetch_assoc()) : ?>
-                        <?php if ($update['category'] === $row['name']) {
+                        <?php if ($update['category'] === $row['category']) {
                             $selected = 'selected';
                         }else{
                             $selected = "";
                         }
                         ?>
-                        <option value="<?php echo $row['name']; ?>" <?php echo $selected; ?>>
-                            <?php echo $row['name']; ?>
+                        <option value="<?php echo $row['category']; ?>" <?php echo $selected; ?>>
+                            <?php echo $row['category']; ?>
                         </option>
                         <?php endwhile; ?>
                         
                     </select>
                     <select name="jobtype" class="addSearch__form--selectBoxes-item" id="">
                         <?php while($row = $jobtypes->fetch_assoc()) : ?>
-                            <?php if ($update['jobtype'] === $row['name']) {
+                            <?php if ($update['jobtype'] === $row['jobType']) {
                                 $selected = 'selected';
                             }else{
                                 $selected = "";
                             }
                             ?>
-                            <option value="<?php echo $row['name']; ?>" <?php echo $selected; ?>>
-                                <?php echo $row['name']; ?>
+                            <option value="<?php echo $row['jobType']; ?>" <?php echo $selected; ?>>
+                                <?php echo $row['jobType']; ?>
                             </option>
                         <?php endwhile; ?>
                     </select>
