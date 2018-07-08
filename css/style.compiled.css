@@ -365,10 +365,17 @@ header {
     display: inline-flex;
     font-size: 15px; }
 
+table {
+  width: 100%; }
+
+.updateSelectorsHeading {
+  margin: 1.5rem; }
+
 .updateSelectors {
   display: flex;
   width: 100%;
-  justify-content: space-between; }
+  justify-content: space-between;
+  margin: 1.5rem; }
   .updateSelectors__selector {
     flex: 1; }
     .updateSelectors__selector--item-order {

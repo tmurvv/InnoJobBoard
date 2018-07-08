@@ -5,6 +5,9 @@
 <?php
     //Get message
     $msg = $_GET['msg'];
+    if($msg) {
+    header("Location: addeditselectors.php");
+    }
     //$msg = completeMsg($msg);
  
     $msg = completeMsg($msg);

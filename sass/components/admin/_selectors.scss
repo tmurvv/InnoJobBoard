@@ -1,16 +1,21 @@
+table {
+    width: 100%;
+}
+
+.updateSelectorsHeading {
+    margin: 1.5rem;
+}
 .updateSelectors {
-    //background-color: tomato;
     display: flex;
     width: 100%;
     justify-content: space-between;
-
-
+    margin:1.5rem;
     &__selector {
-        //background-color: slateblue;
+        
         flex: 1;
        
         &--item {
-          //background-color: lime;
+          
             &-order {
                 width: 1.5rem;
             }

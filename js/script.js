@@ -25,21 +25,24 @@ function adminProtect() {
 }  
 
 function startEditSelector(clickedItem) {
-    alert('imin: ' + clickedItem.name);
-    
+    if(clickedItem.innerHTML=="Edit"){
+        if(!confirm("Editing a category, job type, or location will change all of the job listings using that category, job type, or location.")){
+            return;
+        }
+    }
     var item=clickedItem.parentElement.previousElementSibling.children[0];
     var itemOrder=item.parentElement.previousElementSibling.children[0];
-    var saveButt=clickedItem.nextElementSibling;
-
-    item.disabled=false;
-    itemOrder.disabled=false;
-
-    if(clickedItem.innerHTML="Save"){
-        clickedItem.type="submit";
+    var itemContent=item.value;
+    var itemOrderContent=itemOrder.value;
+        
+    if(clickedItem.innerHTML=="Edit") { 
+        item.disabled=false;
+        itemOrder.disabled=false;  
+        clickedItem.innerHTML="Save";
+        return;
     } 
 
-    if(clickedItem.type="button") {   
-        clickedItem.innerHTML="Save";
-        clickedItem.name="editcat";
+    if(clickedItem.innerHTML=="Save"){
+        clickedItem.type="submit";      
     }     
 }

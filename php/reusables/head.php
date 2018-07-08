@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
-    <script type="text/javascript" src="js\script.js?118"></script>
+    <script type="text/javascript" src="js\script.js?130"></script>
 
     <title>InnoTech JobBoard</title>
 
