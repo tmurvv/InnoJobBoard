@@ -1,4 +1,27 @@
 .contact {
-    border: 2px solid magenta;
-}
+    width: 80%;
+    margin: auto 10% 1rem 10%;
+    font-size: 1rem;
+    line-height: normal;
 
+    &__campusInfo {
+        text-align: center;
+        &--firstLine>td {
+            font-weight: 600;         
+        }
+    }
+
+    & h2 {
+        text-align: center;
+        margin: 0 auto;
+        &:after {
+            display: block;
+            height: 2px;
+            background-color: $colorPrimary;
+            content: ' ';
+            width: 100px;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+    }
+}

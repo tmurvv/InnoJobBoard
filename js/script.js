@@ -25,24 +25,72 @@ function adminProtect() {
 }  
 
 function startEditSelector(clickedItem) {
-    if(clickedItem.innerHTML=="Edit"){
-        if(!confirm("Editing a category, job type, or location will change all of the job listings using that category, job type, or location.")){
+    var item;
+    var itemOrder;
+    var itemEdit;
+    var itemOrderEdit;
+    var cancelButton;
+    
+    if(clickedItem.innerHTML=="Edit") {
+        
+        item=clickedItem.parentElement.previousElementSibling.children[0];
+        itemOrder=item.parentElement.previousElementSibling.children[0];
+        itemEdit=clickedItem.parentElement.previousElementSibling.children[1];
+        itemOrderEdit=item.parentElement.previousElementSibling.children[1];
+        cancelButton=clickedItem.parentElement.nextElementSibling.children[0];
+        if(!confirm("Editing a " + item.name + " will change all of the job listings using that " + item.name + ".")){
             return;
         }
-    }
-    var item=clickedItem.parentElement.previousElementSibling.children[0];
-    var itemOrder=item.parentElement.previousElementSibling.children[0];
-    var itemContent=item.value;
-    var itemOrderContent=itemOrder.value;
-        
-    if(clickedItem.innerHTML=="Edit") { 
-        item.disabled=false;
-        itemOrder.disabled=false;  
+
+        item.hidden=true;
+        itemOrder.hidden=true;
+        itemEdit.hidden=false;
+        itemOrderEdit.hidden=false;
         clickedItem.innerHTML="Save";
+        cancelButton.innerHTML="Cancel";
         return;
-    } 
+    }
+
+    if(clickedItem.innerHTML=="Cancel"){
+        item=clickedItem.parentElement.previousElementSibling.previousElementSibling.children[0];
+        itemOrder=clickedItem.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.children[0];
+        itemEdit=clickedItem.parentElement.previousElementSibling.previousElementSibling.children[1];
+        itemOrderEdit=clickedItem.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.children[1];
+        cancelButton=clickedItem;
+
+        itemEdit.value=item.value;
+        itemOrderEdit.value=itemOrder.value;
+        itemOrder.hidden=false;
+        itemOrderEdit.hidden=true;
+        item.hidden=false;
+        itemEdit.hidden=true;
+        clickedItem.parentElement.previousElementSibling.children[0].innerHTML="Edit";
+        cancelButton.innerHTML="Delete";
+        return;       
+    }
+    if(clickedItem.innerHTML=="Delete"){
+        if(!confirm("Delete Item?")) {
+            return;
+        }
+        cancelButton.type="submit";
+    }
+    
 
     if(clickedItem.innerHTML=="Save"){
+        item=clickedItem.parentElement.previousElementSibling.children[0];
+        itemOrder=item.parentElement.previousElementSibling.children[0];
+        itemEdit=clickedItem.parentElement.previousElementSibling.children[1];
+        itemOrderEdit=item.parentElement.previousElementSibling.children[1];
+        cancelButton=clickedItem.parentElement.nextElementSibling.children[0];
+
+        item.value=itemEdit.value;
+        itemOrder.value=itemOrderEdit.value;
+        item.hidden=false;
+        itemOrder.hidden=false;
+        itemEdit.hidden=true;
+        itemOrderEdit.hidden=true;
+        cancelButton.innerHTML="Delete";
+        clickedItem.innerHTML="Edit";
         clickedItem.type="submit";      
     }     
 }

@@ -1,6 +1,7 @@
 .about {
     background-color: #e7e7e7;
-    margin-top: 1rem;
+    margin: 1rem auto 2rem auto;
+    padding-bottom: 2rem;
     &__container {
         width: 72%;
         margin: 0 auto;
@@ -8,6 +9,8 @@
         padding-bottom: .5rem;
         &>p {
             margin-top: 1rem;
+            font-size: 1rem;
+            line-height: normal;
             &>span {
                 color: $colorPrimary-light;
             }

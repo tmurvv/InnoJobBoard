@@ -111,53 +111,16 @@
     <!-- ABOUT -->
 
     <section class="about" id="about">
-        <div class="about__container">
-            <h2>About this website</h2>
-            <p>This Job<span>Board</span> was created by
-                <a href="https://www.linkedin.com/in/tisha-murvihill-tech" target="_blank">Tisha Murvihill</a>, a graduate of
-                <a href="https://www.innotechcollege.com" target="_blank">InnoTech College</a> in Calgary, Alberta, Canada. The layout is done in HTML5, CSS, and JavaScript.
-                This site keeps things sleek, simple, and fast by using only PHP and SQL for content management (no
-                WordPress et al.). Tisha can be reached at
-                <a href="http://www.take2tech.ca" target="_blank">tech@take2tech.ca</a>.</p>
-            <br>
-        </div>
+    <?php include 'php/reusables/about.php' ?>
     </section>
-
+    <!-- Contact -->
+<section>
+<?php include 'php/reusables/contact.php' ?>
+</section>
     <!-- FOOTER -->
-
-    <footer class="footer">
-        <div class="footer__topRow">
-            <ul class="footer__topRow--menu">
-                <li>
-                    <a href="#top">Home</a>
-                </li>
-                <li>
-                    <a href="#jobs">Job Listings</a>
-                </li>
-                <li>
-                    <a href="#search">Search</a>
-                </li>
-                <li>
-                    <a href="#about">About</a>
-                </li>
-            </ul>
-
-
-            <ul class="footer__topRow--contact">
-                <li>
-                    <a href="http://www.linkedin.com/in/tisha-murvihill-tech" target="_blank">
-                        <img src="../img/linkedIn.jpg" alt="linkedIn icon" class="footer__contact--linkedImage">
-                    </a>
-                </li>
-                <li>
-                    <a href="http://www.take2tech.ca" target="_blank">www.take2tech.ca</a>
-                </li>
-            </ul>
-        </div>
-
-        <p class="footer__copy">&copy; 2018 by take2tech.ca. All rights reserved.</p>
-
-    </footer>
-
+<section>
+<?php include 'php/reusables/footer.php' ?>
+</section>
+    
 </body>
 </html>

@@ -208,14 +208,17 @@ header {
 
 .about {
   background-color: #e7e7e7;
-  margin-top: 1rem; }
+  margin: 1rem auto 2rem auto;
+  padding-bottom: 2rem; }
   .about__container {
     width: 72%;
     margin: 0 auto;
     padding-top: 1.5rem;
     padding-bottom: .5rem; }
     .about__container > p {
-      margin-top: 1rem; }
+      margin-top: 1rem;
+      font-size: 1.4rem;
+      line-height: normal; }
       .about__container > p > span {
         color: #03abf8; }
       .about__container > p > a:link,
@@ -248,7 +251,23 @@ header {
   border-bottom: 2px solid #0584c0; }
 
 .contact {
-  border: 2px solid magenta; }
+  width: 80%;
+  margin: auto 10% 1rem 10%; }
+  .contact__campusInfo {
+    text-align: center; }
+    .contact__campusInfo--firstLine > td {
+      font-weight: 600; }
+  .contact h2 {
+    text-align: center;
+    margin: 0 auto; }
+    .contact h2:after {
+      display: block;
+      height: 2px;
+      background-color: #0584c0;
+      content: ' ';
+      width: 100px;
+      margin: 0 auto;
+      margin-top: 30px; }
 
 .search__form {
   padding: 40px 40px 0 40px;
