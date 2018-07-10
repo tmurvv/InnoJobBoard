@@ -1,5 +1,5 @@
 .listings {
-    padding: 0 20px 20px 20px;
+    padding: 0 2rem 0 2rem;
 
     &__job {
         display: flex; 
@@ -9,7 +9,7 @@
             align-self: center;
             justify-self: center;
             display: inline-flex;                     
-            margin: 20px;
+            margin: 2rem;
         }
 
         &--info {
@@ -23,17 +23,14 @@
                 display: flex;
                 &-datePosted {
                     font-style: italic;
-                    margin-left: 50px
+                    margin-left: 5rem;
                 }
             }
             
             &-description {
-                &>a {
+                &ReadMore {
                     color: $colorPrimary;
-                background-color: transparent;
-                padding:3px 5px;
-                font-size: 16px;
-                border-radius: 7px;
+                    font-size: .7rem;
                 }
             }
         }

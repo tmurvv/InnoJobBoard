@@ -97,7 +97,7 @@
                         <br>
                         <div class="listings__job--info-description">
                             <?php echo concatText($row['description']) ?>
-                            <a href="joblisting.php?id=<?php echo urlencode($row['id']); ?>">Read More</a>
+                            <a href="joblisting.php?id=<?php echo urlencode($row['id']); ?>" class="listings__job--info-descriptionReadMore">read more</a>
                         </div>
                     </div>
                 </div>
@@ -108,11 +108,7 @@
         </div>
     </div>
 
-    <!-- ABOUT -->
 
-    <section class="about" id="about">
-    <?php include 'php/reusables/about.php' ?>
-    </section>
     <!-- Contact -->
 <section>
 <?php include 'php/reusables/contact.php' ?>

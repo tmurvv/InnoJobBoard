@@ -1,16 +1,13 @@
 .about {
-    background-color: #e7e7e7;
-    margin: 1rem auto 2rem auto;
-    padding-bottom: 2rem;
     &__container {
-        width: 72%;
+        width: 100%;
         margin: 0 auto;
         padding-top: 1.5rem;
-        padding-bottom: .5rem;
         &>p {
             margin-top: 1rem;
             font-size: 1rem;
             line-height: normal;
+            padding: 0 10% .5rem 10%;
             &>span {
                 color: $colorPrimary-light;
             }
@@ -24,11 +21,27 @@
                 border-bottom: 2px solid transparent;
                 transition: border-bottom 0.4s;
             }
-
             &>a:hover,
             &>a:active {
-               
                 border-bottom: 2px solid $colorPrimary-light;
+            }
+        }
+        &--thisWebsite {
+            background-color: #e7e7e7;
+            padding-top: 1.5rem;
+            &>p {
+                
+                padding: 1.5rem 10%;
+                &>a:link,
+                &>a:visited {
+                    color: $colorPrimary;
+                    text-decoration: none;
+                }
+                &>a:hover,
+                &>a:active {
+                    color: $colorPrimary;
+                    border-bottom: 2px solid $colorPrimary;
+                }
             }
         }
         & h2 {
@@ -41,14 +54,8 @@
                 content: ' ';
                 width: 100px;
                 margin: 0 auto;
-                margin-top: 30px;
+                margin-top: 1.5rem;
             }
         }
     }
-}
-
-.section-about a:hover,
-.section-about a:active {
-    color: $colorPrimary;
-    border-bottom: 2px solid $colorPrimary;
 }

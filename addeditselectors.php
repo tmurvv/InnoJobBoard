@@ -38,6 +38,7 @@
         //Assign Vars   
         $category = mysqli_real_escape_string($db->link, $_POST['category']);
         $categoryViewOrder = mysqli_real_escape_string($db->link, $_POST['categoryvieworder']);
+        $oldCategory=mysqli_real_escape_string($db->link, $_POST['oldCategory']);
         
         //Simple validation
         
@@ -45,8 +46,8 @@
         $update = $db->update($query);
 
         //update all listings with changed category
-        // $query = "UPDATE categories SET category = '$category', categoryViewOrder = '$categoryViewOrder' WHERE id=".$id;      
-        // $update = $db->update($query);
+        $query = "UPDATE joblistings SET category = '$category' WHERE category='$oldCategory'";      
+        $update = $db->update($query);
     }
     if(isset($_POST['deletecat'])){
         
@@ -122,16 +123,12 @@
 <body>
     <?php include 'php/reusables/hero.php' ?>
     <div class="updateSelectorsHeading">
-        <h2 class="addJob__mainHeading">
-            Job<span>Board</span>
-        </h2>
+        <h2 class="addJob__mainHeading">Job<span>Board</span></h2>
 
         <h3>Add/Edit/Delete Selectors</h3>
-        <h4>To keep current job listings searchable, editing a selector name changes all of the job listings using that selector.</h4>
-        <p>For example, editing the location selector "USA" to "New York" will change all of the current "USA" job listings to "New York". You may wish to add a new selector instead. </p>
-    </div>  
+    </div>
     <div class="updateSelectors">
-        
+
         <div class="updateSelectors__selector">
             <h4>Categories</h4>
             <form method="post" action="addeditselectors.php">
@@ -162,6 +159,7 @@
                         <td>
                             <button type="button" name="deletecat" class="btn btn__danger" onclick="startEditSelector(this);">Delete</button>
                         </td>
+                        <input name="oldCategory" value="<?php echo $row['category']; ?>" hidden />
                     </tr>
                 </form>
                 <?php endwhile; ?>
@@ -246,39 +244,9 @@
     </div>
 
     <!-- FOOTER -->
-
-    <footer class="footer">
-        <div class="footer__topRow">
-            <ul class="footer__topRow--menu">
-                <li>
-                    <a href="#top">Home</a>
-                </li>
-                <li>
-                    <a href="#jobs">Jobs</a>
-                </li>
-                <li>
-                    <a href="#search">Search</a>
-                </li>
-                <li>
-                    <a href="#about">About</a>
-                </li>
-            </ul>
-
-            <ul class="footer__topRow--contact">
-                <li>
-                    <a href="http://www.linkedin.com/in/tisha-murvihill-tech" target="_blank">
-                        <img src="img/linkedIn.jpg" alt="linkedIn icon" class="footer__contact--linkedImage">
-                    </a>
-                </li>
-                <li>
-                    <a href="http://www.take2tech.ca" target="_blank">www.take2tech.ca</a>
-                </li>
-            </ul>
-        </div>
-
-        <p class="footer__copy">&copy; 2018 by take2tech.ca. All rights reserved.</p>
-
-    </footer>
+    <section>
+        <?php include 'php/reusables/footer.php' ?>
+    </section>
 
 </body>
 

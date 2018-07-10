@@ -38,14 +38,18 @@ function startEditSelector(clickedItem) {
         itemEdit=clickedItem.parentElement.previousElementSibling.children[1];
         itemOrderEdit=item.parentElement.previousElementSibling.children[1];
         cancelButton=clickedItem.parentElement.nextElementSibling.children[0];
-        if(!confirm("Editing a " + item.name + " will change all of the job listings using that " + item.name + ".")){
+        if(!confirm("Editing a " + item.name + " will cause all job listings not to be searchable by the old " + item.name + " name. You may wish to add a new category instead.")){
             return;
         }
+
+        itemEdit.value=item.value;
+        itemOrderEdit.value=itemOrder.value;
 
         item.hidden=true;
         itemOrder.hidden=true;
         itemEdit.hidden=false;
         itemOrderEdit.hidden=false;
+
         clickedItem.innerHTML="Save";
         cancelButton.innerHTML="Cancel";
         return;
