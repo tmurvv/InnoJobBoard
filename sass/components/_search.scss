@@ -1,6 +1,9 @@
 .search__form {
     padding: 40px 40px 0 40px;
     display: flex;
+    @include respond(portrait) {
+        flex-flow:column;
+    }
     
     &--title {
         flex: 1;
@@ -8,6 +11,9 @@
     &--selectBoxes {
         flex:5;
         display: flex;
+        @include respond(landscape) {
+            flex-flow:column;
+        }
         justify-content: flex-start;
 
         &-item {
@@ -15,7 +21,11 @@
             border-radius: 7px;
             outline: none;
             font-size: 16px;
-            margin-right: 40px;
+            margin-right: 4rem;
+            margin-top:.5rem;
+            @include respond(landscape) {
+                width:40%;
+            }
         }
     }
 }

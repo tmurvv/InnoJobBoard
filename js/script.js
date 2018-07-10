@@ -38,7 +38,7 @@ function startEditSelector(clickedItem) {
         itemEdit=clickedItem.parentElement.previousElementSibling.children[1];
         itemOrderEdit=item.parentElement.previousElementSibling.children[1];
         cancelButton=clickedItem.parentElement.nextElementSibling.children[0];
-        if(!confirm("Editing a " + item.name + " will cause all job listings not to be searchable by the old " + item.name + " name. You may wish to add a new category instead.")){
+        if(!confirm("Editing a " + item.name + " will cause all job listings not to be searchable by the old " + item.name + " name. You may wish to add a new " + item.name + " instead.")){
             return;
         }
 
@@ -52,6 +52,8 @@ function startEditSelector(clickedItem) {
 
         clickedItem.innerHTML="Save";
         cancelButton.innerHTML="Cancel";
+        cancelButton.style="background-color:yellow;color:#333";
+        
         return;
     }
 
@@ -70,6 +72,7 @@ function startEditSelector(clickedItem) {
         itemEdit.hidden=true;
         clickedItem.parentElement.previousElementSibling.children[0].innerHTML="Edit";
         cancelButton.innerHTML="Delete";
+        cancelButton.style="background-color:red;color:#fff";
         return;       
     }
     if(clickedItem.innerHTML=="Delete"){
@@ -94,6 +97,7 @@ function startEditSelector(clickedItem) {
         itemEdit.hidden=true;
         itemOrderEdit.hidden=true;
         cancelButton.innerHTML="Delete";
+        cancelButton.style="background-color:red;color:#fff";
         clickedItem.innerHTML="Edit";
         clickedItem.type="submit";      
     }     

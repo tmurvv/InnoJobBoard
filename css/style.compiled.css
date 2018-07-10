@@ -284,12 +284,19 @@ header {
     flex: 5;
     display: flex;
     justify-content: flex-start; }
+    @media only screen and (max-width: 75em) {
+      .search__form--selectBoxes {
+        flex-flow: column; } }
     .search__form--selectBoxes-item {
       padding: 5px 18px;
       border-radius: 7px;
       outline: none;
       font-size: 16px;
-      margin-right: 40px; }
+      margin-right: 4rem;
+      margin-top: .5rem; }
+      @media only screen and (max-width: 75em) {
+        .search__form--selectBoxes-item {
+          width: 40%; } }
 
 .listings {
   padding: 0 2rem 0 2rem; }
@@ -402,3 +409,5 @@ table {
     flex: 1; }
     .updateSelectors__selector--item-order {
       width: 1.5rem; }
+    .updateSelectors__selector > p {
+      font-size: .65rem; }

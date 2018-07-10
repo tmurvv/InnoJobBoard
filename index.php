@@ -59,7 +59,6 @@
             </div>
             <div class="search__form--selectBoxes">
                 <form action="index.php?this.options[this.selectedIndex].value" id="main" name="main" method="get">
-
                     <?php include 'php/reusables/selectors.php' ?>
                 </form>
             </div>

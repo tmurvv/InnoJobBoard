@@ -18,10 +18,11 @@ table {
           
             &-order {
                 width: 1.5rem;
-            }
-            &-saveEdit {
-                
             }          
+        }
+
+        &>p{
+            font-size: .65rem;
         }
     }
 }

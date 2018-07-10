@@ -131,6 +131,7 @@
 
         <div class="updateSelectors__selector">
             <h4>Categories</h4>
+            <p>Order | Category</p>
             <form method="post" action="addeditselectors.php">
                 <input type="text" name="categoryvieworder" placeholder="" class="btn updateSelectors__selector--item-order" />
                 <input type="text" name="category" placeholder="Add Category" class="btn" />
@@ -168,7 +169,7 @@
         </div>
         <div class="updateSelectors__selector">
             <h4>Job Types</h4>
-
+            <p>Order | Job Type</p>
             <form method="post" action="addeditselectors.php">
                 <input type="text" name="jobtypevieworder" placeholder="" class="btn updateSelectors__selector--item-order" />
                 <input type="text" name="jobtype" placeholder="Add Job Type" class="btn" />
@@ -205,7 +206,7 @@
         </div>
         <div class="updateSelectors__selector">
             <h4>Locations</h4>
-
+            <p>Order | Location</p>
             <form method="post" action="addeditselectors.php">
                 <input type="text" name="locationvieworder" placeholder="" class="btn updateSelectors__selector--item-order" />
                 <input type="text" name="location" placeholder="Add Location" class="btn" />
