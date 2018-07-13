@@ -16,8 +16,7 @@
             display: flex;
             @include respond(portrait) {
                 flex-flow: column;     
-            }
-            
+            }          
         }
         &--menu li,
         &--contact li {
@@ -25,8 +24,15 @@
             margin: 0 1.7rem;
             font-size: 120%;
 
+            @include respond(landscape) {               
+                margin: 0 1rem;          
+            }
             @include respond(portrait) {
                 font-size: 90%; 
+                margin: 0 0;          
+            }
+            @include respond(phone) {
+                font-size: 80%; 
                 margin: 0 0;          
             }
         }

@@ -1,9 +1,13 @@
 .hero {
     display: flex;
     justify-content: space-between;
+    position: relative;
     &__logo {
         height: 70px;
-        margin: 10px;
+        @include respond(portrait) {
+            height: 45px;
+        }
+        margin: 1rem;
         opacity: .85;
         border-radius: 6px;
     }
@@ -12,12 +16,24 @@
         display: flex;
         color: #fff;
         list-style: none;
-        height: 35px;
+        height: 3.5rem;
+        @include respond(portrait) {
+            display:none;
+            position: absolute;
+            top: .4rem;
+            right:0;
+            line-height: 1;           
+        }
         &--item>a {
-            margin-right: 20px;
+            margin-right: 2rem;
             color: #fff;
+            
             text-decoration: none;
             padding-bottom: 7px;
+            @include respond(portrait) {
+                color: $colorSecondary;
+                padding-bottom: 2px;
+            }
           
             &:link,
             &:visited {
@@ -28,9 +44,34 @@
             &:hover,
             &:active {
                 border-bottom: 1.5px solid #fff;
+                @include respond(portrait) {
+                    border-bottom: 1.5px solid $colorSecondary;                
+                }
             }
         }
     }
+    &__hamburger{
+        color: #fff;
+        
+        position: absolute;
+        top: .5rem;
+        right: 3rem;
+        visibility:hidden;
+        opacity: 0;
+        @include respond(portrait) {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+    &__hamburgerClose{
+        color: $colorSecondary;        
+        position: absolute;
+        top: .5rem;
+        right: 5.5rem;
+        visibility:hidden;
+        opacity: 0;
+    }
+    
 }
 
 .addNav__container {
@@ -56,5 +97,12 @@
         
     }
 
+}
+
+.fa-window-close {
+    color: $colorSecondary;        
+    position: absolute;
+    top: .5rem;
+    right: 2.5rem;
 }
 

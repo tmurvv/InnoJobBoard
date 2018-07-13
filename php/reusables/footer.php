@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li>
-                    website by: <a href="http://www.take2tech.ca" target="_blank">www.take2tech.ca</a>
+                    website by: <br><a href="http://www.take2tech.ca" target="_blank">www.take2tech.ca</a>
                 </li>
             </ul>
         </div>

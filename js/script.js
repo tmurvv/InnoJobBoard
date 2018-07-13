@@ -102,3 +102,28 @@ function startEditSelector(clickedItem) {
         clickedItem.type="submit";      
     }     
 }
+
+$(document).ready(function() {
+    /* Mobile navigation */
+    $('.js--mainNav-icon').click(function() {
+        var nav = $('.js--mainNav');
+        var icon = $('.js--mainNav-icon i');
+        
+        if (nav.css=("display","none")) {
+            nav.slideToggle(200);
+            nav.css=("display","block");
+        }else{
+            nav.css=("display","flex");
+            nav.slideToggle(200);           
+        }
+        
+        if (icon.hasClass('fa-bars')) {
+            icon.addClass('fa-window-close');
+            icon.removeClass('fa-bars');
+        } else {
+            icon.addClass('fa-bars');
+            icon.removeClass('fa-window-close');
+            
+        }        
+    });
+});

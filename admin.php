@@ -3,11 +3,11 @@
 <?php include 'php/helpers/controllers.php'; ?>
 <?php include 'php/helpers/formatting.php'; ?>
 <?php
-    //Get message
-    $msg = $_GET['msg'];
-    if($msg) {
-    header("Location: addeditselectors.php");
-    }
+    // //Get message
+    // $msg = $_GET['msg'];
+    // if($msg) {
+    // header("Location: addeditselectors.php");
+    // }
     //$msg = completeMsg($msg);
  
     $msg = completeMsg($msg);
@@ -123,22 +123,6 @@
         </div>
         </div>
         </div>
-
-        <!-- ABOUT -->
-
-        <section class="about" id="about">
-            <div class="about__container">
-                <h2>About this website</h2>
-                <p>This Job
-                  >Board</span> was created by
-                    <a href="https://www.linkedin.com/in/tisha-murvihill-tech" target="_blank">Tisha Murvihill</a>, a graduate of
-                    <a href="https://www.innotechcollege.com" target="_blank">InnoTech College</a> in Calgary, Alberta, Canada. The layout is done in HTML5, CSS, and JavaScript. This
-                    site keeps things sleek, simple, and fast by using only PHP and SQL for content management (no WordPress
-                    et al.). Tisha can be reached at
-                    <a href="http://www.take2tech.ca" target="_blank">tech@take2tech.ca</a>.</p>
-                <br>
-            </div>
-        </section>
 
           <!-- FOOTER -->
 

@@ -16,6 +16,20 @@ html {
     text-rendering: optimizeLegibility;
 }
 
+//style hr tags from codepen by Vinay Raghu
+hr {
+    height: 1px;
+    background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.8), rgba(0,0,0,0));
+    background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.8), rgba(0,0,0,0));
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.8), rgba(0,0,0,0));
+    border: 0;
+    color: #666;
+}
+hr:last-child {
+    visibility: hidden;
+    opacity: 0;
+}
+
 //BTW Media queries do not refer to the rem size we defined above.
 //We use ems in the mixin in order to get user changes in default settings into scope.  
 @include respond(landscape) {

@@ -1,8 +1,8 @@
 .search__form {
-    padding: 40px 40px 0 40px;
+    padding: 2rem 2rem;
     display: flex;
     @include respond(portrait) {
-        flex-flow:column;
+        display: block;
     }
     
     &--title {
@@ -25,6 +25,9 @@
             margin-top:.5rem;
             @include respond(landscape) {
                 width:40%;
+            }
+            @include respond(portrait) {
+                width:auto;
             }
         }
     }

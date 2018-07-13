@@ -1,6 +1,7 @@
 <?php
     $thisURL = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     $myMessage = $_GET['msg'];
+    
     if ($myMessage == "Record Added") {
         header("Location: admin.php?msg=added");  
     } 
@@ -9,7 +10,7 @@
     } 
     if ($myMessage == "Record Updated") {
         header("Location: admin.php?msg=updated");  
-    } 
+    }
 ?>
 <?php include 'php/config/config.php'; ?>
 <?php include 'php/classes/Database.php'; ?>
@@ -101,6 +102,7 @@
                     </div>
                 </div>
                 <br>
+                <hr class="soften">
                 <?php endwhile; ?>
                 <?php endif; ?>
             </div>
