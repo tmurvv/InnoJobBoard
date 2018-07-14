@@ -102,7 +102,7 @@
                     </div>
                 </div>
                 <br>
-                <hr class="soften">
+                <hr>
                 <?php endwhile; ?>
                 <?php endif; ?>
             </div>

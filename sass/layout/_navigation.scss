@@ -18,91 +18,110 @@
         list-style: none;
         height: 3.5rem;
         @include respond(portrait) {
-            display:none;
+            display: none;
             position: absolute;
             top: .4rem;
-            right:0;
-            line-height: 1;           
+            right: 0;
+            line-height: 1;
         }
         &--item>a {
             margin-right: 2rem;
             color: #fff;
-            
             text-decoration: none;
             padding-bottom: 7px;
             @include respond(portrait) {
                 color: $colorSecondary;
                 padding-bottom: 2px;
             }
-          
             &:link,
             &:visited {
                 border-bottom: 1px solid transparent;
                 transition: border-bottom .4s;
             }
-
             &:hover,
             &:active {
                 border-bottom: 1.5px solid #fff;
                 @include respond(portrait) {
-                    border-bottom: 1.5px solid $colorSecondary;                
+                    border-bottom: 1.5px solid $colorSecondary;
                 }
             }
         }
     }
-    &__hamburger{
+    &__hamburger {
         color: #fff;
-        
         position: absolute;
         top: .5rem;
         right: 3rem;
-        visibility:hidden;
+        visibility: hidden;
         opacity: 0;
         @include respond(portrait) {
             visibility: visible;
             opacity: 1;
         }
     }
-    &__hamburgerClose{
-        color: $colorSecondary;        
+    &__hamburgerClose {
+        color: $colorSecondary;
         position: absolute;
         top: .5rem;
         right: 5.5rem;
-        visibility:hidden;
+        visibility: hidden;
         opacity: 0;
     }
-    
 }
 
-.addNav__container {
-    display: flex;
-    padding: 5px;
-    list-style: none;          
-    background-color: $colorPrimary;
-    width: 100%;
-
-    &--item {
-        flex: 1; 
-        text-align: center; 
-        border: 1px solid $colorGrey-light1; 
-        &>a {
-            text-decoration: none;
-            color: $colorGrey-light1;
-
-            &:hover,
-            &:active {
-                transform: scale(1.2);
+.menus {
+    @include respond(portrait) {
+        display: flex;
+        border: 3px solid $colorPrimary;
+        justify-content: space-around;
+    }
+    @include respond(phone) {
+        display: block;
+        border:none;
+    }
+    &__addNav {
+        
+        &--container {
+            display: flex;
+            flex: 1;
+            height: 100%;
+            @include respond(portrait) {
+                flex-flow: column;
+                justify-content:stretch;
+                padding: 5px 2px;                            
+            }
+            @include respond(phone) {
+               
+                margin: 0;              
+            }
+            padding: 5px;
+            list-style: none;
+            background-color: $colorPrimary;
+            width: 100%;
+            &-item {
+                flex: 1;
+                text-align: center;
+                border: 1px solid $colorGrey-light1;
+                
+                @include respond(portrait) {
+                    padding: 11px 8px;
+                }
+                &>a {
+                    text-decoration: none;
+                    color: $colorGrey-light1;
+                    &:hover,
+                    &:active {
+                        transform: scale(1.2);
+                    }
+                }
             }
         }
-        
     }
-
 }
 
 .fa-window-close {
-    color: $colorSecondary;        
+    color: $colorSecondary;
     position: absolute;
     top: .5rem;
     right: 2.5rem;
 }
-

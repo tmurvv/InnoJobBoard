@@ -4,7 +4,7 @@
 
     &>p {
         border-radius: 7px;
-        padding: 3px 6px;
+        padding: 3px 5px;
     }
     &__primary {
         background-color: $colorPrimary;
@@ -20,7 +20,7 @@
     }
 
     &__danger {
-        background-color: red;
+        background-color: $colorDanger;
         color: $colorGrey-light1;
     }
 

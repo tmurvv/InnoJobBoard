@@ -3,6 +3,11 @@
     display: flex;
     @include respond(portrait) {
         display: block;
+        padding-top: 0;
+        flex:1;
+    }
+    @include respond(portrait) {
+        padding-top: 2rem;
     }
     
     &--title {

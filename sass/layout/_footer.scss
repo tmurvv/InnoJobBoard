@@ -1,7 +1,7 @@
 .footer {
     background-color: #333;
     padding: 2rem 3rem;
-    @include respond(smallPhone) {
+    @include respond(phone) {
         padding: 1rem 1rem;
     }
     &__topRow {
@@ -10,7 +10,12 @@
         
         &--menu {           
             text-transform: uppercase;
-        }    
+        } 
+        
+        &--contact {
+            text-align: right;
+        }
+        
         & ul {
             list-style: none;
             display: flex;
