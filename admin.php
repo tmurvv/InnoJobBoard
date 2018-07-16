@@ -54,10 +54,10 @@
                         <a href="addeditselectors.php">Update Categories</a>
                     </li>
                     <li class="menus__addNav--container-item">
-                        <a href="addeditselectors.php">Update Job Types</a>
+                        <a href="addeditselectors.php#jobTypes">Update Job Types</a>
                     </li>
                     <li class="menus__addNav--container-item">
-                        <a href="addeditselectors.php">Update Locations</a>
+                        <a href="addeditselectors.php#locations">Update Locations</a>
                     </li>
                 </ul>
             </div>

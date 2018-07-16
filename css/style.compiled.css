@@ -43,6 +43,9 @@ body {
 .btn {
   border-radius: 7px;
   padding: 3px 6px; }
+  @media only screen and (max-width: 37.5em) {
+    .btn {
+      font-size: 9px; } }
   .btn > p {
     border-radius: 7px;
     padding: 3px 5px; }
@@ -172,6 +175,9 @@ header {
     margin: 1rem;
     opacity: .85;
     border-radius: 6px; }
+    @media only screen and (max-width: 75em) {
+      .hero__logo {
+        height: 57.5px; } }
     @media only screen and (max-width: 56.25em) {
       .hero__logo {
         height: 45px; } }
@@ -188,6 +194,9 @@ header {
         top: .4rem;
         right: 0;
         line-height: 1; } }
+  @media only screen and (max-width: 56.25em) and (max-width: 37.5em) {
+    .hero__mainNav {
+      right: -2rem; } }
     .hero__mainNav--item > a {
       margin-right: 2rem;
       color: #fff;
@@ -212,6 +221,9 @@ header {
     right: 3rem;
     visibility: hidden;
     opacity: 0; }
+    @media only screen and (max-width: 37.5em) {
+      .hero__hamburger {
+        right: 1rem; } }
     @media only screen and (max-width: 56.25em) {
       .hero__hamburger {
         visibility: visible;
@@ -528,19 +540,40 @@ header {
     display: inline-flex;
     font-size: 15px; }
 
-table {
-  width: 100%; }
-
 .updateSelectorsHeading {
   margin: 1.5rem; }
 
 .updateSelectors {
   width: 50%;
-  margin: auto;
+  margin: auto auto 5rem auto;
   border: 5px double #0584c0;
-  padding: 1.5rem 3rem; }
+  padding: 0 3rem 1.5rem 3rem;
+  border-radius: 7px; }
+  @media only screen and (max-width: 75em) {
+    .updateSelectors {
+      width: 80%; } }
+  @media only screen and (max-width: 56.25em) {
+    .updateSelectors {
+      width: 96%;
+      padding: 0 1rem 1.5rem 1rem; } }
   .updateSelectors__selector {
-    margin: 0 auto 2rem auto; }
+    margin: 1.5rem auto 2rem auto; }
+    .updateSelectors__selector--add {
+      display: flex;
+      padding: 2px 4px; }
+      .updateSelectors__selector--add > :first-child {
+        flex: 1;
+        width: 100%;
+        text-align: center;
+        margin-right: 5px;
+        border-radius: 7px;
+        padding: 3px 5px; }
+      .updateSelectors__selector--add > :nth-child(2) {
+        flex: 7;
+        margin-right: 5px;
+        padding: 3px 5px; }
+      .updateSelectors__selector--add > :nth-child(3) {
+        flex: 2; }
     .updateSelectors__selector--item {
       display: flex;
       border-radius: 7px;
@@ -550,14 +583,14 @@ table {
         margin-right: 5px; }
         .updateSelectors__selector--item-order > input {
           width: 100%;
-          padding: 2px;
+          padding: 3px 5px;
           border-radius: 7px; }
       .updateSelectors__selector--item-itemName {
         flex: 7;
         margin-right: 5px; }
         .updateSelectors__selector--item-itemName > input {
           width: 100%;
-          padding: 2px;
+          padding: 3px 5px;
           border-radius: 7px; }
       .updateSelectors__selector--item-saveEdit {
         flex: 1; }

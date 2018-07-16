@@ -4,6 +4,9 @@
     position: relative;
     &__logo {
         height: 70px;
+        @include respond(landscape) {
+            height: 57.5px;
+        }
         @include respond(portrait) {
             height: 45px;
         }
@@ -22,6 +25,9 @@
             position: absolute;
             top: .4rem;
             right: 0;
+            @include respond(phone) {
+                right:-2rem;
+            }
             line-height: 1;
         }
         &--item>a {
@@ -52,6 +58,9 @@
         position: absolute;
         top: .5rem;
         right: 3rem;
+        @include respond(phone) {
+            right: 1rem;
+        }
         visibility: hidden;
         opacity: 0;
         @include respond(portrait) {

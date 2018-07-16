@@ -38,7 +38,7 @@ function startEditSelector(clickedItem) {
         itemEdit=clickedItem.parentElement.previousElementSibling.children[1];
         itemOrderEdit=item.parentElement.previousElementSibling.children[1];
         cancelButton=clickedItem.parentElement.nextElementSibling.children[0];
-        if(!confirm("Editing a " + item.name + " will cause all job listings not to be searchable by the old " + item.name + " name. You may wish to add a new " + item.name + " instead.")){
+        if(!confirm("Editing a " + item.name + " will cause all job listings with that " + item.name + " to be unsearchable by that" + item.name + ". You may wish to add a new " + item.name + " instead.")){
             return;
         }
 

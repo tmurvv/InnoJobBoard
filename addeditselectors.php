@@ -129,11 +129,11 @@
     </div>
     <div class="updateSelectors">
 
-        <div class="updateSelectors__selector">
-            <h4>Categories</h4>
-            <p>View Order | Category</p>
-            <form method="post" action="addeditselectors.php">
-                <input type="text" name="categoryvieworder" placeholder="" class="btn updateSelectors__selector--item-order" />
+        <div class="updateSelectors__selector" id="categories">
+            <h4>Update Categories</h4>
+            <p>SelectBox Order | Category</p>
+            <form class="updateSelectors__selector--add" method="post" action="addeditselectors.php">
+                <input type="text" name="categoryvieworder" placeholder="" />
                 <input type="text" name="category" placeholder="Add Category" class="btn" />
                 <button class="btn btn__primary" type="submit" name="addcat">Add</button>
             </form>
@@ -168,10 +168,10 @@
             </table>
         </div>
         <hr>
-        <div class="updateSelectors__selector">
-            <h4>Job Types</h4>
-            <p>Order | Job Type</p>
-            <form method="post" action="addeditselectors.php">
+        <div class="updateSelectors__selector" id="jobTypes">
+            <h4>Update Job Types</h4>
+            <p>SelectBox Order | Job Type</p>
+            <form class="updateSelectors__selector--add" method="post" action="addeditselectors.php">
                 <input type="text" name="jobtypevieworder" placeholder="" class="btn updateSelectors__selector--item-order" />
                 <input type="text" name="jobtype" placeholder="Add Job Type" class="btn" />
                 <button class="btn btn__primary" type="submit" name="addjobtype">Add</button>
@@ -206,16 +206,16 @@
 
         </div>
         <hr>
-        <div class="updateSelectors__selector">
-            <h4>Locations</h4>
-            <p>Order | Location</p>
-            <form method="post" action="addeditselectors.php">
+        <div class="updateSelectors__selector" id="locations">
+            <h4>Update Locations</h4>
+            <p>SelectBox Order | Location</p>
+            <form class="updateSelectors__selector--add" method="post" action="addeditselectors.php">
                 <input type="text" name="locationvieworder" placeholder="" class="btn updateSelectors__selector--item-order" />
                 <input type="text" name="location" placeholder="Add Location" class="btn" />
                 <button class="btn btn__primary" type="submit" name="addlocation">Add</button>
             </form>
 
-            <table name="locations" id="">
+            
 
                 <?php while($row = $locations->fetch_assoc()) : ?>
                 <form method="post" action="addeditselectors.php?id=<?php echo $row['id'] ?>">
@@ -241,8 +241,7 @@
                 </form>
                 <?php endwhile; ?>
 
-            </table>
-
+          
         </div>
     </div>
 
