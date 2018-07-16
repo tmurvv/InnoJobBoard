@@ -542,11 +542,28 @@ table {
   .updateSelectors__selector {
     margin: 0 auto 2rem auto; }
     .updateSelectors__selector--item {
+      display: flex;
       border-radius: 7px;
       padding: 2px 4px; }
       .updateSelectors__selector--item-order {
-        width: 16%; }
+        flex: 1;
+        margin-right: 5px; }
+        .updateSelectors__selector--item-order > input {
+          width: 100%;
+          padding: 2px;
+          border-radius: 7px; }
       .updateSelectors__selector--item-itemName {
-        width: 50%; }
+        flex: 7;
+        margin-right: 5px; }
+        .updateSelectors__selector--item-itemName > input {
+          width: 100%;
+          padding: 2px;
+          border-radius: 7px; }
+      .updateSelectors__selector--item-saveEdit {
+        flex: 1; }
+        .updateSelectors__selector--item-saveEdit > input {
+          width: 100%;
+          padding: 2px;
+          border-radius: 7px; }
     .updateSelectors__selector > p {
       font-size: .65rem; }

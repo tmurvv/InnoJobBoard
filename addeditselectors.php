@@ -131,7 +131,7 @@
 
         <div class="updateSelectors__selector">
             <h4>Categories</h4>
-            <p>Order | Category</p>
+            <p>View Order | Category</p>
             <form method="post" action="addeditselectors.php">
                 <input type="text" name="categoryvieworder" placeholder="" class="btn updateSelectors__selector--item-order" />
                 <input type="text" name="category" placeholder="Add Category" class="btn" />
@@ -142,26 +142,26 @@
 
                 <?php while($row = $categories->fetch_assoc()) : ?>
                 <form method="post" action="addeditselectors.php?id=<?php echo $row['id'] ?>">
-                    <tr class="updateSelectors__selector--item">
-                        <td>
-                            <input class="updateSelectors__selector--item-order" name="categoryvieworder" value="<?php echo $row['categoryViewOrder']; ?>"
+                    <div class="updateSelectors__selector--item">
+                        <div class="updateSelectors__selector--item-order">
+                            <input name="categoryvieworder" value="<?php echo $row['categoryViewOrder']; ?>"
                                 disabled />
-                            <input class="updateSelectors__selector--item-order" name="categoryvieworder" value="<?php echo $row['categoryViewOrder']; ?>"
+                            <input name="categoryvieworder" value="<?php echo $row['categoryViewOrder']; ?>"
                                 hidden />
-                        </td>
-                        <td class="updateSelectors__selector--item-itemName">
+                        </div>
+                        <div class="updateSelectors__selector--item-itemName">
                             <input name="category" value="<?php echo $row['category']; ?>" disabled />
                             <input name="category" id="categoryInitValue" value="<?php echo $row['category']; ?>" hidden />
-                        </td>
-                        <td>
-                            <button class="updateSelectors__selector--item-saveEdit btn btn__primary" type="button" onclick="startEditSelector(this);"
+                        </div>
+                        <div class="updateSelectors__selector--item-saveEdit">
+                            <button class="btn btn__primary" type="button" onclick="startEditSelector(this);"
                                 name="editcat">Edit</button>
-                        </td>
-                        <td>
+                        </div>
+                        <div class="updateSelectors__selector--item-saveEdit">
                             <button type="button" name="deletecat" class="btn btn__danger" onclick="startEditSelector(this);">Delete</button>
-                        </td>
+                        </div>
                         <input name="oldCategory" value="<?php echo $row['category']; ?>" hidden />
-                    </tr>
+                    </div>
                 </form>
                 <?php endwhile; ?>
 
@@ -180,25 +180,25 @@
 
                 <?php while($row = $jobtypes->fetch_assoc()) : ?>
                 <form method="post" action="addeditselectors.php?id=<?php echo $row['id'] ?>">
-                    <tr class="updateSelectors__selector--item">
-                        <td class="updateSelectors__selector--item-order">
+                    <div class="updateSelectors__selector--item">
+                        <div class="updateSelectors__selector--item-order">
                             <input name="jobtypevieworder" value="<?php echo $row['jobTypeViewOrder']; ?>"
                                 disabled />
                             <input name="jobtypevieworder" value="<?php echo $row['jobTypeViewOrder']; ?>"
                                 hidden />
-                        </td>
-                        <td>
+                        </div>
+                        <div class="updateSelectors__selector--item-itemName">
                             <input name="jobtype" value="<?php echo $row['jobType']; ?>" disabled />
                             <input name="jobtype" value="<?php echo $row['jobType']; ?>" hidden />
-                        </td>
-                        <td>
-                            <button class="updateSelectors__selector--item-saveEdit btn btn__primary" type="button" onclick="startEditSelector(this);"
+                        </div>
+                        <div class="updateSelectors__selector--item-saveEdit">
+                            <button class="btn btn__primary" type="button" onclick="startEditSelector(this);"
                                 name="editjobtype">Edit</button>
-                        </td>
-                        <td>
+                        </div>
+                        <div class="updateSelectors__selector--item-saveEdit">
                             <button type="button" name="deletejobtype" class="btn btn__danger" onclick="startEditSelector(this);">Delete</button>
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
                 </form>
                 <?php endwhile; ?>
 
@@ -219,25 +219,25 @@
 
                 <?php while($row = $locations->fetch_assoc()) : ?>
                 <form method="post" action="addeditselectors.php?id=<?php echo $row['id'] ?>">
-                    <tr class="updateSelectors__selector--item">
-                        <td>
-                            <input class="updateSelectors__selector--item-order" name="locationvieworder" value="<?php echo $row['locationViewOrder']; ?>"
+                    <div class="updateSelectors__selector--item">
+                        <div class="updateSelectors__selector--item-order">
+                            <input name="locationvieworder" value="<?php echo $row['locationViewOrder']; ?>"
                                 disabled/>
-                            <input class="updateSelectors__selector--item-order" name="locationvieworder" value="<?php echo $row['locationViewOrder']; ?>"
+                            <input name="locationvieworder" value="<?php echo $row['locationViewOrder']; ?>"
                                 hidden/>
-                        </td>
-                        <td>
+                        </div>
+                        <div class="updateSelectors__selector--item-itemName">
                             <input name="location" value="<?php echo $row['location']; ?>" disabled/>
                             <input name="location" value="<?php echo $row['location']; ?>" hidden/>
-                        </td>
-                        <td>
-                            <button class="updateSelectors__selector--item-saveEdit btn btn__primary" type="button" onclick="startEditSelector(this);"
+                        </div>
+                        <div class="updateSelectors__selector--item-saveEdit">
+                            <button class="btn btn__primary" type="button" onclick="startEditSelector(this);"
                                 name="editlocation">Edit</button>
-                        </td>
-                        <td>
+                        </div>
+                        <div class="updateSelectors__selector--item-saveEdit">
                             <button type="button" name="deletelocation" class="btn btn__danger" onclick="startEditSelector(this);">Delete</button>
-                        </td>
-                    </tr>
+                        </div>
+                    </div>
                 </form>
                 <?php endwhile; ?>
 

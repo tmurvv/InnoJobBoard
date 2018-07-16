@@ -15,15 +15,37 @@ table {
         margin: 0 auto 2rem auto;
        
         &--item {
+            display: flex;
             border-radius: 7px;
             padding: 2px 4px;
             &-order {
-                width: 16%;
+                flex:1;
+                margin-right: 5px;
+                &>input {
+                    width: 100%;
+                    padding: 2px;
+                    border-radius: 7px;
+                }
             }
             &-itemName {
-                width: 50%;
+                flex:7;
+                margin-right: 5px;
+                &>input {
+                    width: 100%;
+                    padding: 2px;
+                    border-radius: 7px;
+                }
+                
             }
-
+            &-saveEdit {
+                flex: 1;
+                
+                &>input {
+                    width: 100%;
+                    padding: 2px;
+                    border-radius: 7px;
+                }
+            }
         }
 
         &>p{
