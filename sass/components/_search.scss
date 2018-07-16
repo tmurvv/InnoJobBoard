@@ -5,8 +5,9 @@
         display: block;
         padding-top: 0;
         flex:1;
+        order:1;
     }
-    @include respond(portrait) {
+    @include respond(phone) {
         padding-top: 2rem;
     }
     

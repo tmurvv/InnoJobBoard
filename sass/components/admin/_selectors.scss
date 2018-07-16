@@ -6,19 +6,24 @@ table {
     margin: 1.5rem;
 }
 .updateSelectors {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    margin:1.5rem;
+    width: 50%;
+    margin: auto;
+    border: 5px double $colorPrimary;
+    padding: 1.5rem 3rem;
+
     &__selector {
-        
-        flex: 1;
+        margin: 0 auto 2rem auto;
        
         &--item {
-          
+            border-radius: 7px;
+            padding: 2px 4px;
             &-order {
-                width: 1.5rem;
-            }          
+                width: 16%;
+            }
+            &-itemName {
+                width: 50%;
+            }
+
         }
 
         &>p{

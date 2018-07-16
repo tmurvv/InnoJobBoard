@@ -149,7 +149,7 @@
                             <input class="updateSelectors__selector--item-order" name="categoryvieworder" value="<?php echo $row['categoryViewOrder']; ?>"
                                 hidden />
                         </td>
-                        <td>
+                        <td class="updateSelectors__selector--item-itemName">
                             <input name="category" value="<?php echo $row['category']; ?>" disabled />
                             <input name="category" id="categoryInitValue" value="<?php echo $row['category']; ?>" hidden />
                         </td>
@@ -167,6 +167,7 @@
 
             </table>
         </div>
+        <hr>
         <div class="updateSelectors__selector">
             <h4>Job Types</h4>
             <p>Order | Job Type</p>
@@ -180,10 +181,10 @@
                 <?php while($row = $jobtypes->fetch_assoc()) : ?>
                 <form method="post" action="addeditselectors.php?id=<?php echo $row['id'] ?>">
                     <tr class="updateSelectors__selector--item">
-                        <td>
-                            <input class="updateSelectors__selector--item-order" name="jobtypevieworder" value="<?php echo $row['jobTypeViewOrder']; ?>"
+                        <td class="updateSelectors__selector--item-order">
+                            <input name="jobtypevieworder" value="<?php echo $row['jobTypeViewOrder']; ?>"
                                 disabled />
-                            <input class="updateSelectors__selector--item-order" name="jobtypevieworder" value="<?php echo $row['jobTypeViewOrder']; ?>"
+                            <input name="jobtypevieworder" value="<?php echo $row['jobTypeViewOrder']; ?>"
                                 hidden />
                         </td>
                         <td>
@@ -204,6 +205,7 @@
             </table>
 
         </div>
+        <hr>
         <div class="updateSelectors__selector">
             <h4>Locations</h4>
             <p>Order | Location</p>

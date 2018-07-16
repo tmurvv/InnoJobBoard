@@ -60,10 +60,6 @@
         }
     }
     &__hamburgerClose {
-        color: $colorSecondary;
-        position: absolute;
-        top: .5rem;
-        right: 5.5rem;
         visibility: hidden;
         opacity: 0;
     }
@@ -80,7 +76,9 @@
         border:none;
     }
     &__addNav {
-        
+        @include respond(portrait) {
+            order: 2;
+        }
         &--container {
             display: flex;
             flex: 1;
@@ -90,8 +88,7 @@
                 justify-content:stretch;
                 padding: 5px 2px;                            
             }
-            @include respond(phone) {
-               
+            @include respond(phone) {              
                 margin: 0;              
             }
             padding: 5px;
@@ -105,6 +102,7 @@
                 
                 @include respond(portrait) {
                     padding: 11px 8px;
+                    
                 }
                 &>a {
                     text-decoration: none;
@@ -123,5 +121,5 @@
     color: $colorSecondary;
     position: absolute;
     top: .5rem;
-    right: 2.5rem;
+    right: 3.5rem;
 }
