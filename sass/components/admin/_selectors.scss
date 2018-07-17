@@ -70,6 +70,14 @@
                     width: 100%;
                     padding: 2px;
                     border-radius: 7px;
+                    @include respond(phone) {
+                        font-size: 9px;
+                    }
+                }
+                &>button {
+                    @include respond(phone) {
+                        font-size: 9px;
+                    }
                 }
             }
         }

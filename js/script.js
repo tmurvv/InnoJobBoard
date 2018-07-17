@@ -38,7 +38,7 @@ function startEditSelector(clickedItem) {
         itemEdit=clickedItem.parentElement.previousElementSibling.children[1];
         itemOrderEdit=item.parentElement.previousElementSibling.children[1];
         cancelButton=clickedItem.parentElement.nextElementSibling.children[0];
-        if(!confirm("Editing a " + item.name + " will cause all job listings with that " + item.name + " to be unsearchable by that" + item.name + ". You may wish to add a new " + item.name + " instead.")){
+        if(!confirm("Editing a " + item.name + " will cause all job listings with that " + item.name + " to be unsearchable by that " + item.name + ". You may wish to add a new " + item.name + " instead.")){
             return;
         }
 
@@ -79,7 +79,7 @@ function startEditSelector(clickedItem) {
         if(!confirm("Delete Item?")) {
             return;
         }
-        cancelButton.type="submit";
+        clickedItem.type="submit";
     }
     
 
@@ -109,21 +109,18 @@ $(document).ready(function() {
         var nav = $('.js--mainNav');
         var icon = $('.js--mainNav-icon i');
         
-        if (nav.css=("display","none")) {
-            nav.slideToggle(200);
-            nav.css=("display","block");
-        }else{
-            nav.css=("display","flex");
-            nav.slideToggle(200);           
-        }
-        
+        nav.slideToggle(200, function() {
+            if (nav.is(":hidden")) {
+                nav.removeAttr("style");               
+            }
+        });
+
         if (icon.hasClass('fa-bars')) {
             icon.addClass('fa-window-close');
-            icon.removeClass('fa-bars');
+            
         } else {
             icon.addClass('fa-bars');
-            icon.removeClass('fa-window-close');
-            
-        }        
+            icon.removeClass('fa-window-close');           
+        }             
     });
 });

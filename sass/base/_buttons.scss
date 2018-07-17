@@ -1,9 +1,6 @@
 .btn {
     border-radius: 7px;
     padding: 3px 6px;
-    @include respond(phone) {
-        font-size: 9px;
-    }
 
     &>p {
         border-radius: 7px;

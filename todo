@@ -3,5 +3,4 @@ when category updated, all job listings updated
 validations sanitizing on all edits and adds
 Make it so admin page does not open new window
 refactor add/edit selector css
-delete selector not working
 when window resized, main menu does not reappear after use of hamburger
