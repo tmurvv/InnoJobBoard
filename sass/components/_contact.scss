@@ -3,14 +3,21 @@
     line-height: normal;
     background-color: #e7e7e7;
     padding: 1.5rem 10%;
-
     &__campusInfo {
         text-align: center;
-        &--firstLine>td {
-            font-weight: 600;         
+        display: flex;
+        justify-content: space-around;
+        @include respond(phone) {
+            font-size: 14px;
+        }
+        &--campus {
+            padding: 3px;
+            text-align: center;
+            &-line1 {
+                font-weight: 600;
+            }
         }
     }
-
     & h2 {
         text-align: center;
         margin: 0 auto;

@@ -80,10 +80,10 @@
                     </div>
                     <div class="listings__job--info">
                         <div class="listings__job--info-line1">
-                            <h3>
+                            <h2>
                                 <?php echo $row['title'] ?>
                                 <?php echo $row['location'] ?>
-                            </h3>
+                            </h2>
                         </div>
                         <div class="listings__job--info-line2">
 

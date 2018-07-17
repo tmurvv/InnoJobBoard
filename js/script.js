@@ -10,7 +10,7 @@ function adminProtect() {
             history.go(-1);
         }
         if (pass1.toLowerCase() == "admin4014") {
-            //alert('Loading Admin Page');
+            //open admin window
             window.open("https://take2tech.ca/InnoTech/JobBoard/admin.php");
             break;
         } 
@@ -32,24 +32,29 @@ function startEditSelector(clickedItem) {
     var cancelButton;
     
     if(clickedItem.innerHTML=="Edit") {
-        
+        //define DOM elements
         item=clickedItem.parentElement.previousElementSibling.children[0];
         itemOrder=item.parentElement.previousElementSibling.children[0];
         itemEdit=clickedItem.parentElement.previousElementSibling.children[1];
         itemOrderEdit=item.parentElement.previousElementSibling.children[1];
         cancelButton=clickedItem.parentElement.nextElementSibling.children[0];
+
+        //confirm edit
         if(!confirm("Editing a " + item.name + " will cause all job listings with that " + item.name + " to be unsearchable by that " + item.name + ". You may wish to add a new " + item.name + " instead.")){
             return;
         }
 
+        //reset edit field values
         itemEdit.value=item.value;
         itemOrderEdit.value=itemOrder.value;
 
+        //show edit fields / hide original data fields
         item.hidden=true;
         itemOrder.hidden=true;
         itemEdit.hidden=false;
         itemOrderEdit.hidden=false;
 
+        //change button text and style
         clickedItem.innerHTML="Save";
         cancelButton.innerHTML="Cancel";
         cancelButton.style="background-color:yellow;color:#333";
@@ -58,14 +63,18 @@ function startEditSelector(clickedItem) {
     }
 
     if(clickedItem.innerHTML=="Cancel"){
+        //define DOM elements
         item=clickedItem.parentElement.previousElementSibling.previousElementSibling.children[0];
         itemOrder=clickedItem.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.children[0];
         itemEdit=clickedItem.parentElement.previousElementSibling.previousElementSibling.children[1];
         itemOrderEdit=clickedItem.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.children[1];
         cancelButton=clickedItem;
 
+        //reset edit fields values
         itemEdit.value=item.value;
         itemOrderEdit.value=itemOrder.value;
+
+        //show original data fields / hide edit fields
         itemOrder.hidden=false;
         itemOrderEdit.hidden=true;
         item.hidden=false;
@@ -84,18 +93,24 @@ function startEditSelector(clickedItem) {
     
 
     if(clickedItem.innerHTML=="Save"){
+        //define DOM elements
         item=clickedItem.parentElement.previousElementSibling.children[0];
         itemOrder=item.parentElement.previousElementSibling.children[0];
         itemEdit=clickedItem.parentElement.previousElementSibling.children[1];
         itemOrderEdit=item.parentElement.previousElementSibling.children[1];
         cancelButton=clickedItem.parentElement.nextElementSibling.children[0];
 
+        //change original data to new edit data
         item.value=itemEdit.value;
         itemOrder.value=itemOrderEdit.value;
+
+        //show original data fields / hide edit fields
         item.hidden=false;
         itemOrder.hidden=false;
         itemEdit.hidden=true;
         itemOrderEdit.hidden=true;
+
+        //change text and style of buttons
         cancelButton.innerHTML="Delete";
         cancelButton.style="background-color:red;color:#fff";
         clickedItem.innerHTML="Edit";
@@ -117,7 +132,7 @@ $(document).ready(function() {
 
         if (icon.hasClass('fa-bars')) {
             icon.addClass('fa-window-close');
-            
+            icon.removeClass('fa-bars');
         } else {
             icon.addClass('fa-bars');
             icon.removeClass('fa-window-close');           

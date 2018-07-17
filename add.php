@@ -30,24 +30,9 @@
     header("Location: admin.php", true, 301);
     
   }
-
-  //Create Category Query 
-  $query = "SELECT * FROM categories"; 
-  //Run Query 
-  $categories = $db->select($query); 
-
-  //Create Job Type Query 
-  $query = "SELECT * FROM jobtypes"; 
-  //Run Query 
-  $jobtypes = $db->select($query); 
-
-  //Create Location Query 
-  $query = "SELECT * FROM locations"; 
-  //Run Query 
-  $locations = $db->select($query); 
 ?>
-
-
+<!-- Create Selector Queries -->
+<?php include 'php/reusables/selectorQueries.php'; ?>
     <!DOCTYPE html>
 
     <html lang="en">
