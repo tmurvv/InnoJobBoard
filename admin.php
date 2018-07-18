@@ -3,13 +3,11 @@
 <?php include 'php/helpers/controllers.php'; ?>
 <?php include 'php/helpers/formatting.php'; ?>
 <?php
-    // //Get message
-    // $msg = $_GET['msg'];
+    //Get message
+    $msg = $_GET['msg'];
     // if($msg) {
     // header("Location: addeditselectors.php");
     // }
-    //$msg = completeMsg($msg);
- 
     $msg = completeMsg($msg);
 
   //Create DB Object

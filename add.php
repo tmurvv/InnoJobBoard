@@ -64,13 +64,13 @@
                     <select name="category" class="addSearch__form--selectBoxes-item" id="">
                     <option value="Not Listed">Any Category</option>
                         <?php while($row = $categories->fetch_assoc()) : ?>                    
-                            <option value="<?php echo $row['name']; ?>"><?php echo $row['category']; ?></option>
+                            <option value="<?php echo $row['category']; ?>"><?php echo $row['category']; ?></option>
                         <?php endwhile; ?>
                     </select>
                     <select name="jobtype" class="addSearch__form--selectBoxes-item" id="">
                         <option value="Not Listed">Any Type</option>
                         <?php while($row = $jobtypes->fetch_assoc()) : ?>                       
-                            <option value="<?php echo $row['name']; ?>"><?php echo $row['jobType']; ?></option>
+                            <option value="<?php echo $row['jobType']; ?>"><?php echo $row['jobType']; ?></option>
                         <?php endwhile; ?>
                     </select>
                     <select name="location" class="addSearch__form--selectBoxes-item" id="">

@@ -9,25 +9,25 @@
     $db = new Database();
 
     //Create Query
-  $query = "SELECT * FROM joblistings WHERE id = ".$id;
-  //Run Query
-  $update = $db->select($query)->fetch_assoc();
+    $query = "SELECT * FROM joblistings WHERE id = ".$id;
+    //Run Query
+    $update = $db->select($query)->fetch_assoc();
 
-    //Create Category Query 
-    $query = "SELECT * FROM categories"; 
-    //Run Query 
-    $categories = $db->select($query); 
+    // //Create Category Query 
+    // $query = "SELECT * FROM categories"; 
+    // //Run Query 
+    // $categories = $db->select($query); 
 
-    //Create Job Type Query 
-    $query = "SELECT * FROM jobtypes"; 
-    //Run Query 
-    $jobtypes = $db->select($query); 
+    // //Create Job Type Query 
+    // $query = "SELECT * FROM jobtypes"; 
+    // //Run Query 
+    // $jobtypes = $db->select($query); 
 
-    //Create Location Query 
-    $query = "SELECT * FROM locations"; 
-    //Run Query 
-    $locations = $db->select($query); 
-?>
+    // //Create Location Query 
+    // $query = "SELECT * FROM locations"; 
+    // //Run Query 
+    // $locations = $db->select($query); 
+?><?php include 'php/reusables/selectorQueries.php'; ?>
 <?php 
  if(isset($_POST['submit'])){
     //Assign Vars

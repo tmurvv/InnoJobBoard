@@ -28,7 +28,7 @@ function completeMsg($msg) {
             $msg = 'Item Updated Successfully';
             break;
         default:
-            $msg = 'No action taken. Please try again.';
+            $msg = 'An error occurred';
             break;
     }
     return $msg;

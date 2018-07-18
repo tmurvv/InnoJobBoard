@@ -497,14 +497,14 @@ header {
 
 .admin__messageBox {
   background-color: #0584c0;
-  padding: 10px 5px;
-  border-radius: 7px;
-  border: 1 solid #777;
+  padding: 5px 10px;
+  border: 7px double white;
   box-shadow: 2px 5px #eee;
   color: #f7f7f7;
-  width: 25%;
+  width: auto;
   text-align: center;
-  margin: 25px;
+  margin-bottom: 2.5rem;
+  margin-top: 0;
   display: inline-flex; }
 
 .admin__editDelete {

@@ -32,7 +32,7 @@
         <div class="deleteJob">
             <div class="deleteJob__ask">Delete Job Listing
                 <br>
-                <?php echo $delete['title']; ?>'? </div>
+                '<?php echo $delete['title']; ?>'? </div>
             <form method="post" action="delete.php?id=<?php echo $id; ?>">
                 <input name="delete" type="submit" class="btn btn__danger" value="Delete" />
             </form>

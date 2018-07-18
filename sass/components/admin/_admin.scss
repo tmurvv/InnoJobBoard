@@ -1,13 +1,13 @@
 .admin__messageBox {
     background-color: $colorPrimary;
-    padding: 10px 5px;
-    border-radius: 7px;
-    border: 1 solid $colorGrey-dark1;
+    padding: 5px 10px;
+    border: 7px double white;
     box-shadow: 2px 5px $colorGrey-light2;
     color: $colorGrey-light1;
-    width: 25%;
+    width: auto;
     text-align: center;
-    margin: 25px;
+    margin-bottom: 2.5rem;
+    margin-top: 0;
     display: inline-flex;
 }
 
