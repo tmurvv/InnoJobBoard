@@ -19,8 +19,9 @@
 <?php
 
   //Create DB Object
-  $db = new Database();
-  $categorySearchID = $_GET['category'];
+ //   $db = new Database();
+    $categorySearchID = $_GET['category'];
+
 
   //Initialize category search ID
   if(!$categorySearchID){
@@ -36,13 +37,23 @@
   }
   
   //Create Query
-  $query = createQuery($categorySearchID, $jobtypeSearchID, $locationSearchID);
+  //$query = createQuery($categorySearchID, $jobtypeSearchID, $locationSearchID); **original
   
   //Run Query
-  $listings = $db->select($query);
+  //$listings = $db->select($query);
+
+  $query="SELECT * FROM joblistings";
+  $statement = $db->prepare($query);
+  $statement->execute();
+  $listings=$statement->fetchAll();
+
+    foreach($listings as $row) {
+  echo $row['category']."<br />\n";
+    }
+
 ?>
 <!-- Create Selector Queries -->
-<?php include 'php/reusables/selectorQueries.php'; ?>
+<?php //include 'php/reusables/selectorQueries.php'; ?>
 
 <!DOCTYPE html>
 

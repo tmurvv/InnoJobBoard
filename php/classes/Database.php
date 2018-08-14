@@ -1,88 +1,16 @@
 <?php
-class Database{
-    public $host = DB_HOST;
-    public $username = DB_USER;
-    public $password = DB_PASS;
-    public $db_name = DB_NAME;
-
-    public $link;
-    public $error;
-
-    /*
-    * Class Constructor
-    */
-    public function __construct(){
-        //Call Connect Function
-        $this->connect();
-    }
-
-    /*
-    * Connector
-    */
-    private function connect(){
-        $this->link = new mysqli($this->host, $this->username, $this->password, $this->db_name);
-
-        if(!$this->link){
-            $this->error = "Connection Failed: ".$this->link->connect_error;
-            return false;
-        }
-    }
-
-    /*
-     * Select
-     */
-    public function select($query){
-        $result = $this->link->query($query) or die($this->link->error.__LINE__);
-        if($result->num_rows > 0){
-            return $result;
-        } else {
-            return false;
-        }
-    }
-
-    /*
-    * Insert
-    */
-    public function insert($query){
-        $insert_row = $this->link->query($query) or die($this->link->error.__LINE__);
-
-        //Validate Insert
-        if($insert_row){
-            header("Location: index.php?msg=".urlencode('Record Added'));
-            exit();
-        } else {
-            die('Error : ('. $this->link->errno .') '. $this->link->error);
-        }
-    }
+    defined('DB_HOST') or define('DB_HOST', 'localhost:3306');
+    defined('DB_USER') or define('DB_USER', 'tmurvvvv_admin');
+    defined('DB_PASS') or define('DB_PASS', 'jobboard4014');
+    defined('DB_NAME') or define('DB_NAME', 'tmurvvvv_innotechjobboard');
+    echo "hello";
     
-    /*
-     * Update
-     */
-    public function update($query){
-        $update_row = $this->link->query($query) or die($this->link->error.__LINE__);
-
-        //Validate Insert
-        if($update_row){
-            header("Location: index.php?msg=".urlencode('Record Updated'));
-            exit();
-        } else {
-            die('Error : ('. $this->link->errno .') '. $this->link->error);
-        }
-    }
-
-    /*
-    * Delete
-    */
-    public function delete($query){
-        $delete_row = $this->link->query($query) or die($this->link->error.__LINE__);
-
-        //Validate Insert
-        if($delete_row){
-            header("Location: index.php?msg=".urlencode('Record Deleted'));
-            exit();
-        } else {
-            die('Error : ('. $this->link->errno .') '. $this->link->error);
-        }
-    }
-
-}
+    try {
+        $db = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME,DB_USER,DB_PASS);
+    
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo "Connected to database";
+    } catch (PDOException $ex){
+        echo "Connection failed ".$ex->getMessage();
+    }      
+    
