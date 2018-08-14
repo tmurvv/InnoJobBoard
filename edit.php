@@ -13,20 +13,6 @@
     //Run Query
     $update = $db->select($query)->fetch_assoc();
 
-    // //Create Category Query 
-    // $query = "SELECT * FROM categories"; 
-    // //Run Query 
-    // $categories = $db->select($query); 
-
-    // //Create Job Type Query 
-    // $query = "SELECT * FROM jobtypes"; 
-    // //Run Query 
-    // $jobtypes = $db->select($query); 
-
-    // //Create Location Query 
-    // $query = "SELECT * FROM locations"; 
-    // //Run Query 
-    // $locations = $db->select($query); 
 ?><?php include 'php/reusables/selectorQueries.php'; ?>
 <?php 
  if(isset($_POST['submit'])){
@@ -92,12 +78,12 @@
                     <select name="category" class="addSearch__form--selectBoxes-item" id="">
                         
                         <?php while($row = $categories->fetch_assoc()) : ?>
-                        <?php if ($update['category'] === $row['category']) {
-                            $selected = 'selected';
-                        }else{
-                            $selected = "";
-                        }
-                        ?>
+                            <?php if ($update['category'] === $row['category']) {
+                                $selected = 'selected';
+                            }else{
+                                $selected = "";
+                            }
+                            ?>
                         <option value="<?php echo $row['category']; ?>" <?php echo $selected; ?>>
                             <?php echo $row['category']; ?>
                         </option>
