@@ -2,32 +2,59 @@
 <?php include 'php/classes/Database.php'; ?>
 <?php include 'php/helpers/formatting.php'; ?>
 <?php
-
-  //Create DB Object
-  $db = new Database();
-
   if(isset($_POST['submit'])){
     //Assign Vars
-    $title = mysqli_real_escape_string($db->link, $_POST['title']);
-    $description = mysqli_real_escape_string($db->link, $_POST['description']);
-    $dateposted = mysqli_real_escape_string($db->link, $_POST['dateposted']);
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $dateposted = $_POST['dateposted'];
     $newdateposted = new DateTime($dateposted);
-    $category = mysqli_real_escape_string($db->link, $_POST['category']);
-    $jobtype = mysqli_real_escape_string($db->link, $_POST['jobtype']);
-    $location = mysqli_real_escape_string($db->link, $_POST['location']);
+    $category = $_POST['category'];
+    $jobtype = $_POST['jobtype'];
+    $location = $_POST['location'];
     
     //Simple validation
-    //if($title == '' || $body == '' || $category == '' || $author == ''){
     if($title == ''){
       //Set error
       $error = 'Please fill out all required fields.';
     } else {
-      $query = "INSERT INTO joblistings
-                  (title, description, dateposted, category, jobtype, location)
-                  VALUES('$title', '$description', '$dateposted', '$category', '$jobtype', '$location')";
-      $insert_row = $db->insert($query);           
+
+    //Create Data
+    $newData = [
+        'title' => $title,
+        'description' => $description,
+        'newdateposted' => $newdateposted,
+        'category' => $category,
+        'jobtype' => $jobtype,
+        'location' => $location,
+        'id' => $id
+    ];
+    //Create Query
+    $sql = "INSERT INTO joblistings(  
+                title,
+                description, 
+                newdateposted, 
+                category, 
+                jobtype, 
+                location 
+                ) VALUES(
+                    :title,
+                    :description,
+                    :newdateposted,
+                    :category,
+                    :jobtype,
+                    :location                
+                )";
+    //Prepare and execute query
+    $stmt= $db->prepare($sql);
+    $stmt->execute($newData);
     }
-    header("Location: admin.php", true, 301);
+    header('Location: admin.php');
+    //   $query = "INSERT INTO joblistings
+    //               (title, description, dateposted, category, jobtype, location)
+    //               VALUES('$title', '$description', '$dateposted', '$category', '$jobtype', '$location')";
+    //   $insert_row = $db->insert($query);           
+    // }
+    // header("Location: admin.php", true, 301);
     
   }
 ?>
@@ -63,21 +90,21 @@
 
                     <select name="category" class="addSearch__form--selectBoxes-item" id="">
                     <option value="Not Listed">Any Category</option>
-                        <?php while($row = $categories->fetch_assoc()) : ?>                    
+                        <?php foreach($categories as $row) : ?>                    
                             <option value="<?php echo $row['category']; ?>"><?php echo $row['category']; ?></option>
-                        <?php endwhile; ?>
+                        <?php endforeach; ?>
                     </select>
                     <select name="jobtype" class="addSearch__form--selectBoxes-item" id="">
                         <option value="Not Listed">Any Type</option>
-                        <?php while($row = $jobtypes->fetch_assoc()) : ?>                       
+                        <?php foreach($jobTypes as $row) : ?>                       
                             <option value="<?php echo $row['jobType']; ?>"><?php echo $row['jobType']; ?></option>
-                        <?php endwhile; ?>
+                        <?php endforeach; ?>
                     </select>
                     <select name="location" class="addSearch__form--selectBoxes-item" id="">
                         <option value="Not Listed">Any Location</option>
-                        <?php while($row = $locations->fetch_assoc()) : ?>                       
+                        <?php foreach($locations as $row) : ?>                       
                             <option value="<?php echo $row['location']; ?>"><?php echo $row['location']; ?></option>
-                        <?php endwhile; ?>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <input type="submit" name="submit" class="addSearch__form--selectBoxes-item btn btn__primary" value="Submit" />

@@ -27,17 +27,7 @@
       //Set error
       $error = 'Please fill out all required fields.';
     } else {
-    //   $query = "UPDATE joblistings
-    //               SET
-    //               title = '$title',
-    //               description = '$description',
-    //               dateposted = '$dateposted',
-    //               category = '$category',
-    //               jobtype = '$jobtype',
-    //               location = '$location'
-    //               WHERE id=".$id;
-        
-    //   $update = $db->insert($query);
+    
 
     //Create Data
     $newData = [
@@ -49,6 +39,7 @@
         'location' => $location,
         'id' => $id
     ];
+    //Create Query
     $sql = "UPDATE joblistings SET 
                 title = :title,
                 description = :description,
@@ -57,6 +48,7 @@
                 jobtype = :jobtype,
                 location = :location 
                 WHERE id=:id";
+    //Prepare and execute query
     $stmt= $db->prepare($sql);
     $stmt->execute($newData);
     }
