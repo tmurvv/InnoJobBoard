@@ -5,44 +5,62 @@
     //Retrieve id for job editting
     $id = $_GET['id'];
 
-    //Create DB Object
-    $db = new Database();
-
     //Create Query
-    $query = "SELECT * FROM joblistings WHERE id = ".$id;
-    //Run Query
-    $update = $db->select($query)->fetch_assoc();
-
-?><?php include 'php/reusables/selectorQueries.php'; ?>
+    $query = "SELECT * FROM joblistings WHERE id = :id";
+    $statement = $db->prepare($query);
+    $statement->execute(array('id'=>$id));
+    $updateRecord=$statement->fetch();
+?>
+<?php include 'php/reusables/selectorQueries.php'; ?>
 <?php 
  if(isset($_POST['submit'])){
     //Assign Vars
-    $title = mysqli_real_escape_string($db->link, $_POST['title']);
-    $description = mysqli_real_escape_string($db->link, $_POST['description']);
-    $dateposted = mysqli_real_escape_string($db->link, $_POST['dateposted']);
-    $category = mysqli_real_escape_string($db->link, $_POST['category']);
-    $jobtype = mysqli_real_escape_string($db->link, $_POST['jobtype']);
-    $location = mysqli_real_escape_string($db->link, $_POST['location']);
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $dateposted = $_POST['dateposted'];
+    $category = $_POST['category'];
+    $jobtype = $_POST['jobtype'];
+    $location = $_POST['location'];
     
-    ob_start();
     //Simple validation
-    //if($title == '' || $body == '' || $category == '' || $author == ''){
     if($title == ''){
       //Set error
       $error = 'Please fill out all required fields.';
     } else {
-      $query = "UPDATE joblistings
-                  SET
-                  title = '$title',
-                  description = '$description',
-                  dateposted = '$dateposted',
-                  category = '$category',
-                  jobtype = '$jobtype',
-                  location = '$location'
-                  WHERE id=".$id;
+    //   $query = "UPDATE joblistings
+    //               SET
+    //               title = '$title',
+    //               description = '$description',
+    //               dateposted = '$dateposted',
+    //               category = '$category',
+    //               jobtype = '$jobtype',
+    //               location = '$location'
+    //               WHERE id=".$id;
         
-      $update = $db->insert($query);
+    //   $update = $db->insert($query);
+
+    //Create Data
+    $newData = [
+        'title' => $title,
+        'description' => $description,
+        'dateposted' => $dateposted,
+        'category' => $category,
+        'jobtype' => $jobtype,
+        'location' => $location,
+        'id' => $id
+    ];
+    $sql = "UPDATE joblistings SET 
+                title = :title,
+                description = :description,
+                dateposted = :dateposted,
+                category = :category,
+                jobtype = :jobtype,
+                location = :location 
+                WHERE id=:id";
+    $stmt= $db->prepare($sql);
+    $stmt->execute($newData);
     }
+    header('Location: admin.php?id='.$id);
 }
 ?>
 <!DOCTYPE html>
@@ -62,23 +80,24 @@
             <form method="post" action="edit.php?id=<?php echo $id; ?>">
                 <div class="addJob__job">
                     <div class="addJob__job--title">
-                        <input name="title" type="text" placeholder="Enter Job Title" value="<?php echo $update['title']; ?>">
+                        <input name="title" type="text" placeholder="Enter Job Title" value="<?php echo $updateRecord['title']; ?>">
                     </div>
                     <div class="addJob__job--datePosted">
-                        <input name="dateposted" type="date" value="<?php echo $update['dateposted']; ?>">
+                        <input name="dateposted" type="date" value="<?php echo $updateRecord['dateposted']; ?>">
                         <p style="display:inline; font-size:12px;"> Enter Date of Job Posting or Today's Date </p>
                     </div>
                     <div class="addJob__job--description">
                         <textarea name="description" id="" cols="100" rows="10" placeholder="Enter Job Description">
-                            <?php echo $update['description']; ?>
+                            <?php echo $updateRecord['description']; ?>
                         </textarea>
                         <script>CKEDITOR.replace( 'description' );</script>
                     </div>
 
                     <select name="category" class="addSearch__form--selectBoxes-item" id="">
                         
-                        <?php while($row = $categories->fetch_assoc()) : ?>
-                            <?php if ($update['category'] === $row['category']) {
+                        <!-- <?php //while($row = $categories->fetch_assoc()) : ?> -->
+                        <?php foreach($categories as $row) : ?>
+                            <?php if ($updateRecord['category'] === $row['category']) {
                                 $selected = 'selected';
                             }else{
                                 $selected = "";
@@ -87,12 +106,13 @@
                         <option value="<?php echo $row['category']; ?>" <?php echo $selected; ?>>
                             <?php echo $row['category']; ?>
                         </option>
-                        <?php endwhile; ?>
+                        <?php endforeach; ?>
                         
                     </select>
                     <select name="jobtype" class="addSearch__form--selectBoxes-item" id="">
-                        <?php while($row = $jobtypes->fetch_assoc()) : ?>
-                            <?php if ($update['jobtype'] === $row['jobType']) {
+                        
+                        <?php foreach($jobTypes as $row) : ?>
+                            <?php if ($updateRecord['jobtype'] === $row['jobType']) {
                                 $selected = 'selected';
                             }else{
                                 $selected = "";
@@ -101,11 +121,11 @@
                             <option value="<?php echo $row['jobType']; ?>" <?php echo $selected; ?>>
                                 <?php echo $row['jobType']; ?>
                             </option>
-                        <?php endwhile; ?>
+                        <?php endforeach; ?>
                     </select>
                     <select name="location" class="addSearch__form--selectBoxes-item" id="">
-                        <?php while($row = $locations->fetch_assoc()) : ?>
-                            <?php if ($update['location'] === $row['location']) {
+                    <?php foreach($locations as $row) : ?>
+                            <?php if ($updateRecord['location'] === $row['location']) {
                                 $selected = 'selected';
                             }else{
                                 $selected = "";
@@ -114,7 +134,7 @@
                             <option value="<?php echo $row['location']; ?>" <?php echo $selected; ?>>
                                 <?php echo $row['location']; ?>
                             </option>
-                        <?php endwhile; ?>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <input type="submit" name="submit" class="addSearch__form--selectBoxes-item btn btn__primary" value="Submit" />

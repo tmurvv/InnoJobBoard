@@ -11,7 +11,10 @@ function adminProtect() {
         }
         if (pass1.toLowerCase() == "admin4014") {
             //open admin window
-            window.open("https://take2tech.ca/InnoTech/JobBoard/admin.php");
+            //window.open("https://take2tech.ca/InnoTech/JobBoard/admin.php");
+
+            //for testing
+            window.open("https://take2tech.ca/TTT/JobBoardTestArea/admin.php");
             break;
         } 
         chances+=1;

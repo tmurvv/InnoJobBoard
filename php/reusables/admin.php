@@ -94,7 +94,6 @@
                         </div>
                         <div class="listings__job--info-line2">
 
-
                             <?php echo $row['category'] ?>
 
                             <div class="listings__job--info-line2-datePosted">

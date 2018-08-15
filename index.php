@@ -12,35 +12,31 @@
         header("Location: admin.php?msg=updated");  
     }
 ?>
-    <?php include 'php/config/config.php'; ?>
-    <?php include 'php/classes/Database.php'; ?>
-    <?php include 'php/helpers/controllers.php'; ?>
-    <?php include 'php/helpers/formatting.php'; ?>
-    <?php
-
-  //Create DB Object
- //   $db = new Database();
+<?php include 'php/config/config.php'; ?>
+<?php include 'php/classes/Database.php'; ?>
+<?php include 'php/helpers/controllers.php'; ?>
+<?php include 'php/helpers/formatting.php'; ?>
+<?php
     $categorySearchID = $_GET['category'];
 
-
-  //Initialize category search ID
-  if(!$categorySearchID){
-      $categorySearchID = "empty";
-  }
-  $jobtypeSearchID = $_GET['jobtype'];
-  if (!$jobtypeSearchID){
-      $jobtypeSearchID = "empty";
-  }
-  $locationSearchID = $_GET['location'];
-  if (!$locationSearchID){
-      $locationSearchID = "empty";
-  }
-  
-  //Create Query
-  $query=createQuery($categorySearchID, $jobtypeSearchID, $locationSearchID);
-  $statement = $db->prepare($query);
-  $statement->execute();
-  $listings=$statement->fetchAll();
+    //Initialize category search ID
+    if(!$categorySearchID){
+        $categorySearchID = "empty";
+    }
+    $jobtypeSearchID = $_GET['jobtype'];
+    if (!$jobtypeSearchID){
+        $jobtypeSearchID = "empty";
+    }
+    $locationSearchID = $_GET['location'];
+    if (!$locationSearchID){
+        $locationSearchID = "empty";
+    }
+    
+    //Create Query
+    $query=createQuery($categorySearchID, $jobtypeSearchID, $locationSearchID);
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $listings=$statement->fetchAll();
 ?>
 <!-- Create Selector Queries for search area select boxes-->
 <?php include 'php/reusables/selectorQueries.php'; ?>

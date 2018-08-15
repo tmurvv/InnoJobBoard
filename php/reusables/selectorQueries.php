@@ -1,5 +1,5 @@
 <?php
-  //Create Selector Queries
+  //Create queries to populate search select boxes
     //category query
     $query = "SELECT * FROM categories ORDER BY categoryViewOrder";
     $statement = $db->prepare($query);
