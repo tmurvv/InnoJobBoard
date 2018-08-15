@@ -1,18 +1,20 @@
 <?php
+  //Create Selector Queries
+    //category query
+    $query = "SELECT * FROM categories ORDER BY categoryViewOrder";
+    $statement = $db->prepare($query);
+    $statement->execute(array());
+    $categories=$statement->fetchAll();
 
-//Create Selector Queries
-  $query = "SELECT * FROM categories ORDER BY categoryViewOrder";
-  //Run Query
-  $categories = $db->select($query);
+    //Job Type query
+    $query = "SELECT * FROM jobtypes ORDER BY jobTypeViewOrder";
+    $statement = $db->prepare($query);
+    $statement->execute(array());
+    $jobTypes=$statement->fetchAll();
 
-  //Create Job Type Query 
-  $query = "SELECT * FROM jobtypes ORDER BY jobTypeViewOrder"; 
-  //Run Query 
-  $jobtypes = $db->select($query); 
-
-  //Create Location Query 
-  $query = "SELECT * FROM locations Order BY locationViewOrder"; 
-  //Run Query 
-  $locations = $db->select($query);
-
-  ?>
+    //Location query
+    $query = "SELECT * FROM locations ORDER BY locationViewOrder";
+    $statement = $db->prepare($query);
+    $statement->execute(array());
+    $locations=$statement->fetchAll();
+?>

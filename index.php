@@ -12,11 +12,11 @@
         header("Location: admin.php?msg=updated");  
     }
 ?>
-<?php include 'php/config/config.php'; ?>
-<?php include 'php/classes/Database.php'; ?>
-<?php include 'php/helpers/controllers.php'; ?>
-<?php include 'php/helpers/formatting.php'; ?>
-<?php
+    <?php include 'php/config/config.php'; ?>
+    <?php include 'php/classes/Database.php'; ?>
+    <?php include 'php/helpers/controllers.php'; ?>
+    <?php include 'php/helpers/formatting.php'; ?>
+    <?php
 
   //Create DB Object
  //   $db = new Database();
@@ -37,32 +37,20 @@
   }
   
   //Create Query
-  //$query = createQuery($categorySearchID, $jobtypeSearchID, $locationSearchID); **original
-  
-  //Run Query
-  //$listings = $db->select($query);
-
-  $query="SELECT * FROM joblistings";
+  $query=createQuery($categorySearchID, $jobtypeSearchID, $locationSearchID);
   $statement = $db->prepare($query);
   $statement->execute();
   $listings=$statement->fetchAll();
-
-    foreach($listings as $row) {
-  echo $row['category']."<br />\n";
-    }
-
 ?>
-<!-- Create Selector Queries -->
-<?php //include 'php/reusables/selectorQueries.php'; ?>
+<!-- Create Selector Queries for search area select boxes-->
+<?php include 'php/reusables/selectorQueries.php'; ?>
 
 <!DOCTYPE html>
-
 <html lang="en">
-
-<?php include 'php/reusables/head.php' ?>
+<?php include 'php/reusables/head.php'; ?>
 
 <body>
-    <?php include 'php/reusables/hero.php' ?>
+    <?php include 'php/reusables/hero.php'; ?>
 
     <div class="search">
         <div class="search__form">
@@ -71,18 +59,18 @@
             </div>
             <div class="search__form--selectBoxes">
                 <form action="index.php?this.options[this.selectedIndex].value" id="main" name="main" method="get">
-                    <?php include 'php/reusables/selectors.php' ?>
+                    <?php include 'php/reusables/selectors.php';?>                           
                 </form>
             </div>
-
         </div>
         <div class="mainBoard" id="jobs">
             <h1>
-                Job<span>Board</span>
+                Job
+                <span>Board</span>
             </h1>
             <div class="listings">
                 <?php if($listings) : ?>
-                <?php while($row = $listings->fetch_assoc()) : ?>
+                <?php foreach($listings as $row) : ?>
                 <div class="listings__job">
                     <div class="listings__job--type">
                         <p class="btn btn__secondary">
@@ -97,7 +85,6 @@
                             </h2>
                         </div>
                         <div class="listings__job--info-line2">
-
 
                             <?php echo $row['category'] ?>
 
@@ -114,7 +101,7 @@
                 </div>
                 <br>
                 <hr>
-                <?php endwhile; ?>
+                <?php endforeach; ?>
                 <?php endif; ?>
             </div>
         </div>
@@ -122,13 +109,14 @@
 
 
     <!-- Contact -->
-<section>
-<?php include 'php/reusables/contact.php' ?>
-</section>
+    <section>
+        <?php include 'php/reusables/contact.php' ?>
+    </section>
     <!-- FOOTER -->
-<section>
-<?php include 'php/reusables/footer.php' ?>
-</section>
-    
+    <section>
+        <?php include 'php/reusables/footer.php' ?>
+    </section>
+
 </body>
+
 </html>
