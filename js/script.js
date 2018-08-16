@@ -4,22 +4,20 @@
 
 function adminProtect() {
     var chances = 1;
-    var pass1 = prompt('Please Enter Your Password',' ');
+    var pass1 = prompt('Please Enter Your Password');
     while (chances < 7) {
         if (!pass1) {
             history.go(-1);
         }
         if (pass1.toLowerCase() == "admin4014") {
             //open admin window
-            //window.open("https://take2tech.ca/InnoTech/JobBoard/admin.php");
+            window.open("admin.php");
 
-            //for testing
-            window.open("https://take2tech.ca/TTT/JobBoardTestArea/admin.php");
             break;
         } 
         chances+=1;
         var pass1 = 
-        prompt('Password Incorrect, Please Try Again.','Password');
+        prompt('Password Incorrect, Please Try Again.');
     }
     if (pass1.toLowerCase()!="password" && chances ==7) {
         history.go(-1);

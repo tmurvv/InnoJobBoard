@@ -107,6 +107,7 @@
                     </select>
                 </div>
                 <input type="submit" name="submit" class="addSearch__form--selectBoxes-item btn btn__primary" value="Submit" />
+                <a href="admin.php" class="edit__cancel btn btn__secondary">Cancel</a>
             </form>
         </div>
 

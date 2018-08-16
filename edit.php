@@ -130,7 +130,7 @@
                     </select>
                 </div>
                 <input type="submit" name="submit" class="addSearch__form--selectBoxes-item btn btn__primary" value="Submit" />
-                <a href="index.php" class="edit__cancel btn btn__secondary">Cancel</a>
+                <a href="admin.php" class="edit__cancel btn btn__secondary">Cancel</a>
             </form>
         </div>
 

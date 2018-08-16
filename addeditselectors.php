@@ -35,7 +35,7 @@
     if(isset($_POST['editcat'])){
         //Assign Vars   
         $category = $_POST['category'];
-        $categoryViewOrder = $_POST['categoryvieworder'];
+        $categoryvieworder = $_POST['categoryvieworder'];
         $oldCategory= $_POST['oldCategory'];
         
         //Create Data
