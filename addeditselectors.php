@@ -4,114 +4,172 @@
 <?php
     //Retrieve id for edit/delete
     $id = $_GET['id'];
-
-    //Create DB Object
-    $db = new Database();
-
-    //Create Category Query 
-    $query = "SELECT * FROM categories ORDER BY categoryViewOrder"; 
-    //Run Query 
-    $categories = $db->select($query);
-    
-    //Create Job Type Query 
-    $query = "SELECT * FROM jobtypes ORDER BY jobTypeViewOrder"; 
-    //Run Query 
-    $jobtypes = $db->select($query); 
-
-    //Create Location Query 
-    $query = "SELECT * FROM locations ORDER BY locationViewOrder"; 
-    //Run Query 
-    $locations = $db->select($query); 
+    include 'php/reusables/selectorQueries.php';
 ?>
 <?php 
     if(isset($_POST['addcat'])){
         //Assign Vars   
-        $category = mysqli_real_escape_string($db->link, $_POST['category']);
-        $categoryViewOrder = mysqli_real_escape_string($db->link, $_POST['categoryvieworder']);
-        
-        //Simple validation
-        
-        $query = "INSERT INTO categories (category, categoryViewOrder) VALUES('$category', '$categoryViewOrder')";      
-        $insert = $db->insert($query);
+        $category = $_POST['category'];
+        $categoryvieworder = $_POST['categoryvieworder'];
+       
+        //Create Data
+        $newData = [
+            'category' => $category,
+            'categoryvieworder' => $categoryvieworder
+        ];
+
+        //Create Query
+        $sql = "INSERT INTO categories(  
+                    category,
+                    categoryvieworder
+                    ) VALUES(
+                        :category,
+                        :categoryvieworder      
+                    )";
+
+        //Prepare and execute query
+        $stmt= $db->prepare($sql);
+        $stmt->execute($newData);
+        header('Location: addeditselectors.php'); 
     }
     if(isset($_POST['editcat'])){
         //Assign Vars   
-        $category = mysqli_real_escape_string($db->link, $_POST['category']);
-        $categoryViewOrder = mysqli_real_escape_string($db->link, $_POST['categoryvieworder']);
-        $oldCategory=mysqli_real_escape_string($db->link, $_POST['oldCategory']);
+        $category = $_POST['category'];
+        $categoryViewOrder = $_POST['categoryvieworder'];
+        $oldCategory= $_POST['oldCategory'];
         
-        //Simple validation
-        
-        $query = "UPDATE categories SET category = '$category', categoryViewOrder = '$categoryViewOrder' WHERE id=".$id;      
-        $update = $db->update($query);
-
-        //update all listings with changed category
-        $query = "UPDATE joblistings SET category = '$category' WHERE category='$oldCategory'";      
-        $update = $db->update($query);
+        //Create Data
+        $newData = [
+            'category' => $category,
+            'categoryvieworder' => $categoryvieworder,
+            'id' => $id
+        ];
+        //Create Query
+        $sql = "UPDATE categories SET 
+                    category = :category,
+                    categoryvieworder = :categoryvieworder
+                    WHERE id=:id";
+        //Prepare and execute query
+        $stmt= $db->prepare($sql);
+        $stmt->execute($newData);
+        header('Location: addeditselectors.php');
     }
     if(isset($_POST['deletecat'])){
         
-        $query = "DELETE FROM categories WHERE id=".$id;      
-        $delete = $db->delete($query);
+        //Create delete query
+        $query = "DELETE FROM categories WHERE id = ".$id;
+        //Run delete query
+        $db->exec($query);
+        header("Location: addeditselectors.php");
     }
 
     if(isset($_POST['addjobtype'])){
         //Assign Vars   
-        $jobtype = mysqli_real_escape_string($db->link, $_POST['jobtype']);
-        $jobtypevieworder = mysqli_real_escape_string($db->link, $_POST['jobtypevieworder']);
+        $jobtype = $_POST['jobtype'];
+        $jobtypevieworder = $_POST['jobtypevieworder'];
         
-        //Simple validation
-        
-        $query = "INSERT INTO jobtypes (jobType, jobTypeViewOrder) VALUES('$jobtype', '$jobtypevieworder')";      
-        $insert = $db->insert($query);
+        //Create Data
+        $newData = [
+            'jobtype' => $jobtype,
+            'jobtypevieworder' => $jobtypevieworder
+        ];
+
+        //Create Query
+        $sql = "INSERT INTO jobtypes(  
+                    jobtype,
+                    jobtypevieworder
+                    ) VALUES(
+                        :jobtype,
+                        :jobtypevieworder      
+                    )";
+
+        //Prepare and execute query
+        $stmt= $db->prepare($sql);
+        $stmt->execute($newData);
+        header('Location: addeditselectors.php');
     }
     if(isset($_POST['editjobtype'])){
         //Assign Vars   
-        $jobtype = mysqli_real_escape_string($db->link, $_POST['jobtype']);       
-        $jobtypevieworder = mysqli_real_escape_string($db->link, $_POST['jobtypevieworder']);
+        $jobtype = $_POST['jobtype'];       
+        $jobtypevieworder = $_POST['jobtypevieworder'];
         
-        //Simple validation
-        
-        $query = "UPDATE jobtypes SET jobType = '$jobtype', jobTypeViewOrder = '$jobtypevieworder' WHERE id=".$id;      
-        $update = $db->update($query);
-
-        //update all listings with changed job type
-        // $query = "UPDATE jobtypes SET jobType = '$jobtype', jobTypeViewOrder = '$jobtypevieworder' WHERE id=".$id;      
-        // $update = $db->update($query);
+        //Create Data
+        $newData = [
+            'jobtype' => $jobtype,
+            'jobtypevieworder' => $jobtypevieworder,
+            'id' => $id
+        ];
+        //Create Query
+        $sql = "UPDATE jobtypes SET 
+                    jobtype = :jobtype,
+                    jobtypevieworder = :jobtypevieworder
+                    WHERE id=:id";
+        //Prepare and execute query
+        $stmt= $db->prepare($sql);
+        $stmt->execute($newData);
+        header('Location: addeditselectors.php');
     }
     if(isset($_POST['deletejobtype'])){
         
-        $query = "DELETE FROM jobtypes WHERE id=".$id;      
-        $delete = $db->delete($query);
+        //Create delete query
+        $query = "DELETE FROM jobtypes WHERE id = ".$id;
+        //Run delete query
+        $db->exec($query);
+        header("Location: addeditselectors.php");
     }
     if(isset($_POST['addlocation'])){
         //Assign Vars   
-        $location = mysqli_real_escape_string($db->link, $_POST['location']);
-        $locationvieworder = mysqli_real_escape_string($db->link, $_POST['locationvieworder']);
+        $location = $_POST['location'];
+        $locationvieworder = $_POST['locationvieworder'];
         
-        //Simple validation
-        
-        $query = "INSERT INTO locations (location, locationViewOrder) VALUES('$location', '$locationvieworder')";      
-        $insert = $db->insert($query);
+        //Create Data
+        $newData = [
+            'location' => $location,
+            'locationvieworder' => $locationvieworder
+        ];
+
+        //Create Query
+        $sql = "INSERT INTO locations(  
+                    location,
+                    locationvieworder
+                    ) VALUES(
+                        :location,
+                        :locationvieworder      
+                    )";
+
+        //Prepare and execute query
+        $stmt= $db->prepare($sql);
+        $stmt->execute($newData);
+        header('Location: addeditselectors.php');
     }
     if(isset($_POST['editlocation'])){
         //Assign Vars   
-        $location = mysqli_real_escape_string($db->link, $_POST['location']);
-        $locationvieworder = mysqli_real_escape_string($db->link, $_POST['locationvieworder']);
+        $location = $_POST['location'];
+        $locationvieworder = $_POST['locationvieworder'];
         
-        //Simple validation
-        
-        $query = "UPDATE locations SET location = '$location', locationViewOrder = '$locationvieworder' WHERE id=".$id;      
-        $update = $db->update($query);
-
-        //update all listings with changed location
-        // $query = "UPDATE locations SET location = '$location', locationViewOrder = '$locationvieworder' WHERE id=".$id;      
-        // $update = $db->update($query);
+        //Create Data
+        $newData = [
+            'location' => $location,
+            'locationvieworder' => $locationvieworder,
+            'id' => $id
+        ];
+        //Create Query
+        $sql = "UPDATE locations SET 
+                    location = :location,
+                    locationvieworder = :locationvieworder
+                    WHERE id=:id";
+        //Prepare and execute query
+        $stmt= $db->prepare($sql);
+        $stmt->execute($newData);
+        header('Location: addeditselectors.php');
     }
     if(isset($_POST['deletelocation'])){
         
-        $query = "DELETE FROM locations WHERE id=".$id;      
-        $delete = $db->delete($query);
+        //Create delete query
+        $query = "DELETE FROM locations WHERE id = ".$id;
+        //Run delete query
+        $db->exec($query);
+        header("Location: addeditselectors.php");
     }
 ?>
 <!DOCTYPE html>
@@ -140,7 +198,7 @@
 
             <table name="category">
 
-                <?php while($row = $categories->fetch_assoc()) : ?>
+                <?php foreach($categories as $row) : ?>
                 <form method="post" action="addeditselectors.php?id=<?php echo $row['id'] ?>">
                     <div class="updateSelectors__selector--item">
                         <div class="updateSelectors__selector--item-order">
@@ -163,7 +221,7 @@
                         <input name="oldCategory" value="<?php echo $row['category']; ?>" hidden />
                     </div>
                 </form>
-                <?php endwhile; ?>
+                <?php endforeach; ?>
 
             </table>
         </div>
@@ -178,7 +236,7 @@
             </form>
             <table name="jobtypes" id="">
 
-                <?php while($row = $jobtypes->fetch_assoc()) : ?>
+                <?php foreach($jobTypes as $row) : ?>
                 <form method="post" action="addeditselectors.php?id=<?php echo $row['id'] ?>">
                     <div class="updateSelectors__selector--item">
                         <div class="updateSelectors__selector--item-order">
@@ -200,7 +258,7 @@
                         </div>
                     </div>
                 </form>
-                <?php endwhile; ?>
+                <?php endforeach; ?>
 
             </table>
 
@@ -215,9 +273,7 @@
                 <button class="btn btn__primary" type="submit" name="addlocation">Add</button>
             </form>
 
-            
-
-                <?php while($row = $locations->fetch_assoc()) : ?>
+                <?php foreach($locations as $row) : ?>
                 <form method="post" action="addeditselectors.php?id=<?php echo $row['id'] ?>">
                     <div class="updateSelectors__selector--item">
                         <div class="updateSelectors__selector--item-order">
@@ -239,9 +295,7 @@
                         </div>
                     </div>
                 </form>
-                <?php endwhile; ?>
-
-          
+                <?php endforeach; ?>         
         </div>
     </div>
 
