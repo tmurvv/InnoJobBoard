@@ -7,7 +7,6 @@
     $title = $_POST['title'];
     $description = $_POST['description'];
     $dateposted = $_POST['dateposted'];
-    $newdateposted = new DateTime($dateposted);
     $category = $_POST['category'];
     $jobtype = $_POST['jobtype'];
     $location = $_POST['location'];
@@ -22,33 +21,33 @@
     $newData = [
         'title' => $title,
         'description' => $description,
-        'newdateposted' => $newdateposted,
+        'dateposted' => $dateposted,
         'category' => $category,
         'jobtype' => $jobtype,
-        'location' => $location,
-        'id' => $id
+        'location' => $location
     ];
     //Create Query
     $sql = "INSERT INTO joblistings(  
                 title,
                 description, 
-                newdateposted, 
+                dateposted, 
                 category, 
                 jobtype, 
                 location 
                 ) VALUES(
                     :title,
                     :description,
-                    :newdateposted,
+                    :dateposted,
                     :category,
                     :jobtype,
                     :location                
                 )";
     //Prepare and execute query
     $stmt= $db->prepare($sql);
-    $stmt->execute($newData);
+    $stmt->execute($newData); 
+    $last_id = $db->lastInsertId();
     }
-    header('Location: admin.php');
+    header('Location: joblisting.php?id='.$last_id);
     //   $query = "INSERT INTO joblistings
     //               (title, description, dateposted, category, jobtype, location)
     //               VALUES('$title', '$description', '$dateposted', '$category', '$jobtype', '$location')";

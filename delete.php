@@ -4,21 +4,20 @@
 <?php
     //Retrieve id for job editting
     $id = $_GET['id'];
-
-    //Create DB Object
-    $db = new Database();
-    
+  
     //Create Query
-        $query = "SELECT * FROM joblistings WHERE id = ".$id;
-        //Run Query
-        $delete = $db->select($query)->fetch_assoc();
+    $query = "SELECT * FROM joblistings WHERE id = :id";
+    $statement = $db->prepare($query);
+    $statement->execute(array('id'=>$id));
+    $delete=$statement->fetch();
 
     if(isset($_POST['delete'])){
         
         //Create delete query
         $query = "DELETE FROM joblistings WHERE id = ".$id;
         //Run delete query
-        $delete_row = $db->delete($query);
+        $db->exec($query);
+        header("Location: admin.php");
     }
 ?>
     <!DOCTYPE html>
