@@ -1,5 +1,5 @@
 <div class="hero" id='home'>
-    <img class="hero__logo" src="img/Innotech.png" alt="InnoTech College Logo">
+    <a href="index.php"><img class="hero__logo" src="img/Innotech.png" alt="InnoTech College Logo"></a>
     <ul class="hero__mainNav js--mainNav">
         <li class="hero__mainNav--item">
             <a href="index.php">Home</a>
@@ -8,7 +8,7 @@
             <a href="index.php">Jobs</a>
         </li>
         <li class="hero__mainNav--item">
-            <a href="" onclick="adminProtect();">Admin</a>
+            <a href="adminLogin.php">Admin</a>
         </li>
         <li class="hero__mainNav--item">
             <a href="about.php">About</a>
