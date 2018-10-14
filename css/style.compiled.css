@@ -400,6 +400,16 @@ header {
       margin: 0 auto;
       margin-top: 30px; }
 
+.mainContainer--map {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  margin-left: 12%; }
+
+@media only screen and (max-width: 64em) {
+  .mainContainer--map {
+    margin-left: 8%; } }
+
 .search__form {
   padding: 2rem 2rem;
   display: flex; }
