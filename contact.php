@@ -1,54 +1,22 @@
 <!doctype html>
 <html>
 <head>
-
     <?php include 'php/reusables/head.php' ?>
-    <style>
-        #block-wrp {
-        display: flex;
-        display: -webkit-flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        width: 80%;
-        margin: auto;
-        }
-        #block-wrp .block-item {
-        height: 400px;
-        width: 48%;
-        position: relative;
-        display: flex;
-        display: -webkit-flex;
-        flex-direction: column;
-        -webkit-flex-direction: column
-        }
-        #block-wrp .block-item .map-item {
-        height: 90%
-        }
-        #block-wrp .block-item span.city-name {
-        text-align: center;
-        color: #000;
-        text-transform: uppercase;
-        font-weight: bold;
-        background: #a2ccff;
-        height: 10%;
-        line-height: 2em;
-        }
-    </style>
 </head>
 <body>
     <?php include 'php/reusables/hero.php' ?>
-    <div style="background-color: #e7e7e7;">
+    <div class="contactPage">
         <?php include 'php/reusables/contact.php' ?>
-        <div id="block-wrp">
-            <div class="block-item">
-                <div id="mapCanvas1" class="map-item">
+        <div class="contactPage__mapBlock">
+            <div class="contactPage__mapBlock--mapInstance">
+                <div id="mapCanvas1" class="contactPage__mapBlock--mapInstance-mapItem">
                 </div>
-                <span class="city-name">Calgary Campus</span> 
+                <span class="contactPage__mapBlock--mapInstance-cityName">Calgary Campus</span> 
             </div>
-            <div class="block-item">
-                <div id="mapCanvas2" class="map-item"> 
+            <div class="contactPage__mapBlock--mapInstance">
+                <div id="mapCanvas2" class="contactPage__mapBlock--mapInstance-mapItem"> 
                 </div>
-                <span class="city-name">Edmonton Campus</span> 
+                <span class="contactPage__mapBlock--mapInstance-cityName">Edmonton Campus</span> 
             </div>
         </div>
         <script type="text/javascript">
