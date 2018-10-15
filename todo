@@ -1,3 +1,5 @@
+contact menu select no work on mobile
+responsive design on contact page
 validations sanitizing on all edits and adds
 Make it so admin page does not open new window
 refactor add/edit selector css

@@ -2,23 +2,20 @@
         <div class="footer__topRow">
             <ul class="footer__topRow--menu">
                 <li>
-                    <a href="#top">Home</a>
+                    <a href="index.php">Job Listings</a>
                 </li>
                 <li>
-                    <a href="#jobs">Job Listings</a>
+                    <a href="adminLogin.php">Admin</a>
                 </li>
                 <li>
-                    <a href="#search">Search</a>
+                    <a href="about.php">About</a>
                 </li>
                 <li>
-                    <a href="#about">About</a>
+                    <a href="contact.php">Contact</a>
                 </li>
             </ul>
-
-
-            
         </div>
 
-        <p class="footer__copy">&copy; 2018 by <a href="www.take2tech.ca">take2tech.ca</a>. All rights reserved.</p>
+        <p class="footer__copy">&copy; 2018 by <a href="https://www.take2tech.ca/index.php">take2tech.ca</a>. All rights reserved.</p>
 
     </footer>
