@@ -1,7 +1,7 @@
 <?php
     //Start the session
     session_start();
-    $result='';
+    $_SESSION['result']='';
 
     //Validate Admin Token
     if (!$_SESSION['adminToken'] == '4a70afd6-96f1-4e36-b3cd-92288096e5e8') {
@@ -32,7 +32,7 @@
     //Simple validation
     if($title == ''){
       //Set error
-      $result = 'Job Title is a required field.';
+      $_SESSION['result'] = 'Job Title is a required field.';
     } else {
 
         //Create Data
@@ -65,7 +65,7 @@
             $stmt->execute($newData); 
             $last_id = $db->lastInsertId();
         }catch(PDOException $error){
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }       
         header('Location: joblisting.php?id='.$last_id);   
     }
@@ -76,7 +76,7 @@
     try{
         include 'php/reusables/selectorQueries.php';
     }catch(PDOException $_COOKIE) {
-        $result = "An error occurred.";
+        $_SESSION['result'] = "An error occurred.";
     }
 ?>
 <!DOCTYPE html>
@@ -85,7 +85,7 @@
         try{
             include 'php/reusables/head.php';
         }catch(PDOException $ex){
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
     ?>
 <body>
@@ -93,7 +93,7 @@
         try{
             include 'php/reusables/hero.php';
         }catch(PDOException $ex){
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
     ?>
     <div class="addJob">
@@ -101,11 +101,11 @@
             Job<span>Board</span>
         </h2>
         <?php 
-            if(!$result==''){
+            if(!$_SESSION['result']==''){
                 echo "<div class='messageBox'><h3>";
-                echo $result; 
+                echo $_SESSION['result']; 
                 echo "</h3></div>";
-                $result = ""; 
+                $_SESSION['result'] = ""; 
             }
         ?>
         <h3>New Job Listing</h3>
@@ -152,7 +152,7 @@
         try{
             include 'php/reusables/footer.php'; 
         }catch(PDOException $ex) {
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
     ?>
 </section>

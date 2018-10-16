@@ -1,7 +1,7 @@
 <?php 
     //Start the session
     session_start();
-    $result='';
+    $_SESSION['result']='';
      
     try{
         include 'php/config/config.php';
@@ -32,7 +32,7 @@
     try{
         include 'php/reusables/selectorQueries.php';
     }catch(PDOException $ex){
-        $result = "File not found. Please contact the system administrator.";
+        $_SESSION['result'] = "File not found. Please contact the system administrator.";
     }    
  ?>
 <?php 
@@ -86,7 +86,7 @@
         try{
             include 'php/reusables/head.php';
         }catch(PDOException $ex){
-            $result = "File not found. Please contact the system administrator.";
+            $_SESSION['result'] = "File not found. Please contact the system administrator.";
         }    
     ?>
 </head>
@@ -95,7 +95,7 @@
         try{
             include 'php/reusables/hero.php';
         }catch(PDOException $ex){
-            $result = "File not found. Please contact the system administrator.";
+            $_SESSION['result'] = "File not found. Please contact the system administrator.";
         }    
     ?>
     <div class="addJob">
@@ -103,11 +103,11 @@
             Job<span>Board</span>
         </h2>
         <?php 
-            if(!$result==''){
+            if(!$_SESSION['result']==''){
                 echo "<div class='messageBox'><h3>";
-                echo $result; 
+                echo $_SESSION['result']; 
                 echo "</h3></div>";
-                $result = ""; 
+                $_SESSION['result'] = ""; 
             }
         ?>
         <h3>Edit Job Listing</h3>
@@ -179,7 +179,7 @@
             try{
                 include 'php/reusables/footer.php';
             }catch(PDOException $ex){
-                $result = "File not found. Please contact the system administrator.";
+                $_SESSION['result'] = "File not found. Please contact the system administrator.";
             }    
         ?>
     </section>

@@ -539,6 +539,18 @@ header {
     width: 100%; }
   .addJob__job--datePosted > input {
     width: 150px; }
+  .addJob__job--passwordInput {
+    display: block;
+    font-size: 125%; }
+    .addJob__job--passwordInput > input,
+    .addJob__job--passwordInput > a {
+      font-size: 125%;
+      padding: 3px 5px;
+      border-radius: 7px; }
+    .addJob__job--passwordInput-buttons > input,
+    .addJob__job--passwordInput-buttons > a {
+      font-size: 125%;
+      width: auto; }
 
 .admin__messageBox {
   background-color: #0584c0;
@@ -561,6 +573,26 @@ header {
     font-size: 14px; }
   .admin__editDelete--edit {
     margin-right: 7px; }
+
+.adminLogin {
+  margin: 50px 25px; }
+  .adminLogin__mainHeading {
+    text-decoration: none;
+    color: #777; }
+  .adminLogin__mainHeading > span {
+    color: #0584c0; }
+  .adminLogin__passwordInput {
+    display: block;
+    font-size: 125%; }
+    .adminLogin__passwordInput > input {
+      font-size: 125%;
+      padding: 3px 5px;
+      border-radius: 7px;
+      width: 450px;
+      margin-bottom: 25px; }
+    .adminLogin__passwordInput--buttons > input,
+    .adminLogin__passwordInput--buttons > a {
+      font-size: 125%; }
 
 .edit__cancel {
   text-decoration: none;

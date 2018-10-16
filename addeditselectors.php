@@ -1,7 +1,7 @@
 <?php 
     //Start the session
     session_start();
-    $result='';
+    $_SESSION['result']='';
      
     try{
         include 'php/config/config.php';
@@ -22,7 +22,7 @@
     try{
         include 'php/reusables/selectorQueries.php';
     }catch(PDOException $ex){
-        $result = "File not found. Please contact the system administrator.";
+        $_SESSION['result'] = "File not found. Please contact the system administrator.";
     }    
  ?>
 <?php 
@@ -50,9 +50,9 @@
                 )";
             $stmt= $db->prepare($sql);
             $stmt->execute($newData);
-            $result="Item added.";
+            $_SESSION['result']="Item added.";
         }catch(PDOException $ex) {
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
         header('Location: addeditselectors.php'); 
     }
@@ -76,9 +76,9 @@
                     WHERE id=:id";
             $stmt= $db->prepare($sql);
             $stmt->execute($newData);
-            $result="Item updated.";
+            $_SESSION['result']="Item updated.";
         }catch(PDOException $ex){
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
         header('Location: addeditselectors.php');
     }
@@ -88,9 +88,9 @@
             //Create and run delete query
             $query = "DELETE FROM categories WHERE id = ".$id;
             $db->exec($query);
-            $result="Item deleted.";
+            $_SESSION['result']="Item deleted.";
         }catch(PDOException $ex){
-           $result = "An error occurred.";
+           $_SESSION['result'] = "An error occurred.";
         }
         header("Location: addeditselectors.php");
     }
@@ -117,9 +117,9 @@
                 )";
             $stmt= $db->prepare($sql);
             $stmt->execute($newData);
-            $result="Item added.";
+            $_SESSION['result']="Item added.";
         }catch(PDOException $ex){
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
         header('Location: addeditselectors.php');
     }
@@ -143,9 +143,9 @@
                     WHERE id=:id";
             $stmt= $db->prepare($sql);
             $stmt->execute($newData);
-            $result="Item updated.";
+            $_SESSION['result']="Item updated.";
         }catch(PDOException $ex){
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
         header('Location: addeditselectors.php');
     }
@@ -155,9 +155,9 @@
         try{
             $query = "DELETE FROM jobtypes WHERE id = ".$id;
             $db->exec($query);
-            $result = "Item deleted.";
+            $_SESSION['result'] = "Item deleted.";
         }catch(PDOException $ex){
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
         header("Location: addeditselectors.php");
     }
@@ -183,9 +183,9 @@
                 )";
             $stmt= $db->prepare($sql);
             $stmt->execute($newData);
-            $result="Item added.";
+            $_SESSION['result']="Item added.";
         }catch(PDOException $ex){
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
         header('Location: addeditselectors.php');
     }
@@ -208,9 +208,9 @@
                     WHERE id=:id";
             $stmt= $db->prepare($sql);
             $stmt->execute($newData);
-            $result = "Item updated.";
+            $_SESSION['result'] = "Item updated.";
         }catch(PDOException $ex){
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
         header('Location: addeditselectors.php');
     }
@@ -220,9 +220,9 @@
        try{
             $query = "DELETE FROM locations WHERE id = ".$id;
             $db->exec($query);
-            $result = "Item deleted.";
+            $_SESSION['result'] = "Item deleted.";
         }catch(PDOException $ex){
-           $result = "An error occurred.";
+           $_SESSION['result'] = "An error occurred.";
         }
         header("Location: addeditselectors.php");
     }
@@ -236,7 +236,7 @@
     try{
         include 'php/reusables/head.php';
     }catch(PDOException $ex){
-        $result = "File not found. Please contact the system administrator.";
+        $_SESSION['result'] = "File not found. Please contact the system administrator.";
     }    
  ?>
 
@@ -245,7 +245,7 @@
         try{
             include 'php/reusables/hero.php';
         }catch(PDOException $ex){
-            $result = "File not found. Please contact the system administrator.";
+            $_SESSION['result'] = "File not found. Please contact the system administrator.";
         }    
     ?>
     <div class="updateSelectorsHeading">
@@ -254,11 +254,11 @@
         <h3>Add/Edit/Delete Selectors</h3>
 
         <?php 
-            if(!$result==''){
+            if(!$_SESSION['result']==''){
                 echo "<div class='messageBox'><h3>";
-                echo $result; 
+                echo $_SESSION['result']; 
                 echo "</h3></div>";
-                $result = ""; 
+                $_SESSION['result'] = ""; 
             }
         ?>
     </div>
@@ -381,7 +381,7 @@
         try{
             include 'php/reusables/footer.php';
         }catch(PDOException $ex){
-            $result = "File not found. Please contact the system administrator.";
+            $_SESSION['result'] = "File not found. Please contact the system administrator.";
         }    
     ?>
     </section>

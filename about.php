@@ -4,7 +4,7 @@
         try {
             include 'php/reusables/head.php';
         } catch (PDOException $ex) {
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
     ?>
 
@@ -13,7 +13,7 @@
         try {
             include 'php/reusables/hero.php';
         } catch (PDOException $ex) {
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
     ?>
     <!-- ABOUT -->
@@ -76,7 +76,7 @@
         try {
             include 'php/reusables/footer.php';
         } catch (PDOException $ex) {
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
     ?>
     </section>

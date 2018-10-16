@@ -38,17 +38,17 @@
 
         //if no job listings found
         if (count($listings) == 0) {
-            $result = "No job listings found.";
+            $_SESSION['result'] = "No job listings found.";
         }
     }catch (PDOException $ex) {
-        $result = "An error occurred.";
+        $_SESSION['result'] = "An error occurred.";
     }    
 ?>
 <!-- Create Selector Queries for search area select boxes-->
 <?php try{
     include 'php/reusables/selectorQueries.php';
     }catch (PDOException $ex) {
-        $result = "An error occurred.";
+        $_SESSION['result'] = "An error occurred.";
     }
 ?>
 <!DOCTYPE html>
@@ -57,7 +57,7 @@
     <?php try{
             include 'php/reusables/head.php';
         }catch (PDOException $ex) {
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
     ?>
 </head>
@@ -66,7 +66,7 @@
         try{ 
             include 'php/reusables/hero.php';
         }catch (PDOException $ex) {
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
     ?>
     <div class="search">
@@ -82,18 +82,18 @@
                     try{
                         include 'php/reusables/selectors.php';
                     } catch (PDOException $ex) {
-                        $result = "An error occurred.";
+                        $_SESSION['result'] = "An error occurred.";
                     }
                 ?>                           
                 </form>
             </div>
         </div>
         <?php 
-            if(!$result==''){
+            if(!$_SESSION['result']==''){
                 echo "<div class='messageBox'><h3>";
-                echo $result; 
+                echo $_SESSION['result']; 
                 echo "</h3></div>";
-                $result = ""; 
+                $_SESSION['result'] = ""; 
             }
         ?>
         <div class="mainBoard" id="jobs">
@@ -144,7 +144,7 @@
             try{
                 include 'php/reusables/contact.php';
             }catch (PDOException $ex) {
-                $result = "An error occurred.";
+                $_SESSION['result'] = "An error occurred.";
             }
         ?>
     </section>
@@ -154,7 +154,7 @@
             try{
                 include 'php/reusables/footer.php';
             }catch (PDOException $ex) {
-                $result = "An error occurred.";
+                $_SESSION['result'] = "An error occurred.";
             }
         ?>
     </section>

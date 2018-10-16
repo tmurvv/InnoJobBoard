@@ -1,7 +1,7 @@
 <?php 
     //Start the session
     session_start();
-    $result='';
+    $_SESSION['result']='';
      
     try{
         include 'php/config/config.php';
@@ -31,18 +31,18 @@
         $row = $statement->fetch();
         $hashed_password = $row['password'];
     }catch (PDOException $ex) {
-        $result = "An error occurred.";
+        $_SESSION['result'] = "An error occurred.";
     }
 
     if(password_verify($password, $hashed_password)){
         $_SESSION['adminToken'] = $systemAdminToken;
         header("Location: admin.php");
     }else{
-        $result = "Invalid Username or password.";
+        $_SESSION['result'] = "Invalid Username or password.";
     }     
    }else{
        $password = "";
-       $result = "";
+       $_SESSION['result'] = "";
    }
 ?>
 <!DOCTYPE html>
@@ -52,7 +52,7 @@
         try{ 
             include 'php/reusables/head.php';
         }catch (PDOException $ex) {
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
     ?>
 </head>
@@ -61,24 +61,33 @@
         try{ 
             include 'php/reusables/hero.php';
         }catch (PDOException $ex) {
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
     ?>
-    <div class="addJob">
-        <h2>
-            <a href="index.php">Job<span>Board</span></a>
+    <div class="adminLogin">
+        <h2 class="adminLogin__mainHeading">
+            Job<span>Board</span>
         </h2>
 
         <h3>Admin Login</h3>
+        <br>
         <form method="post" action="adminLogin.php">
-        <?php if(isset($result)) {echo $result;} ?>
-            <div class="addJob__job">
-                <div class="addJob__job--title">
-                    <input name="password" style="width:300px;" type="password" placeholder="Please enter admin password">
+            <?php 
+                if(!$_SESSION['result']==''){
+                    echo "<div class='messageBox' style='margin: inherit;'><h3>";
+                    echo $_SESSION['result']; 
+                    echo "</h3></div><br>";
+                    $_SESSION['result'] = ""; 
+                }
+            ?>    
+            <div class="adminLogin__passwordInput">               
+                <input name="password" type="password" placeholder="Please enter admin password">               
+                <div class="adminLogin__passwordInput--buttons">
+                    <input type="submit" name="submit" class="btn btn__primary" value="Submit" />
+                    <a href="index.php" class="edit__cancel btn btn__secondary">Cancel</a>
                 </div>
             </div>
-            <input type="submit" name="submit" class="addSearch__form--selectBoxes-item btn btn__primary" value="Submit" />
-            <a href="index.php" class="edit__cancel btn btn__secondary">Cancel</a>
+            
         </form>
     </div>
 
@@ -88,7 +97,7 @@
             try{
                 include 'php/reusables/footer.php';
             }catch (PDOException $ex) {
-                $result = "An error occurred.";
+                $_SESSION['result'] = "An error occurred.";
             }
         ?>
     </section>

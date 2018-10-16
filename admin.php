@@ -1,7 +1,7 @@
 <?php 
     //Start the session
     session_start();
-    $result='';
+    $_SESSION['result']='';
      
     try{
         include 'php/config/config.php';
@@ -42,14 +42,14 @@
     $statement->execute();
     $listings=$statement->fetchAll();
   }catch(PDOException $ex){
-    $result = "An error occurred.";
+    $_SESSION['result'] = "An error occurred.";
   } 
 ?>
 <?php 
     try{
         include 'php/reusables/selectorQueries.php';
     }catch(PDOException $ex){
-        $result = "File not found. Please contact the system administrator.";
+        $_SESSION['result'] = "File not found. Please contact the system administrator.";
     }    
  ?>
 <!DOCTYPE html>
@@ -58,7 +58,7 @@
         try{
             include 'php/reusables/head.php';
         }catch(PDOException $ex){
-            $result = "File not found. Please contact the system administrator.";
+            $_SESSION['result'] = "File not found. Please contact the system administrator.";
         }
     ?>
 <body>
@@ -66,7 +66,7 @@
         try{
             include 'php/reusables/hero.php';
         }catch(PDOException $ex) {
-            $result = "File not found. Please contact the system administrator.";
+            $_SESSION['result'] = "File not found. Please contact the system administrator.";
         }
     ?>
     <div class="menus">
@@ -88,11 +88,11 @@
         </div>
         <div class="search__form">
             <?php 
-                if(!$result==''){
+                if(!$_SESSION['result']==''){
                     echo "<div class='messageBox'><h3>";
-                    echo $result; 
+                    echo $_SESSION['result']; 
                     echo "</h3></div>";
-                    $result = ""; 
+                    $_SESSION['result'] = ""; 
                 }
             ?>
             <div class="search__form--title">
@@ -104,7 +104,7 @@
                         try{
                             include 'php/reusables/selectors.php';
                         }catch(PDOException $_COOKIE){
-                            $result = "File not found. Please contact the system administrator.";
+                            $_SESSION['result'] = "File not found. Please contact the system administrator.";
                         }
                     ?>
                 </form>
@@ -165,7 +165,7 @@
             try{
                 include 'php/reusables/footer.php';
             }catch(PDOException $ex){
-                $result = "File not found. Please contact the system administrator.";
+                $_SESSION['result'] = "File not found. Please contact the system administrator.";
             }
         ?>
     </section>

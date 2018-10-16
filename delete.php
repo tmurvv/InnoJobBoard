@@ -1,7 +1,7 @@
 <?php 
     //Start the session
     session_start();
-    $result='';
+    $_SESSION['result']='';
      
     try{
         include 'php/config/config.php';
@@ -29,7 +29,7 @@
         $statement->execute(array('id'=>$id));
         $delete=$statement->fetch();
     }catch(PDOException $ex){
-        $result = "An error occurred.";
+        $_SESSION['result'] = "An error occurred.";
     }
 
     if(isset($_POST['delete'])){
@@ -40,7 +40,7 @@
             $db->exec($query);
             header("Location: admin.php");
         }catch(PDOException $ex){
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
     }
 ?>
@@ -51,7 +51,7 @@
         try{
             include 'php/reusables/head.php';
         }catch (PDOException $ex) {
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
     ?>
 </head>
@@ -60,15 +60,15 @@
         try{
             include 'php/reusables/hero.php';
         }catch (PDOException $ex) {
-            $result = "An error occurred.";
+            $_SESSION['result'] = "An error occurred.";
         }
     ?>
     <?php 
-        if(!$result==''){
+        if(!$_SESSION['result']==''){
             echo "<div class='messageBox'><h3>";
-            echo $result; 
+            echo $_SESSION['result']; 
             echo "</h3></div>";
-            $result = ""; 
+            $_SESSION['result'] = ""; 
         }
     ?>
     <div class="deleteJob">
@@ -86,7 +86,7 @@
             try{
                 include 'php/reusables/footer.php';
             }catch (PDOException $ex) {
-                $result = "An error occurred.";
+                $_SESSION['result'] = "An error occurred.";
             }
         ?>
     </section>
