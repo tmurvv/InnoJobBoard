@@ -591,16 +591,16 @@ header {
     color: #0584c0; }
   .adminLogin__passwordInput {
     display: block;
-    font-size: 125%; }
+    font-size: 100%; }
     .adminLogin__passwordInput > input {
-      font-size: 125%;
+      font-size: 100%;
       padding: 3px 5px;
       border-radius: 7px;
       width: 450px;
       margin-bottom: 25px; }
     .adminLogin__passwordInput--buttons > input,
     .adminLogin__passwordInput--buttons > a {
-      font-size: 125%; }
+      font-size: 100%; }
 
 .edit__cancel {
   text-decoration: none;
