@@ -16,6 +16,6 @@
             </ul>
         </div>
 
-        <p class="footer__copy">&copy; 2018 by <a href="https://www.take2tech.ca/index.php">take2tech.ca</a>. All rights reserved.</p>
+        <p class="footer__copy">&copy; 2018 by <a href="https://www.take2tech.ca/index.html">take2tech.ca</a>. All rights reserved.</p>
 
     </footer>

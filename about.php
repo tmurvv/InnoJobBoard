@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
-<?php include 'php/reusables/head.php' ?>
+    <?php 
+        try {
+            include 'php/reusables/head.php';
+        } catch (PDOException $ex) {
+            $result = "An error occurred.";
+        }
+    ?>
 
 <body>
-    <?php include 'php/reusables/hero.php' ?>
-
+    <?php   
+        try {
+            include 'php/reusables/hero.php';
+        } catch (PDOException $ex) {
+            $result = "An error occurred.";
+        }
+    ?>
     <!-- ABOUT -->
 
     <section class="about" id="about">
@@ -63,7 +72,13 @@
     <!-- FOOTER -->
 
     <section>
-        <?php include 'php/reusables/footer.php' ?>
+    <?php 
+        try {
+            include 'php/reusables/footer.php';
+        } catch (PDOException $ex) {
+            $result = "An error occurred.";
+        }
+    ?>
     </section>
 
 </body>

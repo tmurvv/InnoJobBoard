@@ -527,6 +527,8 @@ header {
     padding: 5px 10px;
     margin: 10px;
     font-size: 125%; }
+  .addJob > h2 > span {
+    color: #0584c0; }
   .addJob__job * input,
   .addJob__job > select,
   .addJob__job * textarea {

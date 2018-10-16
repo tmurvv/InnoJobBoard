@@ -1,10 +1,22 @@
 <!doctype html>
 <html>
 <head>
-    <?php include 'php/reusables/head.php' ?>
+    <?php 
+        try {
+            include 'php/reusables/head.php';
+        } catch (PDOException $ex) {
+            $result = "An error occurred.";
+        }
+    ?>
 </head>
 <body>
-    <?php include 'php/reusables/hero.php' ?>
+    <?php 
+        try {
+            include 'php/reusables/hero.php';
+        } catch (PDOException $ex) {
+            $result = "An error occurred.";
+        }
+    ?>
     <div class="contactPage">
         <?php include 'php/reusables/contact.php' ?>
         <div class="contactPage__mapBlock">
@@ -57,7 +69,13 @@
     <!-- FOOTER -->
 
     <section>
-        <?php include 'php/reusables/footer.php' ?>
+    <?php 
+        try {
+            include 'php/reusables/footer.php';
+        } catch (PDOException $ex) {
+            $result = "An error occurred.";
+        }
+    ?>
     </section>
 </body>
 </html>
