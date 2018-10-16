@@ -47,6 +47,11 @@
     &__mapBlock {
         display: flex;
         display: -webkit-flex;
+
+        @include respond(portrait) {
+            display: block;
+        }
+
         justify-content: space-around;
         flex-wrap: wrap;
         width: 80%;
@@ -54,6 +59,12 @@
         &--mapInstance {
             height: 400px;
             width: 48%;
+
+            @include respond(portrait) {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
             position: relative;
             display: flex;
             display: -webkit-flex;

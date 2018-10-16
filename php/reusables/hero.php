@@ -2,9 +2,6 @@
     <a href="index.php"><img class="hero__logo" src="img/Innotech.png" alt="InnoTech College Logo"></a>
     <ul class="hero__mainNav js--mainNav">       
         <li class="hero__mainNav--item">
-            <a href="#"></a>
-        </li>
-        <li class="hero__mainNav--item">
             <a href="index.php">Job Listings</a>
         </li>
         <li class="hero__mainNav--item">
@@ -15,9 +12,6 @@
         </li>
         <li class="hero__mainNav--item">
             <a href="contact.php">Contact</a>
-        </li>
-        <li class="hero__mainNav--item">
-            <a href="#"></a>
         </li>
     </ul>
     <a class="hero__hamburger js--mainNav-icon"><i class="fas fa-bars"></i></a>

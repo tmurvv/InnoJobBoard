@@ -1,7 +1,6 @@
 <?php 
     //Start the session
     session_start();
-    $_SESSION['result']='';
      
     try{
         include 'php/config/config.php';
@@ -29,11 +28,15 @@
     //Retrieve id for edit/delete
     $id = $_GET['id'];
     if(isset($_POST['addcat'])){
+        
         //Assign Vars   
         $category = $_POST['category'];
         $categoryvieworder = $_POST['categoryvieworder'];
-       
-        //Create Data
+    
+        if (!$category) {
+            $_SESSION['result'] = "Please enter a category."; 
+        }else{
+            //Create Data
         $newData = [
             'category' => $category,
             'categoryvieworder' => $categoryvieworder
@@ -54,7 +57,8 @@
         }catch(PDOException $ex) {
             $_SESSION['result'] = "An error occurred.";
         }
-        header('Location: addeditselectors.php'); 
+        header('Location: addeditselectors.php');
+        }         
     }
     if(isset($_POST['editcat'])){
         //Assign Vars   
@@ -100,28 +104,32 @@
         $jobtype = $_POST['jobtype'];
         $jobtypevieworder = $_POST['jobtypevieworder'];
         
-        //Create Data
-        $newData = [
-            'jobtype' => $jobtype,
-            'jobtypevieworder' => $jobtypevieworder
-        ];
+        if (!$jobtype) {
+            $_SESSION['result'] = "Please enter a job type."; 
+        }else{
+            //Create Data
+            $newData = [
+                'jobtype' => $jobtype,
+                'jobtypevieworder' => $jobtypevieworder
+            ];
 
-        //Create, prepare, and execute query
-        try{
-            $sql = "INSERT INTO jobtypes(  
-                jobtype,
-                jobtypevieworder
-                ) VALUES(
-                    :jobtype,
-                    :jobtypevieworder      
-                )";
-            $stmt= $db->prepare($sql);
-            $stmt->execute($newData);
-            $_SESSION['result']="Item added.";
-        }catch(PDOException $ex){
-            $_SESSION['result'] = "An error occurred.";
-        }
-        header('Location: addeditselectors.php');
+            //Create, prepare, and execute query
+            try{
+                $sql = "INSERT INTO jobtypes(  
+                    jobtype,
+                    jobtypevieworder
+                    ) VALUES(
+                        :jobtype,
+                        :jobtypevieworder      
+                    )";
+                $stmt= $db->prepare($sql);
+                $stmt->execute($newData);
+                $_SESSION['result']="Item added.";
+            }catch(PDOException $ex){
+                $_SESSION['result'] = "An error occurred.";
+            }
+            header('Location: addeditselectors.php');
+        }       
     }
     if(isset($_POST['editjobtype'])){
         //Assign Vars   
@@ -166,28 +174,33 @@
         $location = $_POST['location'];
         $locationvieworder = $_POST['locationvieworder'];
         
-        //Create Data
-        $newData = [
-            'location' => $location,
-            'locationvieworder' => $locationvieworder
-        ];
+        if (!$location) {
+            $_SESSION['result'] = "Please enter a location."; 
+        }else{ 
+            //Create Data
+            $newData = [
+                'location' => $location,
+                'locationvieworder' => $locationvieworder
+            ];
 
-        //Create,prepare, and execute Query
-        try{
-            $sql = "INSERT INTO locations(  
-                location,
-                locationvieworder
-                ) VALUES(
-                    :location,
-                    :locationvieworder      
-                )";
-            $stmt= $db->prepare($sql);
-            $stmt->execute($newData);
-            $_SESSION['result']="Item added.";
-        }catch(PDOException $ex){
-            $_SESSION['result'] = "An error occurred.";
+            //Create,prepare, and execute Query
+            try{
+                $sql = "INSERT INTO locations(  
+                    location,
+                    locationvieworder
+                    ) VALUES(
+                        :location,
+                        :locationvieworder      
+                    )";
+                $stmt= $db->prepare($sql);
+                $stmt->execute($newData);
+                $_SESSION['result']="Item added.";
+            }catch(PDOException $ex){
+                $_SESSION['result'] = "An error occurred.";
+            }
+            header('Location: addeditselectors.php');
         }
-        header('Location: addeditselectors.php');
+        
     }
     if(isset($_POST['editlocation'])){
         //Assign Vars   
@@ -254,7 +267,7 @@
         <h3>Add/Edit/Delete Selectors</h3>
 
         <?php 
-            if(!$_SESSION['result']==''){
+           if(!$_SESSION['result']==''){
                 echo "<div class='messageBox'><h3>";
                 echo $_SESSION['result']; 
                 echo "</h3></div>";

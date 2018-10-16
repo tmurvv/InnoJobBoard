@@ -157,12 +157,13 @@ body {
       .footer__topRow--contact img:hover, .footer__topRow--contact img:active {
         transform: scale(1.5); }
   .footer__copy {
-    color: #888;
     text-align: center;
     margin-top: 1rem; }
     @media only screen and (max-width: 56.25em) {
       .footer__copy {
         font-size: 90%; } }
+    .footer__copy > a {
+      color: #fd9d3f; }
 
 header {
   background-image: url("");
@@ -285,7 +286,7 @@ header {
   color: #fd9d3f;
   position: absolute;
   top: .5rem;
-  right: 3.5rem; }
+  right: 5rem; }
 
 .hero {
   width: 100%;
@@ -424,6 +425,9 @@ header {
     flex-wrap: wrap;
     width: 80%;
     margin: auto; }
+    @media only screen and (max-width: 56.25em) {
+      .contactPage__mapBlock {
+        display: block; } }
     .contactPage__mapBlock--mapInstance {
       height: 400px;
       width: 48%;
@@ -432,6 +436,10 @@ header {
       display: -webkit-flex;
       flex-direction: column;
       -webkit-flex-direction: column; }
+      @media only screen and (max-width: 56.25em) {
+        .contactPage__mapBlock--mapInstance {
+          width: 100%;
+          margin-bottom: 15px; } }
       .contactPage__mapBlock--mapInstance-mapItem {
         height: 90%; }
       .contactPage__mapBlock--mapInstance-cityName {
