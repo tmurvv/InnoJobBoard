@@ -41,6 +41,12 @@
     $statement = $db->prepare($query);
     $statement->execute();
     $listings=$statement->fetchAll();
+
+    //if no job listings found
+    if (count($listings) == 0) {
+        $_SESSION['result'] = "No job listings found.";
+    }
+
   }catch(PDOException $ex){
     $_SESSION['result'] = "An error occurred.";
   } 
@@ -87,14 +93,6 @@
             </ul>
         </div>
         <div class="search__form">
-            <?php 
-                if(!$_SESSION['result']==''){
-                    echo "<div class='messageBox'><h3>";
-                    echo $_SESSION['result']; 
-                    echo "</h3></div>";
-                    $_SESSION['result'] = ""; 
-                }
-            ?>
             <div class="search__form--title">
                 <h2>Search</h2>
             </div>
@@ -110,6 +108,14 @@
                 </form>
             </div>
         </div>
+        <?php 
+            if(!$_SESSION['result']==''){
+                echo "<div class='messageBox'><h3>";
+                echo $_SESSION['result']; 
+                echo "</h3></div>";
+                $_SESSION['result'] = ""; 
+            }
+        ?>
     </div>
     <div class="mainBoard" id="jobs">
         <?php 
