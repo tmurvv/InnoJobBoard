@@ -40,6 +40,13 @@
 
     <div class="mainBoard" id="jobs">      
         <h1>Job<span>Board</span></h1>
+        <?php 
+            try{
+                include 'php/reusables/displayMessage.php';
+            } catch (PDOException $ex) {
+                $_SESSION['result'] = "Error. Message to user not working.";
+            }
+        ?>
         <a href="index.php" class="btn btn__secondary btn__shadow" style="text-decoration:none;">Back to job listings</a>
 
         <div class="listings">

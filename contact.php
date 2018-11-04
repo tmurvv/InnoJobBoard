@@ -62,7 +62,7 @@
                 marker.setMap(map2);
             }
         </script> 
-        <script async defer src="http://maps.google.com/maps/api/js?key=AIzaSyDMH56XYTfv4tKScOSIFm6GUv1nHwO74Hk&callback=drawMap"></script>
+        <script async defer src="https://maps.google.com/maps/api/js?key=AIzaSyDMH56XYTfv4tKScOSIFm6GUv1nHwO74Hk&callback=drawMap"></script>
         <br>
         <br>   
     </div>
