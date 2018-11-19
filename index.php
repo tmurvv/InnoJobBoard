@@ -1,6 +1,11 @@
 <?php
     // Start the session
     session_start();
+
+    //Resets Session admin login result variable if user navigates away from adminLogin page
+    if (isset($_SESSION['adminResult'])) {
+        unset($_SESSION['adminResult']);
+    }
 ?>
 <?php     
     try{

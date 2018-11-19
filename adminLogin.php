@@ -1,8 +1,7 @@
 <?php 
     //Start the session
     session_start();
-    $_SESSION['result']='';
-     
+    
     try{
         include 'php/config/config.php';
         include 'php/classes/Database.php';
@@ -38,7 +37,7 @@
         $_SESSION['adminToken'] = $systemAdminToken;
         header("Location: admin.php");
     }else{
-        $_SESSION['result'] = "Invalid Username or password.";
+        $_SESSION['result'] = "Invalid password.";
     }     
    }else{
        $password = "";
@@ -74,9 +73,16 @@
         <form method="post" action="adminLogin.php">
             <?php 
                 try{
-                    include 'php/reusables/displayMessage.php';
+                    if (isset($_SESSION['adminResult']) && !($_SESSION['adminResult'])=='') {
+                        $_SESSION['result'] = $_SESSION['adminResult'];
+                        $_SESSION['adminResult'] = '';
+                        include 'php/reusables/displayMessage.php';
+                    } else {
+                        include 'php/reusables/displayMessage.php';
+                    }
+                    
                 } catch (PDOException $ex) {
-                    $_SESSION['result'] = "Error. Message to user not working.";
+                    $_SESSION['result'] = "An error occurred.";
                 }
             ?>    
             <div class="adminLogin__passwordInput">               

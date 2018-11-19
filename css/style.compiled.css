@@ -43,7 +43,7 @@ body {
 .messageBox {
   text-align: center;
   width: fit-content;
-  margin: auto;
+  margin: 25px auto;
   border: 7px double #fd9d3f;
   border-radius: 7px;
   padding: 5px 12px; }

@@ -1,11 +1,13 @@
 <?php 
     //Start the session
     session_start();
-
+    
     //initialize variables
-    $_SESSION['result']='';
     if (!isset($_SESSION['adminToken'])) {
         $_SESSION['adminToken'] = '';
+    }
+    if (!isset($_SESSION['result'])) {
+        $_SESSION['result'] = '';
     }
      
     try{
@@ -18,12 +20,20 @@
     }
 
     //Validate Admin Token
-    if (isset($_SESSION['adminToken']) && !$_SESSION['adminToken'] == $systemAdminToken) {
-        echo 'Invalid token. Please navigate to adminLogin.php and enter the password to secure a valid token.';    
-        return;
+    if (isset($_SESSION['adminToken']) && !($_SESSION['adminToken'] == $systemAdminToken)) {
+        $_SESSION['adminResult'] = 'Password invalid or expired.';
+       
+        header("Location: adminLogin.php");
+        exit;
+    }
+
+    //Resets Session result variable if authentication passes
+    if (isset($_SESSION['adminResult'])) {
+        unset($_SESSION['adminResult']);
     }
 ?>
 <?php
+    
     $categorySearchID = "empty";
     $jobtypeSearchID = "empty";
     $locationSearchID = "empty";

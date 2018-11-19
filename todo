@@ -1,2 +1,2 @@
 refactor add/edit selector css and php instructions
-make is so delete joblisting pulls up alert instead of delete php
+eliminate browser alerts in favour of custom alert/prompt boxes. Apparently user can disable browser alerts in Edge
