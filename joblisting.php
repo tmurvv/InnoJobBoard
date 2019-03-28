@@ -16,6 +16,7 @@
   //Go back to index page?
   if (isset($_POST['back'])) {
     header("Location: index.php");
+    exit;
   }
 
   //Retrieve id for jobListing
@@ -65,10 +66,7 @@
                         </h2>
                     </div>
                     <div class="listings__job--info-line2">
-
-
                         <?php echo $listing['category'] ?>
-
                         <div class="listings__job--info-line2-datePosted">
                             <?php echo $listing['dateposted'] ?>
                         </div>
